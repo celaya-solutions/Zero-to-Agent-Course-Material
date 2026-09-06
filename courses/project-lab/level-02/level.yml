@@ -1,0 +1,11 @@
+number: 2
+title: "The Night Watchman"
+objective: "Specify, run, and test a scheduled page watcher that records each round, alerts only on a meaningful change, and stops through a tested switch."
+prerequisites:
+  - "Level 1 proof or the supplied catch-up card"
+  - "A GitHub account for the live route"
+  - "A laptop or a partner with one; paper and saved-run routes remain valid"
+passing_proof: "A complete watchman spec; baseline, unchanged, and changed runs; one useful alert and log trail; a never list; and proof that the learner used the off switch."
+required_project_milestone: "Look, compare, tell."
+core_route: "Use the supplied starter and GitHub Actions from a browser."
+builder_extension: "Inspect or revise the watcher code and document a Railway always-on contract without deploying it."

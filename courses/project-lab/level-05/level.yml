@@ -1,0 +1,11 @@
+number: 5
+title: "Choose, Improve, and Present"
+objective: "Choose one course project, improve it from test evidence, prove its normal and failure routes, and present the result to the class in three clear minutes."
+prerequisites:
+  - "Proof from all four project levels"
+  - "One selected project and its test sheet"
+  - "A live build or the supplied outage-presentation route"
+passing_proof: "Eight items: ownership, before state, tested change, normal run, failure route, privacy or security fence, stop or fallback, and cost plus reflection; followed by a three-minute class presentation."
+required_project_milestone: "Show the work, the miss, the fix, and the switch."
+core_route: "Improve one existing project and present from the course rubric."
+builder_extension: "Show a Vercel frontend or Railway service only when browser behavior, service health, and persistence are proved separately."

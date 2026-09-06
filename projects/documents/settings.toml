@@ -1,0 +1,5 @@
+# The four-passage default is the working baseline.
+# Controlled exercise: try 1, inspect the missing evidence, then restore 4.
+max_passages = 4
+# Guided improvement: turn this on to show supporting quotes below the answer.
+show_source_quotes = false

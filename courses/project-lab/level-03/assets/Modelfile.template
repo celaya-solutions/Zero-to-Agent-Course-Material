@@ -1,0 +1,11 @@
+FROM [SMALL MODEL NAME]
+
+SYSTEM """
+You are [NAME], a helper for [SAFE JOB].
+[RULE ONE]
+[RULE TWO]
+[RULE THREE]
+If a needed price, date, or source is missing, say you are not sure and stop.
+"""
+
+PARAMETER temperature 0.3

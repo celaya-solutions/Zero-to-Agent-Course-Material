@@ -1,0 +1,69 @@
+# Zero to Agent - Course Material
+
+```text
+Document:    Zero to Agent - Course Material
+Version:     v1.0.0
+Author:      Celaya Solutions
+Contact:     hello@celayasolutions.com
+Date:        2026-09-06
+SHA256:      a635598fbc1c864729f179f342a3787e49729575d219c83fad7e688403f0b196
+Chain:       n/a
+Tx:          [not anchored]
+License:     All Rights Reserved / Celaya Solutions
+```
+
+Five 90-minute meetings. Four projects. One final presentation. Beginners start from a working application, inspect its evidence, make one change, and show the result.
+
+## Start here
+
+1. Open [Preparation](preparation/README.md). Choose [Windows](preparation/windows.md) or [Mac](preparation/macos.md), then one coding assistant and one answer engine. This catches account and installation problems before class.
+2. Open [Level 1](courses/project-lab/level-01/student.md). Follow its numbered steps. Each names the action, reason, expected result, and recovery route.
+3. Keep [the manual edit card](courses/project-lab/level-01/manual-edit.md) and [saved examples](courses/project-lab/level-01/assets/fallback-grounded-run.md) available offline.
+4. [Sign in to the course](https://learn.zerotoagent.org/auth/users/sign_in) before class and confirm you can open Level 1's upload form.
+
+## Run the document helper
+
+From this repository's root, after installing uv:
+
+```sh
+uv sync --frozen
+uv run --frozen zta setup
+uv run --frozen zta doctor documents
+uv run --frozen zta start documents
+```
+
+Open http://127.0.0.1:8501. Keep the terminal open. Stop with Ctrl+C. Python and package versions come from the included lockfile. The app does not install a cloud key or model for you; [model setup](preparation/models.md) explains both paths.
+
+## Course map
+
+| Level | Project | Proof |
+| --- | --- | --- |
+| [1 - Your Documents Answer Back](courses/project-lab/level-01/student.md) | [Document helper](projects/documents/README.md) | Five tests, source checks, change, private submission |
+| [2 - The Night Watchman](courses/project-lab/level-02/student.md) | Page watcher | Baseline, unchanged, changed, off switch |
+| [3 - Nothing Leaves the Building](courses/project-lab/level-03/student.md) | Local model lab | Offline result, comparison, named rules |
+| [4 - The Front Desk, Attacked and Locked](courses/project-lab/level-04/student.md) | Business desk | Caller and attack tests, defenses, human handoff |
+| [5 - Choose, Improve, and Present](courses/project-lab/level-05/student.md) | An earlier project | Improved outcome, cost, presentation |
+
+Level 2-5 source lessons are preserved from the active five-level course. Level 3 builds on setup performed earlier. The alternative-project catalog remains on [the course website](https://zerotoagent.org/course/catalog.html); it is not a second required course.
+
+## Downloads and status
+
+Download the versioned learner and instructor ZIP files from [Releases](https://github.com/celaya-solutions/Zero-to-Agent-Course-Material/releases). Each includes PDFs and offline instructions. Learner code comes from your fork; a materials ZIP is not a Git working copy.
+
+This initial package is **v1.0.0-rc.1** until every required pilot passes. See [release verification](release/verification.md) for observed checks and outstanding gates. Do not describe an unperformed Windows or cloud pilot as verified.
+
+## What goes where
+
+- `courses/project-lab/`: canonical five-level teaching source and generated handouts.
+- `preparation/`: shared installation, account, model, and recovery guides.
+- `projects/documents/`: the custom app, editable settings, and deterministic tests.
+- `.zta/`: private credentials, imported files, search index, and evidence. Git ignores it.
+- `scripts/`: course builds, validation, releases, and export to the website or private platform.
+
+Never put keys, private documents, learner evidence, or private platform source in this public repository. The app is a local single-user teaching tool. It has no public-host authentication layer.
+
+## Maintain and publish
+
+Run `uv run --frozen zta test documents` and `uv run --frozen python scripts/validate_materials.py`. Build PDFs and slides with the commands in [Maintaining the course](release/maintaining.md). Commit a reviewed branch; merges and live deployments are separate actions.
+
+Questions and access blocks: hello@celayasolutions.com. Share the command and error category, never an API key or private file. Code inherited from the existing course retains its MIT notice in LICENSE; third-party applications and model weights retain their own licenses. New course documents carry the required Celaya Solutions header.

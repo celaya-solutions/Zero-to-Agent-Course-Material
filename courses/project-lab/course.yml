@@ -1,0 +1,29 @@
+title: "ZERO TO AGENT: Project Lab"
+subtitle: "Four projects. Five meetings. One public proof."
+level_count: 5
+duration_minutes_per_level: 90
+audience: "Mixed beginners and experienced builders; no coding background required for the core route"
+primary_language: en
+translation_status: "English complete; Spanish safety, anchors, and learner navigation in phase 1"
+case_study:
+  name: "Celaya Solutions Research"
+  location: "El Paso, Texas"
+  public_source: "https://www.celayasolutions.com/"
+  source_checked: "2026-09-06"
+tools:
+  coding_assistant: "Claude Code or Codex; manual editing card available"
+  document_app: "Custom Python/Streamlit + SQLite FTS5"
+  document_engines: "Ollama, Claude API, or OpenAI API"
+  scheduled_host: "GitHub Actions"
+  frontend_host: "Vercel"
+  advanced_host: "Railway"
+  local_runner: "Ollama"
+  local_models: "Chosen and tested during the week each cohort reaches Level 3"
+language_phases:
+  - "Phase 1: complete English course plus Spanish anchors, safety stops, and navigation"
+  - "Phase 2: complete Spanish learner lessons and worksheets"
+  - "Phase 3: complete Spanish instructor plans, answer key, and decks after a bilingual pilot"
+passing_standard: "Complete all four projects, then improve and present one project with visible evidence, a tested failure route, and a working stop or fallback."
+production_boundary: "Repository package only until a separate approval to merge, sync the private course, or deploy the Railway Landing Page service."
+canonical_repository: "https://github.com/celaya-solutions/Zero-to-Agent-Course-Material"
+release: "1.0.0-rc.1"

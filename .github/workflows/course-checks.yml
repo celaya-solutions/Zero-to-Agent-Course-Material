@@ -1,0 +1,20 @@
+name: Course checks
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  documents:
+    strategy:
+      matrix:
+        os: [macos-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+      - run: uv sync --frozen
+      - run: uv run --frozen zta test documents
+      - run: uv run --frozen python scripts/validate_materials.py
+      - name: Ensure no generated file drift
+        run: git diff --exit-code

@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#18221f">
+  <title>Project Lab Level 5 - Choose, Improve, and Present</title>
+  <style>
+    :root { --bg:#121917; --panel:#19221f; --ink:#f2ede3; --muted:#bdc5bd; --signal:#e06a47; --line:#52605b; }
+    * { box-sizing:border-box; }
+    html, body { height:100%; }
+    body { margin:0; overflow:hidden; background:var(--bg); color:var(--ink); font:clamp(18px,2vw,28px)/1.45 Manrope,system-ui,sans-serif; }
+    .slide { position:absolute; inset:0; display:none; min-height:100vh; padding:7vh 8vw 14vh; flex-direction:column; justify-content:center; outline:none; }
+    .slide.active { display:flex; }
+    .kicker { margin:0 0 2vh; color:var(--signal); font:700 clamp(13px,1.2vw,18px)/1.4 "JetBrains Mono",ui-monospace,monospace; letter-spacing:.14em; text-transform:uppercase; }
+    h1, h2 { max-width:20ch; margin:0 0 3vh; font-family:Fraunces,Georgia,serif; font-size:clamp(40px,6vw,90px); line-height:1.04; }
+    h2 { font-size:clamp(34px,5vw,72px); }
+    p, ul, ol { max-width:68ch; }
+    p { margin:.35em 0; }
+    ul, ol { margin:.5em 0; padding-left:1.3em; }
+    li { margin:.35em 0; }
+    .muted { color:var(--muted); }
+    .signal { color:var(--signal); font-weight:800; }
+    .controls { position:fixed; z-index:10; right:2vw; bottom:2vh; display:flex; align-items:center; gap:.7rem; padding:.45rem .65rem; border:1px solid var(--line); background:rgba(18,25,23,.96); }
+    button { min-width:44px; min-height:44px; border:2px solid var(--muted); background:var(--panel); color:var(--ink); font:700 16px/1 system-ui,sans-serif; cursor:pointer; }
+    button:hover, button:focus-visible { border-color:var(--signal); outline:3px solid transparent; }
+    button:disabled { cursor:not-allowed; opacity:.35; }
+    #counter { min-width:5.5em; text-align:center; font:14px/1.2 ui-monospace,monospace; }
+    .help { position:fixed; left:2vw; bottom:3vh; color:var(--muted); font:13px/1.3 ui-monospace,monospace; }
+    @media (max-width:720px) {
+      .slide { width:100vw; max-width:100vw; overflow-y:auto; padding:5vh 6vw 20vh; }
+      h1, h2, p, ul, ol { max-width:100%; overflow-wrap:anywhere; }
+      h1 { font-size:clamp(36px,12vw,54px); }
+      h2 { font-size:clamp(30px,10vw,46px); }
+      .controls { left:6vw; right:6vw; justify-content:space-between; }
+      #counter { min-width:auto; }
+      .help { display:none; }
+    }
+    @media print {
+      html, body { height:auto; overflow:visible; background:white; color:black; }
+      .slide, .slide.active { position:relative; display:flex; min-height:7.5in; page-break-after:always; background:white; color:black; }
+      .controls, .help { display:none; }
+      .muted { color:#4d4944; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="slide active" tabindex="-1" aria-label="Slide 1: Level 5 title">
+  <p class="kicker">ZERO TO AGENT / PROJECT LAB / LEVEL 5</p>
+  <h1>Choose, Improve, and Present</h1>
+  <p class="muted">Ninety minutes. Three tasks. One visible proof.</p>
+</section>
+
+<section class="slide" tabindex="-1" aria-label="Slide 2: Class goal">
+  <p class="kicker">THE GOAL</p>
+  <h2>What leaves the room</h2>
+  <p>Choose one course project, improve it from test evidence, prove its normal and failure routes, and present the result to the class in three clear minutes.</p>
+</section>
+
+<section class="slide" tabindex="-1" aria-label="Slide 3: Access routes">
+  <p class="kicker">START HERE</p>
+  <h2>Different devices. Same proof.</h2>
+  <ul><li>Live build</li><li>Dated saved run</li><li>Recorded or partner-read presentation</li><li>Same eight proof items for every route</li></ul>
+</section>
+
+<section class="slide" tabindex="-1" aria-label="Slide 4: Bilingual anchors">
+  <p class="kicker">ANCHORS / ANCLAS</p>
+  <h2>Say the lines together</h2>
+  <ul><li>Show the work, the miss, the fix, and the switch.</li><li>Working is not the same as proven.</li><li>El público debe poder repetir la prueba.</li></ul>
+</section>
+
+<section class="slide" tabindex="-1" aria-label="Slide 5: Big idea">
+  <p class="kicker">THE BIG IDEA</p>
+  <h2>A picture before a term</h2>
+  <p>The strongest project is not the one with the most code. It is the one whose claim, failure, repair, fence, and stop another person can inspect.</p>
+</section>
+
+<section class="slide" tabindex="-1" aria-label="Slide 6: Safety stop">
+  <p class="kicker">SAFETY STOP / ALTO</p>
+  <h2>The fence comes first</h2>
+  <ul><li>Public or synthetic screen only</li><li>No keys, notifications, private tabs, or client data</li><li>Saved material is labeled saved</li><li>Deployment status is not browser proof</li></ul>
+</section>
+
+<section class="slide" tabindex="-1" aria-label="Slide 7: Live demonstration">
+  <p class="kicker">LIVE DEMO</p>
+  <h2>Watch the receipt, not the magic</h2>
+  <p>Show a green deploy with no user result. Then show the eight-item proof board and one repeatable test.</p>
+</section>
+
+<section class="slide" tabindex="-1" aria-label="Slide 8: Task 1">
+  <p class="kicker">TASK 1</p>
+  <h2>Build the first piece</h2>
+  <p>Choose Documents, Watchman, Local Model, or Front Desk. Assemble all eight proof items and fill the cost sheet.</p>
+</section>
+
+<section class="slide" tabindex="-1" aria-label="Slide 9: Task 1 success check">
+  <p class="kicker">TASK 1 CHECK</p>
+  <h2>Success looks like this</h2>
+  <p>A partner can find ownership, before, change, normal, failure, fence, stop, cost, and reflection.</p>
+</section>
+
+<section class="slide" tabindex="-1" aria-label="Slide 10: Task 2">
+  <p class="kicker">TASK 2</p>
+  <h2>Write expected. Then run.</h2>
+  <p>Run one fresh normal input, one fresh failure input, and the switch or fallback. Record expected and actual.</p>
+</section>
+
+<section class="slide" tabindex="-1" aria-label="Slide 11: Task 2 success check">
+  <p class="kicker">TASK 2 CHECK</p>
+  <h2>Inspect the evidence</h2>
+  <p>For deployed work, browser behavior, service health, and persistence claims are checked separately.</p>
+</section>
+
+<section class="slide" tabindex="-1" aria-label="Slide 12: Task 3">
+  <p class="kicker">TASK 3</p>
+  <h2>Change, stop, or present</h2>
+  <p>Rehearse and present: 30 seconds outcome, 60 normal, 45 miss and fix, 30 fence and stop, 15 cost and next step.</p>
+</section>
+
+<section class="slide" tabindex="-1" aria-label="Slide 13: Task 3 success check">
+  <p class="kicker">TASK 3 CHECK</p>
+  <h2>Make the result visible</h2>
+  <p>Three minutes. The class can follow the receipts. Works, honest, and theirs.</p>
+</section>
+
+<section class="slide" tabindex="-1" aria-label="Slide 14: Builder extension">
+  <p class="kicker">BUILDER EXTENSION</p>
+  <h2>More depth. Same passing proof.</h2>
+  <p>Show a Vercel frontend or Railway service only when the three separate checks are visible and safe.</p>
+</section>
+
+<section class="slide" tabindex="-1" aria-label="Slide 15: Outage route">
+  <p class="kicker">IF THE TOOL FAILS</p>
+  <h2>Use the saved route honestly</h2>
+  <p>State the unavailable dependency, last verified time, saved receipt, and exact check you would run now.</p>
+</section>
+
+<section class="slide" tabindex="-1" aria-label="Slide 16: Partner check">
+  <p class="kicker">PARTNER CHECK</p>
+  <h2>Can another person follow it?</h2>
+  <ul><li>All eight items</li><li>Repeatable normal test</li><li>Visible failure route</li><li>Used switch or fallback</li><li>Safe screen</li></ul>
+</section>
+
+<section class="slide" tabindex="-1" aria-label="Slide 17: Passing proof">
+  <p class="kicker">PASSING PROOF</p>
+  <h2>Show the work</h2>
+  <p>Eight items: ownership, before state, tested change, normal run, failure route, privacy or security fence, stop or fallback, and cost plus reflection; followed by a three-minute class presentation.</p>
+</section>
+
+<section class="slide" tabindex="-1" aria-label="Slide 18: Spanish task summary">
+  <p class="kicker">RESUMEN EN ESPAÑOL</p>
+  <h2>Tres tareas. La misma evidencia.</h2>
+  <p>Reúne ocho pruebas. Ejecuta una prueba normal y una falla. Usa el interruptor. Presenta durante tres minutos.</p>
+</section>
+
+<section class="slide" tabindex="-1" aria-label="Slide 19: Next level bridge">
+  <p class="kicker">NEXT</p>
+  <h2>Carry the proof forward</h2>
+  <p>Keep the project that solves a real job. Keep the test sheet beside it.</p>
+</section>
+
+<section class="slide" tabindex="-1" aria-label="Slide 20: Exit ticket">
+  <p class="kicker">EXIT TICKET</p>
+  <h2>One answer before you leave</h2>
+  <p>What will you keep using? What must a person still own?</p>
+</section>
+
+  </main>
+  <p class="help">Use Left/Right, Page Up/Page Down, Home/End, or the buttons.</p>
+  <nav class="controls" aria-label="Slide controls">
+    <button id="previous" type="button" aria-label="Previous slide">Back</button>
+    <span id="counter" role="status" aria-live="polite">1 / 20</span>
+    <button id="next" type="button" aria-label="Next slide">Next</button>
+  </nav>
+  <script>
+    const slides = Array.from(document.querySelectorAll('.slide'));
+    const previous = document.getElementById('previous');
+    const next = document.getElementById('next');
+    const counter = document.getElementById('counter');
+    const requestedSlide = Number.parseInt(window.location.hash.slice(1), 10);
+    let index = Number.isInteger(requestedSlide) ? requestedSlide - 1 : 0;
+    function show(nextIndex) {
+      index = Math.max(0, Math.min(slides.length - 1, nextIndex));
+      slides.forEach(function (current, slideIndex) {
+        const active = slideIndex === index;
+        current.classList.toggle('active', active);
+        current.setAttribute('aria-hidden', String(!active));
+      });
+      previous.disabled = index === 0;
+      next.disabled = index === slides.length - 1;
+      counter.textContent = (index + 1) + ' / ' + slides.length;
+      history.replaceState(null, '', '#' + (index + 1));
+      slides[index].focus({ preventScroll: true });
+    }
+    previous.addEventListener('click', function () { show(index - 1); });
+    next.addEventListener('click', function () { show(index + 1); });
+    document.addEventListener('keydown', function (event) {
+      if (['ArrowRight','ArrowDown','PageDown',' '].includes(event.key)) { event.preventDefault(); show(index + 1); }
+      if (['ArrowLeft','ArrowUp','PageUp'].includes(event.key)) { event.preventDefault(); show(index - 1); }
+      if (event.key === 'Home') show(0);
+      if (event.key === 'End') show(slides.length - 1);
+    });
+    show(index);
+  </script>
+</body>
+</html>

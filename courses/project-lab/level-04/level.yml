@@ -1,0 +1,12 @@
+number: 4
+title: "The Front Desk, Attacked and Locked"
+objective: "Define, build, and test a safe front desk for the public Celaya Solutions Research case or an instructor-approved business, then attack it with ten known tricks, apply four defenses outside and around the model, and rerun the same test."
+prerequisites:
+  - "Levels 1 through 3 proof or the supplied catch-up cards"
+  - "A chat tool, the case binder, the caller card, and the attack card"
+  - "Owner approval before using any business other than the shared case"
+  - "Clear consent before testing a partner build"
+passing_proof: "A six-part spec and never list; five caller tests and one complete message card; the same ten attacks scored before and after four defenses, with the fake secret removed and a tested log, draft-only boundary, and off switch; and a sixty-second outcome pitch without the words AI, agent, or model."
+required_project_milestone: "Sell the outcome, not the robot. Fences, not promises."
+core_route: "Build and test the desk in a chat project from public and training-only records, then attack and repair it in the same project."
+builder_extension: "Run the ten attacks through a small automated harness, inspect its log for secrets, and draft a Vercel server-function contract with rate limits."

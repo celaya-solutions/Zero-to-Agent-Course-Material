@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en" data-theme="paper">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#18221f">
+  <meta name="description" content="ZERO TO AGENT: Project Lab is a five-meeting course where mixed-experience learners build four projects and present one with visible proof.">
+  <title>ZERO TO AGENT: Project Lab</title>
+  <style>
+    :root { color-scheme:light; --paper:#f2ede3; --raised:#faf7f0; --deep:#ded5c6; --ink:#18221f; --soft:#52605b; --signal:#a13d25; --line:#b9b0a3; --inverse:#f5f0e7; }
+    html[data-theme="night"] { color-scheme:dark; --paper:#121917; --raised:#19221f; --deep:#25302c; --ink:#f1ecdf; --soft:#bdc5bd; --signal:#e06a47; --line:#42504a; --inverse:#111815; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; overflow-x:hidden; background:var(--paper); color:var(--ink); font:17px/1.65 Manrope,system-ui,sans-serif; }
+    body::before { position:fixed; inset:0; z-index:-1; content:""; opacity:.12; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitchTiles'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.22'/%3E%3C/svg%3E"); }
+    a { color:inherit; }
+    :focus-visible { outline:3px solid var(--signal); outline-offset:4px; }
+    .skip { position:absolute; left:1rem; top:1rem; padding:.7rem 1rem; background:var(--ink); color:var(--inverse); transform:translateY(-200%); }
+    .skip:focus { transform:none; }
+    header { position:sticky; top:0; z-index:10; border-bottom:1px solid var(--line); background:color-mix(in srgb,var(--paper) 94%,transparent); backdrop-filter:blur(14px); }
+    .bar, main, footer { width:min(1180px,calc(100% - 40px)); margin:auto; }
+    .bar { min-height:72px; display:flex; align-items:center; gap:1rem; }
+    .brand { display:flex; align-items:center; gap:.8rem; text-decoration:none; font:600 18px Fraunces,Georgia,serif; }
+    .mark { position:relative; width:30px; height:30px; border:1px solid var(--ink); }
+    .mark::before,.mark::after { position:absolute; left:7px; top:13px; width:16px; height:2px; content:""; background:var(--signal); }
+    .mark::after { transform:rotate(90deg); }
+    nav { margin-left:auto; display:flex; align-items:center; gap:1rem; }
+    nav a, .course-login, button { min-height:42px; display:inline-flex; align-items:center; border:1px solid var(--line); padding:.55rem .75rem; background:transparent; color:var(--ink); font:600 12px ui-monospace,monospace; text-decoration:none; text-transform:uppercase; cursor:pointer; }
+    .course-login { white-space:nowrap; border-color:var(--signal); }
+    nav a:hover,.course-login:hover,button:hover { border-color:var(--signal); }
+    .hero { padding:clamp(4rem,10vw,8rem) 0 4rem; display:grid; grid-template-columns:1.4fr .6fr; gap:clamp(2rem,7vw,7rem); align-items:end; border-bottom:1px solid var(--line); }
+    .eyebrow,.level-no { color:var(--signal); font:600 12px ui-monospace,monospace; letter-spacing:.12em; text-transform:uppercase; }
+    h1,h2,h3 { font-family:Fraunces,Georgia,serif; line-height:1.05; }
+    h1 { max-width:8ch; margin:.5rem 0 1.5rem; font-size:clamp(64px,11vw,144px); letter-spacing:-.06em; }
+    h1 em { color:var(--signal); font-weight:400; }
+    .dek { max-width:58ch; font-size:clamp(19px,2vw,26px); }
+    .facts { display:grid; border-top:1px solid var(--ink); }
+    .fact { display:grid; grid-template-columns:4rem 1fr; gap:1rem; padding:1rem 0; border-bottom:1px solid var(--line); }
+    .fact strong { color:var(--signal); font:500 38px Fraunces,Georgia,serif; }
+    section { padding:4rem 0; border-bottom:1px solid var(--line); }
+    .section-head { display:grid; grid-template-columns:.45fr 1.55fr; gap:2rem; margin-bottom:2rem; }
+    h2 { max-width:16ch; margin:0; font-size:clamp(38px,6vw,72px); }
+    .section-head p { max-width:64ch; margin:.5rem 0 0; color:var(--soft); }
+    .levels { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); border:solid var(--line); border-width:1px 0 0 1px; }
+    .level { min-height:290px; display:flex; flex-direction:column; padding:1.5rem; border:solid var(--line); border-width:0 1px 1px 0; background:var(--raised); }
+    .level h3 { margin:.6rem 0; font-size:32px; }
+    .level p { color:var(--soft); }
+    .links { display:flex; flex-wrap:wrap; gap:.5rem; margin-top:auto; padding-top:1rem; }
+    .links a { border-bottom:1px solid var(--signal); font:600 12px ui-monospace,monospace; text-decoration:none; text-transform:uppercase; }
+    .notice { padding:1.5rem; border-left:5px solid var(--signal); background:var(--deep); }
+    .split { display:grid; grid-template-columns:1fr 1fr; gap:2rem; }
+    footer { padding:2rem 0 4rem; color:var(--soft); font:13px ui-monospace,monospace; }
+    @media (max-width:900px) {
+      .bar { position:relative; width:100%; padding:0 116px 0 20px; gap:.5rem; }
+      .brand { min-width:0; font-size:14px; line-height:1.05; }
+      .brand span:last-child { max-width:9.5rem; }
+      nav { display:none; }
+      .course-login { position:absolute; right:20px; top:17px; min-height:38px; padding:.45rem .55rem; font-size:10px; }
+      .hero,.section-head,.split { min-width:0; grid-template-columns:1fr; }
+      .hero > *, .section-head > *, .split > * { min-width:0; }
+      .dek, .fact span { overflow-wrap:anywhere; }
+      .facts { min-width:0; }
+      .fact { grid-template-columns:3.5rem minmax(0,1fr); }
+      .levels { grid-template-columns:1fr; }
+      h1 { font-size:clamp(58px,21vw,92px); }
+    }
+    @media print { header button { display:none; } .hero { padding-top:2rem; } .level { break-inside:avoid; } }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#course">Skip to course</a>
+  <header>
+    <div class="bar">
+      <a class="brand" href="../../course/landing.html"><span class="mark" aria-hidden="true"></span><span>Zero to Agent / Project Lab</span></a>
+      <nav aria-label="Course navigation">
+        <a href="#course">Five levels</a>
+        <a href="#language">Language</a>
+        <button id="theme" type="button" aria-label="Toggle color theme">Paper / Night</button>
+      </nav>
+      <a class="course-login" href="https://learn.zerotoagent.org/auth/users/sign_in">Course login</a>
+    </div>
+  </header>
+<p style="max-width:1040px;margin:24px auto;padding:0 20px"><strong>Before Level 1:</strong> <a href="../../preparation/README.pdf" target="_blank" rel="noopener">Complete Windows or Mac preparation</a>. Fork the custom app; choose Claude Code or Codex for editing and one answer engine. <a href="https://github.com/celaya-solutions/Zero-to-Agent-Course-Material/releases">Versioned downloads and release status</a>.</p>
+  <main id="course">
+    <div class="hero">
+      <div>
+        <p class="eyebrow">Zero to Agent Celaya Solutions Learning / Short field course / El Paso</p>
+        <h1>Project <em>Lab.</em></h1>
+        <p class="dek">Four projects in four meetings. In the fifth, choose one, improve it from a real test, and present the proof to the class.</p>
+      </div>
+      <div class="facts" aria-label="Course facts">
+        <div class="fact"><strong>05</strong><span>ninety-minute meetings</span></div>
+        <div class="fact"><strong>04</strong><span>required projects</span></div>
+        <div class="fact"><strong>01</strong><span>project improved and presented</span></div>
+        <div class="fact"><strong>EN</strong><span>complete first; Spanish released in phases</span></div>
+      </div>
+    </div>
+
+    <section>
+      <div class="section-head"><p class="eyebrow">The promise</p><div><h2>Build it. Break it. Show the receipt.</h2><p>Beginners follow a guided core route. Experienced builders can open the code or hosting boundary. Everyone passes with the same visible evidence.</p></div></div>
+      <div class="notice"><strong>Shared real case:</strong> Celaya Solutions Research, an El Paso research lab. Public facts come from <a href="https://www.celayasolutions.com/">its official site</a>. Classroom records are marked training-only and never presented as real policy, pricing, or client information.</div>
+    </section>
+
+    <section>
+      <div class="section-head"><p class="eyebrow">Course map</p><div><h2>Five levels. Seven and a half hours.</h2><p>Each level includes a learner lesson, instructor plan, worksheet, safe practice assets, outage route, answer guidance, and accessible 20-slide deck.</p></div></div>
+      <div class="levels">
+        <article class="level"><span class="level-no">Level 01 / Knowledge</span><h3>Your Documents Answer Back</h3><p>Build a helper that cites the exact source, stops when a fact is missing, and surfaces conflicts.</p><div class="links"><a href="level-01/student.pdf" target="_blank" rel="noopener">Lesson PDF</a><a href="level-01/worksheet.pdf" target="_blank" rel="noopener">Worksheet PDF</a><a href="level-01/slides.html" target="_blank" rel="noopener">Slides</a><a href="level-01/instructor.pdf" target="_blank" rel="noopener">Instructor PDF</a></div></article>
+        <article class="level"><span class="level-no">Level 02 / Autonomy</span><h3>The Night Watchman</h3><p>Run a scheduled page check with a meaningful alert, inspectable log, never list, and tested switch.</p><div class="links"><a href="level-02/student.pdf" target="_blank" rel="noopener">Lesson PDF</a><a href="level-02/worksheet.pdf" target="_blank" rel="noopener">Worksheet PDF</a><a href="level-02/slides.html" target="_blank" rel="noopener">Slides</a><a href="level-02/instructor.pdf" target="_blank" rel="noopener">Instructor PDF</a></div></article>
+        <article class="level"><span class="level-no">Level 03 / Local</span><h3>Nothing Leaves the Building</h3><p>Run a local model offline, compare two models, verify one answer, and create a named rule set.</p><div class="links"><a href="level-03/student.pdf" target="_blank" rel="noopener">Lesson PDF</a><a href="level-03/worksheet.pdf" target="_blank" rel="noopener">Worksheet PDF</a><a href="level-03/slides.html" target="_blank" rel="noopener">Slides</a><a href="level-03/instructor.pdf" target="_blank" rel="noopener">Instructor PDF</a></div></article>
+        <article class="level"><span class="level-no">Level 04 / Product and safety</span><h3>The Front Desk, Attacked and Locked</h3><p>Define and test a safe business desk, then attack it with ten known tricks, apply four real fences, rerun the same tests, and pitch the outcome.</p><div class="links"><a href="level-04/student.pdf" target="_blank" rel="noopener">Lesson PDF</a><a href="level-04/worksheet.pdf" target="_blank" rel="noopener">Worksheet PDF</a><a href="level-04/slides.html" target="_blank" rel="noopener">Slides</a><a href="level-04/instructor.pdf" target="_blank" rel="noopener">Instructor PDF</a></div></article>
+        <article class="level"><span class="level-no">Level 05 / Proof</span><h3>Choose, Improve, and Present</h3><p>Select one project, improve it from evidence, cost it, test normal and failure routes, and present it in three minutes.</p><div class="links"><a href="level-05/student.pdf" target="_blank" rel="noopener">Lesson PDF</a><a href="level-05/worksheet.pdf" target="_blank" rel="noopener">Worksheet PDF</a><a href="level-05/slides.html" target="_blank" rel="noopener">Slides</a><a href="level-05/instructor.pdf" target="_blank" rel="noopener">Instructor PDF</a></div></article>
+      </div>
+    </section>
+
+    <section id="language">
+      <div class="section-head"><p class="eyebrow">English first / Español por fases</p><div><h2>Bilingual is a release path, not a label.</h2><p>The English course is complete. Phase 1 includes Spanish anchors, safety stops, and task summaries. Full Spanish learner files come next, followed by instructor files and decks after a bilingual pilot.</p></div></div>
+      <div class="split">
+        <div><h3>Every level now</h3><p>English source lesson, Spanish anchors, Spanish safety reminder, Spanish three-task summary, and the same evidence standard.</p></div>
+        <div><h3>Every level later</h3><p>Human-reviewed Spanish lessons and worksheets first. Instructor plans and slide decks follow observed timing and wording from a real pilot.</p></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head"><p class="eyebrow">Shared controls</p><div><h2>The fence travels with every project.</h2><p>Use the same safety card, universal test sheet, access and outage routes, answer key, and presentation rubric throughout the course.</p></div></div>
+      <div class="links"><a href="_shared/safety-card.pdf" target="_blank" rel="noopener">Safety card PDF</a><a href="_shared/test-sheet.pdf" target="_blank" rel="noopener">Test sheet PDF</a><a href="_shared/access-and-outage.pdf" target="_blank" rel="noopener">Access routes PDF</a><a href="_shared/demo-rubric.pdf" target="_blank" rel="noopener">Presentation rubric PDF</a><a href="_shared/answer-key.pdf" target="_blank" rel="noopener">Answer key PDF</a><a href="README.pdf" target="_blank" rel="noopener">Instructor overview PDF</a></div>
+    </section>
+  </main>
+  <footer>Celaya Solutions Research / Zero to Agent Celaya Solutions Learning / El Paso, Texas</footer>
+  <script>
+    const root = document.documentElement;
+    const button = document.getElementById('theme');
+    try { if (localStorage.getItem('ohlp-theme') === 'night') root.dataset.theme = 'night'; } catch (error) {}
+    button.addEventListener('click', function () {
+      root.dataset.theme = root.dataset.theme === 'night' ? 'paper' : 'night';
+      try { localStorage.setItem('ohlp-theme', root.dataset.theme); } catch (error) {}
+    });
+  </script>
+</body>
+</html>

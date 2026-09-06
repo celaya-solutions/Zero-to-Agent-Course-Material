@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#18221f">
+  <title>Project Lab Level 1 - Your Documents Answer Back</title>
+  <style>
+    :root { --bg:#121917; --panel:#19221f; --ink:#f2ede3; --muted:#bdc5bd; --signal:#e06a47; --line:#52605b; }
+    * { box-sizing:border-box; }
+    html, body { height:100%; }
+    body { margin:0; overflow:hidden; background:var(--bg); color:var(--ink); font:clamp(18px,2vw,28px)/1.45 Manrope,system-ui,sans-serif; }
+    .slide { position:absolute; inset:0; display:none; min-height:100vh; padding:7vh 8vw 14vh; flex-direction:column; justify-content:center; outline:none; }
+    .slide.active { display:flex; }
+    .kicker { margin:0 0 2vh; color:var(--signal); font:700 clamp(13px,1.2vw,18px)/1.4 "JetBrains Mono",ui-monospace,monospace; letter-spacing:.14em; text-transform:uppercase; }
+    h1, h2 { max-width:20ch; margin:0 0 3vh; font-family:Fraunces,Georgia,serif; font-size:clamp(40px,6vw,90px); line-height:1.04; }
+    h2 { font-size:clamp(34px,5vw,72px); }
+    p, ul, ol { max-width:68ch; }
+    p { margin:.35em 0; }
+    ul, ol { margin:.5em 0; padding-left:1.3em; }
+    li { margin:.35em 0; }
+    .muted { color:var(--muted); }
+    .signal { color:var(--signal); font-weight:800; }
+    .controls { position:fixed; z-index:10; right:2vw; bottom:2vh; display:flex; align-items:center; gap:.7rem; padding:.45rem .65rem; border:1px solid var(--line); background:rgba(18,25,23,.96); }
+    button { min-width:44px; min-height:44px; border:2px solid var(--muted); background:var(--panel); color:var(--ink); font:700 16px/1 system-ui,sans-serif; cursor:pointer; }
+    button:hover, button:focus-visible { border-color:var(--signal); outline:3px solid transparent; }
+    button:disabled { cursor:not-allowed; opacity:.35; }
+    #counter { min-width:5.5em; text-align:center; font:14px/1.2 ui-monospace,monospace; }
+    .help { position:fixed; left:2vw; bottom:3vh; color:var(--muted); font:13px/1.3 ui-monospace,monospace; }
+    @media (max-width:720px) {
+      .slide { width:100vw; max-width:100vw; overflow-y:auto; padding:5vh 6vw 20vh; }
+      h1, h2, p, ul, ol { max-width:100%; overflow-wrap:anywhere; }
+      h1 { font-size:clamp(36px,12vw,54px); }
+      h2 { font-size:clamp(30px,10vw,46px); }
+      .controls { left:6vw; right:6vw; justify-content:space-between; }
+      #counter { min-width:auto; }
+      .help { display:none; }
+    }
+    @media print {
+      html, body { height:auto; overflow:visible; background:white; color:black; }
+      .slide, .slide.active { position:relative; display:flex; min-height:7.5in; page-break-after:always; background:white; color:black; }
+      .controls, .help { display:none; }
+      .muted { color:#4d4944; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="slide active" tabindex="-1" aria-label="Slide 1: Level 1 title">
+  <p class="kicker">ZERO TO AGENT / PROJECT LAB / LEVEL 1</p>
+  <h1>Your Documents Answer Back</h1>
+  <p class="muted">Ninety minutes. Three tasks. One visible proof.</p>
+</section>
+
+<section class="slide" tabindex="-1" aria-label="Slide 2: Class goal">
+  <p class="kicker">THE GOAL</p>
+  <h2>What leaves the room</h2>
+  <p>Build and test a custom document helper that searches supplied public and synthetic files, shows exact source receipts, stops on missing facts, and flags conflicts for human review.</p>
+</section>
+
+<section class="slide" tabindex="-1" aria-label="Slide 3: Access routes">
+  <p class="kicker">START HERE</p>
+  <h2>Different devices. Same proof.</h2>
+  <p>Own Windows/Mac computer; completed preflight; Claude Code or Codex for edits; Ollama, Claude API, or OpenAI API for answers.</p>
+</section>
+
+<section class="slide" tabindex="-1" aria-label="Slide 4: Bilingual anchors">
+  <p class="kicker">ANCHORS / ANCLAS</p>
+  <h2>Say the lines together</h2>
+  <p>Find the page, then answer. Encuentra la página y después responde. Confidence is not accuracy.</p>
+</section>
+
+<section class="slide" tabindex="-1" aria-label="Slide 5: Big idea">
+  <p class="kicker">THE BIG IDEA</p>
+  <h2>A picture before a term</h2>
+  <p>Four source files become local searchable passages. The selected model writes from the retrieved evidence. This is keyword retrieval, not model training.</p>
+</section>
+
+<section class="slide" tabindex="-1" aria-label="Slide 6: Safety stop">
+  <p class="kicker">SAFETY STOP / ALTO</p>
+  <h2>The fence comes first</h2>
+  <p>Only public or synthetic files. Cloud routes send selected passages. Keys and learner proof stay out of Git. A receipt still needs human checking.</p>
+</section>
+
+<section class="slide" tabindex="-1" aria-label="Slide 7: Live demonstration">
+  <p class="kicker">LIVE DEMO</p>
+  <h2>Watch the receipt, not the magic</h2>
+  <p>Launch with uv run --frozen zta start documents. Open 127.0.0.1:8501. Trace a question through passages, answer, and source check.</p>
+</section>
+
+<section class="slide" tabindex="-1" aria-label="Slide 8: Task 1">
+  <p class="kicker">TASK 1</p>
+  <h2>Build the first piece</h2>
+  <p>Load class binder. Classify two public and two synthetic files. Build index. Compare extracted text with originals.</p>
+</section>
+
+<section class="slide" tabindex="-1" aria-label="Slide 9: Task 1 success check">
+  <p class="kicker">TASK 1 CHECK</p>
+  <h2>Success looks like this</h2>
+  <p>Four correctly classified documents with readable headings. The app reports the selected provider and model.</p>
+</section>
+
+<section class="slide" tabindex="-1" aria-label="Slide 10: Task 2">
+  <p class="kicker">TASK 2</p>
+  <h2>Write expected. Then run.</h2>
+  <p>Write all five expectations before running. Test location, systems, contact plus work, missing price, and conflicting training rules.</p>
+</section>
+
+<section class="slide" tabindex="-1" aria-label="Slide 11: Task 2 success check">
+  <p class="kicker">TASK 2 CHECK</p>
+  <h2>Inspect the evidence</h2>
+  <p>Open BOTH public sources for question 3. Missing price stops. Both synthetic labels and targets appear with human review.</p>
+</section>
+
+<section class="slide" tabindex="-1" aria-label="Slide 12: Task 3">
+  <p class="kicker">TASK 3</p>
+  <h2>Change, stop, or present</h2>
+  <p>Choose one miss. Change one setting or rule with Claude Code, Codex, or the manual card. Rerun the SAME question.</p>
+</section>
+
+<section class="slide" tabindex="-1" aria-label="Slide 13: Task 3 success check">
+  <p class="kicker">TASK 3 CHECK</p>
+  <h2>Make the result visible</h2>
+  <p>Before, one change, after, and explanation are saved. Rerun all five questions and judge each result.</p>
+</section>
+
+<section class="slide" tabindex="-1" aria-label="Slide 14: Builder extension">
+  <p class="kicker">BUILDER EXTENSION</p>
+  <h2>More depth. Same passing proof.</h2>
+  <p>All five pass? Change max_passages from 4 to 1, test conflict, restore 4, and compare evidence. Keep show_source_quotes = true as the useful edit.</p>
+</section>
+
+<section class="slide" tabindex="-1" aria-label="Slide 15: Outage route">
+  <p class="kicker">IF THE TOOL FAILS</p>
+  <h2>Use the saved route honestly</h2>
+  <p>Load five saved examples after predictions. Mark the route saved classroom example. Paper and manual editing preserve the decision trail.</p>
+</section>
+
+<section class="slide" tabindex="-1" aria-label="Slide 16: Partner check">
+  <p class="kicker">PARTNER CHECK</p>
+  <h2>Can another person follow it?</h2>
+  <p>Check source labels, both public receipts, missing/conflict behavior, and the same-question rerun.</p>
+</section>
+
+<section class="slide" tabindex="-1" aria-label="Slide 17: Passing proof">
+  <p class="kicker">PASSING PROOF</p>
+  <h2>Show the work</h2>
+  <p>Four classified documents; five predicted and judged tests; two public source checks; one same-question improvement; a fork commit; and a private evidence upload receipt.</p>
+</section>
+
+<section class="slide" tabindex="-1" aria-label="Slide 18: Spanish task summary">
+  <p class="kicker">RESUMEN EN ESPAÑOL</p>
+  <h2>Tres tareas. La misma evidencia.</h2>
+  <p>Clasifica cuatro archivos. Predice y prueba cinco preguntas. Verifica dos fuentes. Cambia una regla y repite. Guarda la evidencia.</p>
+</section>
+
+<section class="slide" tabindex="-1" aria-label="Slide 19: Next level bridge">
+  <p class="kicker">NEXT</p>
+  <h2>Carry the proof forward</h2>
+  <p>Run zta test documents. Review, commit, and push only the project change to your fork. Export private PROJECT-LAB-01.md and upload it to Level 1.</p>
+</section>
+
+<section class="slide" tabindex="-1" aria-label="Slide 20: Exit ticket">
+  <p class="kicker">EXIT TICKET</p>
+  <h2>One answer before you leave</h2>
+  <p>Reopen the upload receipt. Stop the app with Ctrl+C. Explain one missing-information rule and one conflict rule.</p>
+</section>
+
+  </main>
+  <p class="help">Use Left/Right, Page Up/Page Down, Home/End, or the buttons.</p>
+  <nav class="controls" aria-label="Slide controls">
+    <button id="previous" type="button" aria-label="Previous slide">Back</button>
+    <span id="counter" role="status" aria-live="polite">1 / 20</span>
+    <button id="next" type="button" aria-label="Next slide">Next</button>
+  </nav>
+  <script>
+    const slides = Array.from(document.querySelectorAll('.slide'));
+    const previous = document.getElementById('previous');
+    const next = document.getElementById('next');
+    const counter = document.getElementById('counter');
+    const requestedSlide = Number.parseInt(window.location.hash.slice(1), 10);
+    let index = Number.isInteger(requestedSlide) ? requestedSlide - 1 : 0;
+    function show(nextIndex) {
+      index = Math.max(0, Math.min(slides.length - 1, nextIndex));
+      slides.forEach(function (current, slideIndex) {
+        const active = slideIndex === index;
+        current.classList.toggle('active', active);
+        current.setAttribute('aria-hidden', String(!active));
+      });
+      previous.disabled = index === 0;
+      next.disabled = index === slides.length - 1;
+      counter.textContent = (index + 1) + ' / ' + slides.length;
+      history.replaceState(null, '', '#' + (index + 1));
+      slides[index].focus({ preventScroll: true });
+    }
+    previous.addEventListener('click', function () { show(index - 1); });
+    next.addEventListener('click', function () { show(index + 1); });
+    document.addEventListener('keydown', function (event) {
+      if (['ArrowRight','ArrowDown','PageDown',' '].includes(event.key)) { event.preventDefault(); show(index + 1); }
+      if (['ArrowLeft','ArrowUp','PageUp'].includes(event.key)) { event.preventDefault(); show(index - 1); }
+      if (event.key === 'Home') show(0);
+      if (event.key === 'End') show(slides.length - 1);
+    });
+    show(index);
+  </script>
+</body>
+</html>

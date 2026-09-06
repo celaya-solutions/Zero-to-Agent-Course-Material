@@ -1,0 +1,14 @@
+number: 1
+title: "Your Documents Answer Back"
+objective: "Build and test a custom document helper that searches supplied public and synthetic files, shows exact source receipts, stops on missing facts, and flags conflicts for human review."
+prerequisites:
+  - "Own Windows or Mac computer with completed preflight; saved-run support for access blocks"
+  - "Verified GitHub account, GitHub Desktop, and uv"
+  - "One coding assistant: Claude Code or Codex; manual edit card available"
+  - "One answer engine: Ollama, Claude API, or OpenAI API"
+passing_proof: "Four classified documents; five predicted and judged tests; two public source checks; one same-question improvement; a fork commit; and a private evidence upload receipt."
+required_project_milestone: "Find the page, then answer."
+core_route: "Fork the custom Python app, run it locally, inspect retrieval, edit, and submit evidence."
+builder_extension: "Compare retrieval counts and add source quotes without changing the test questions."
+project_id: documents
+preflight: preparation/README.md

@@ -1,0 +1,11 @@
+number: 3
+title: "Nothing Leaves the Building"
+objective: "Run a local model with the network off, compare two supported local models, verify one answer, and create a named model with a useful rule set."
+prerequisites:
+  - "Level 2 proof or the supplied catch-up card"
+  - "A supported laptop with at least 8 GB memory, or a partner role"
+  - "The instructor-prepared runner, model files, and USB fallback"
+passing_proof: "One offline answer; a two-model benchmark with time, size, and quality; one fact checked against a source; a named custom model; and a written local-versus-cloud choice."
+required_project_milestone: "The model is a file."
+core_route: "Run the prepared small model, complete the benchmark, and build from the supplied model template."
+builder_extension: "Connect the Level 1 binder to local retrieval or open a phone window only on the classroom router."

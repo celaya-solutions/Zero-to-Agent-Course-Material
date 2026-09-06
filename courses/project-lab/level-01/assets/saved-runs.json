@@ -1,0 +1,218 @@
+[
+  {
+    "number": 1,
+    "question": "Where is Celaya Solutions Research based?",
+    "provider": "authored classroom example",
+    "model": "not a model run",
+    "settings": {
+      "max_passages": 4,
+      "show_source_quotes": false
+    },
+    "passages": [
+      {
+        "id": "35e97fe95b52",
+        "source": "public-identity-and-work.md",
+        "heading": "Where the lab is based",
+        "page": null,
+        "text": "Celaya Solutions Research is based in El Paso, Texas.",
+        "class": "public"
+      }
+    ],
+    "result": {
+      "status": "answered",
+      "answer": "El Paso, Texas.",
+      "citations": [
+        {
+          "id": "35e97fe95b52",
+          "quote": "Celaya Solutions Research is based in El Paso, Texas."
+        }
+      ],
+      "seconds": 0,
+      "estimated_usd": 0
+    },
+    "route": "saved classroom example"
+  },
+  {
+    "number": 2,
+    "question": "What kind of systems does the lab build?",
+    "provider": "authored classroom example",
+    "model": "not a model run",
+    "settings": {
+      "max_passages": 4,
+      "show_source_quotes": false
+    },
+    "passages": [
+      {
+        "id": "adb0b7374ec0",
+        "source": "public-identity-and-work.md",
+        "heading": "Work and systems the lab builds",
+        "page": null,
+        "text": "The lab builds local-first, provenance-aware systems for legal, archival, and industrial work. Its public work includes research instruments, multi-agent orchestration, archival intelligence, and industrial applied intelligence.",
+        "class": "public"
+      },
+      {
+        "id": "35e97fe95b52",
+        "source": "public-identity-and-work.md",
+        "heading": "Where the lab is based",
+        "page": null,
+        "text": "Celaya Solutions Research is based in El Paso, Texas.",
+        "class": "public"
+      }
+    ],
+    "result": {
+      "status": "answered",
+      "answer": "Local-first, provenance-aware systems for legal, archival, and industrial work.",
+      "citations": [
+        {
+          "id": "adb0b7374ec0",
+          "quote": "The lab builds local-first, provenance-aware systems for legal, archival, and industrial work. Its public work includes research instruments, multi-agent orchestration, archival intelligence, and industrial applied intelligence."
+        }
+      ],
+      "seconds": 0,
+      "estimated_usd": 0
+    },
+    "route": "saved classroom example"
+  },
+  {
+    "number": 3,
+    "question": "Which public contact route should I use for a research collaboration, and what work does the lab focus on?",
+    "provider": "authored classroom example",
+    "model": "not a model run",
+    "settings": {
+      "max_passages": 4,
+      "show_source_quotes": false
+    },
+    "passages": [
+      {
+        "id": "1cf20ea8b951",
+        "source": "public-contact-and-method.md",
+        "heading": "Public contact route for research collaboration",
+        "page": null,
+        "text": "For research collaborations, architecture conversations, or documentation requests, the public contact route is hello@celayasolutions.com.",
+        "class": "public"
+      },
+      {
+        "id": "adb0b7374ec0",
+        "source": "public-identity-and-work.md",
+        "heading": "Work and systems the lab builds",
+        "page": null,
+        "text": "The lab builds local-first, provenance-aware systems for legal, archival, and industrial work. Its public work includes research instruments, multi-agent orchestration, archival intelligence, and industrial applied intelligence.",
+        "class": "public"
+      },
+      {
+        "id": "35e97fe95b52",
+        "source": "public-identity-and-work.md",
+        "heading": "Where the lab is based",
+        "page": null,
+        "text": "Celaya Solutions Research is based in El Paso, Texas.",
+        "class": "public"
+      },
+      {
+        "id": "78d4c2f9d0a6",
+        "source": "training-record-b.md",
+        "heading": "Classroom inquiry routing label and review target",
+        "page": null,
+        "text": "For the exercise, label research-collaboration messages ROUTE: COLLABORATION.\nThe review target is three classroom days. A human reviews these messages.\nThis is a training-only synthetic record. If another supplied record disagrees, show both and ask for human review. Do not choose a winner.",
+        "class": "training-only"
+      }
+    ],
+    "result": {
+      "status": "answered",
+      "answer": "Contact hello@celayasolutions.com for a research collaboration. The lab builds local-first, provenance-aware systems for legal, archival, and industrial work.",
+      "citations": [
+        {
+          "id": "adb0b7374ec0",
+          "quote": "The lab builds local-first, provenance-aware systems for legal, archival, and industrial work. Its public work includes research instruments, multi-agent orchestration, archival intelligence, and industrial applied intelligence."
+        },
+        {
+          "id": "1cf20ea8b951",
+          "quote": "For research collaborations, architecture conversations, or documentation requests, the public contact route is hello@celayasolutions.com."
+        }
+      ],
+      "seconds": 0,
+      "estimated_usd": 0
+    },
+    "route": "saved classroom example"
+  },
+  {
+    "number": 4,
+    "question": "What is the price of a custom deployment?",
+    "provider": "authored classroom example",
+    "model": "not a model run",
+    "settings": {
+      "max_passages": 4,
+      "show_source_quotes": false
+    },
+    "passages": [
+      {
+        "id": "867163492e04",
+        "source": "public-contact-and-method.md",
+        "heading": "Missing prices and promises",
+        "page": null,
+        "text": "A custom deployment price is not provided in these classroom documents. No guaranteed response time, appointment availability, or private client information is supplied.",
+        "class": "public"
+      }
+    ],
+    "result": {
+      "status": "not_found",
+      "answer": "Not in the documents.",
+      "citations": [],
+      "seconds": 0,
+      "estimated_usd": 0
+    },
+    "route": "saved classroom example"
+  },
+  {
+    "number": 5,
+    "question": "Which routing label and review target should be used for a research collaboration in this exercise?",
+    "provider": "authored classroom example",
+    "model": "not a model run",
+    "settings": {
+      "max_passages": 4,
+      "show_source_quotes": false
+    },
+    "passages": [
+      {
+        "id": "78d4c2f9d0a6",
+        "source": "training-record-b.md",
+        "heading": "Classroom inquiry routing label and review target",
+        "page": null,
+        "text": "For the exercise, label research-collaboration messages ROUTE: COLLABORATION.\nThe review target is three classroom days. A human reviews these messages.\nThis is a training-only synthetic record. If another supplied record disagrees, show both and ask for human review. Do not choose a winner.",
+        "class": "training-only"
+      },
+      {
+        "id": "0d37efdacf0d",
+        "source": "training-record-a.md",
+        "heading": "Classroom inquiry routing label and review target",
+        "page": null,
+        "text": "For the exercise, label research-collaboration messages ROUTE: RESEARCH.\nThe review target is two classroom days. A human reviews these messages.\nThis is a training-only synthetic record. If another supplied record disagrees, show both and ask for human review. Do not choose a winner.",
+        "class": "training-only"
+      },
+      {
+        "id": "1cf20ea8b951",
+        "source": "public-contact-and-method.md",
+        "heading": "Public contact route for research collaboration",
+        "page": null,
+        "text": "For research collaborations, architecture conversations, or documentation requests, the public contact route is hello@celayasolutions.com.",
+        "class": "public"
+      }
+    ],
+    "result": {
+      "status": "conflict",
+      "answer": "Training-only synthetic Record A says ROUTE: RESEARCH and two classroom days. Training-only synthetic Record B says ROUTE: COLLABORATION and three classroom days. These are conflicting classroom rules, not CSR policies. A human must review which rule controls.",
+      "citations": [
+        {
+          "id": "0d37efdacf0d",
+          "quote": "For the exercise, label research-collaboration messages ROUTE: RESEARCH.\nThe review target is two classroom days. A human reviews these messages.\nThis is a training-only synthetic record. If another supplied record disagrees, show both and ask for human review. Do not choose a winner."
+        },
+        {
+          "id": "78d4c2f9d0a6",
+          "quote": "For the exercise, label research-collaboration messages ROUTE: COLLABORATION.\nThe review target is three classroom days. A human reviews these messages.\nThis is a training-only synthetic record. If another supplied record disagrees, show both and ask for human review. Do not choose a winner."
+        }
+      ],
+      "seconds": 0,
+      "estimated_usd": 0
+    },
+    "route": "saved classroom example"
+  }
+]
