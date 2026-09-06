@@ -2,11 +2,11 @@
 
 ```text
 Document:    Course Repository Instructions
-Version:     v1.4.0
+Version:     v1.5.0
 Author:      Celaya Solutions
 Contact:     hello@celayasolutions.com
 Date:        2026-09-06
-SHA256:      acd8b2f97fe29299203413af55079ef3bbc45089859b1f4d642a201544c1f609
+SHA256:      35c56abaef6394fb4a40c4227df373af3aea7b9108ac8d47873b7658d2ed9832
 Chain:       n/a
 Tx:          [not anchored]
 License:     All Rights Reserved / Celaya Solutions
@@ -16,11 +16,11 @@ This repository is the canonical authoring home for five 90-minute levels. Teach
 
 ## Next maintainer task
 
-Continue from the committed Level 5 source branch until a main merge is requested. Read [the handoff](release/next-section.md) and [Level 5 verification](release/level-05-verification.md). All five levels have full packs; preserve earlier live gates and do not add a sixth level without a new instruction.
+Execute [the release and learner-verification handoff](release/next-section.md): publish matching course downloads, deploy the website and private course update, and complete the real learner/setup/upload/schedule/stop checks. Levels 4-5 are already merged locally. The user's 2026-09-06 direction authorizes this scoped follow-through; older no-release notes describe earlier turns. Exclude all new Spanish work and Spanish delivery pilots; preserve existing text. Record actual results and specific external blockers rather than asking again for the same release permission.
 
 ## Work rules
 
-Use an isolated `codex/` branch/worktree. Keep changes small and commit completed work; do not merge or deploy without a direct instruction. If graft is available, use its context graph before searching source. Graft is an optional maintainer tool, not a learner prerequisite.
+Use an isolated `codex/` branch/worktree. Keep changes small and commit completed work. The active release handoff records the user-directed integration/publication/deployment scope; unrelated merges or deployments still need a direct instruction. If graft is available, use its context graph before searching source. Graft is an optional maintainer tool, not a learner prerequisite.
 
 For a Level 1 learner edit, read `courses/project-lab/level-01/manual-edit.md`. Explain the likely cause before changing one rule or retrieval setting. Preserve supplied documents, expected results, tests, provider selection, local-only binding, and evidence privacy. Do not publish on the learner's behalf.
 
@@ -43,6 +43,9 @@ Every new document receives the standard metadata header. Canonical content is t
 Summaries use plain language and describe verified results. Unperformed device, cloud, and authenticated upload pilots remain open release gates. Do not infer classroom readiness from unit tests.
 
 ## Change notes
+
+- 2026-09-06: Committed instructions for publication, website/private-course deployment, and real learner/control verification as the next agent task; Spanish work is excluded. The earlier Level 4-5 merges are complete.
+
 
 - 2026-09-06: Committed Level 5's final proof board, project-specific checks, cost examples, accessible presentation routes, full handouts, and 20 slides. All 116 project tests and course/render/package checks pass; classroom gates are in release/level-05-verification.md. Source and consumers remain isolated; no merge or deployment.
 

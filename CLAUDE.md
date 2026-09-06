@@ -2,11 +2,11 @@
 
 ```text
 Document:    Claude Code Course Instructions
-Version:     v1.4.0
+Version:     v1.5.0
 Author:      Celaya Solutions
 Contact:     hello@celayasolutions.com
 Date:        2026-09-06
-SHA256:      70fc329dba88eb1e8456cc199ba38284ec7c317503fdf7eda607699cd69b59ab
+SHA256:      47f153931a960ca0856741a8ec923aaaaf107c176fb84c96b034f233b4f52129
 Chain:       n/a
 Tx:          [not anchored]
 License:     All Rights Reserved / Celaya Solutions
@@ -14,7 +14,7 @@ License:     All Rights Reserved / Celaya Solutions
 
 Read [AGENTS.md](AGENTS.md) first. Codex and Claude Code use the same scope and checks.
 
-For **course maintenance**, all five levels now have full packs. Continue from the committed Level 5 branch. Follow [the handoff](release/next-section.md) and [verification](release/level-05-verification.md). Preserve earlier work and separate consumers. Main merges, publication, deployment, and a sixth level require a new instruction.
+For **course maintenance**, perform the user-directed [release and learner-verification handoff](release/next-section.md). Publish matching downloads, deploy the website and private course update through their separate release paths, and complete real learner/setup/upload/schedule/stop checks. Levels 4-5 are already merged locally. The 2026-09-06 direction supersedes historical no-release notes for this scope. Exclude new Spanish work and Spanish pilots. Keep actual evidence, preserve learner data, and request only specific missing resources or out-of-scope decisions.
 
 For a **Level 5 learner exercise**, follow [the one-repair card](courses/project-lab/level-05/manual-edit.md). Reuse earlier tested improvements. Only the earlier card's named edit is authorized; private proof and all other receipts stay out of scope. Help with a screen-safe script only when requested. Preserve evidence labels and unknowns; do not invent results, reset locks/state, or publish.
 
