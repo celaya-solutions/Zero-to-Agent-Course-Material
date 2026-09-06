@@ -2,11 +2,11 @@
 
 ```text
 Document:    Maintaining and Releasing the Course
-Version:     v1.1.0
+Version:     v1.3.0
 Author:      Celaya Solutions
 Contact:     hello@celayasolutions.com
 Date:        2026-09-06
-SHA256:      c9ca1a6e6e362a5cd18ce148a0aa61bfb431c465aab7da7bc1449a7e1ebac963
+SHA256:      93e70784d7e0248e1836dd66ef600635c171b1ba8b647a20d3caf315b758f92b
 Chain:       n/a
 Tx:          [not anchored]
 License:     All Rights Reserved / Celaya Solutions
@@ -26,10 +26,10 @@ Run these commands from the repository root after the matching preparation guide
 | Terminal | Run `uv run --frozen python scripts/sync_watchman_starter.py`, then `uv run --frozen python scripts/update_headers.py`. | Refresh document body hashes. | Headers match canonical bodies. | Fix malformed header fields and rerun. |
 | Terminal | Run `ruby scripts/build_project_lab_slides.rb`. | Generate every 20-slide deck from the manifest and slide source. | Five `slides.html` files. | Run `ruby --version` and install Ruby if absent. |
 | Terminal | Run `uv run --frozen python scripts/build_pdfs.py`. | Generate portable handouts from Markdown. | PDFs beside their source files. | Fix the reported source or layout error. |
-| Terminal | Run `uv run --frozen zta test documents` and `uv run --frozen zta test watchman` and `uv run --frozen zta test local-models`. | Check app behavior without paid calls. | Every deterministic check passes. | Read the failing test; fix the behavior before release. |
+| Terminal | Run `uv run --frozen zta test documents` and `uv run --frozen zta test watchman` and `uv run --frozen zta test local-models` and `uv run --frozen zta test front-desk`. | Check app behavior without paid calls. | Every deterministic check passes. | Read the failing test; fix the behavior before release. |
 | Terminal | Run `LANG=en_US.UTF-8 ruby scripts/validate_project_lab.rb`, then `uv run --frozen python scripts/validate_materials.py`. | Check alignment, timing, links, PDFs, and privacy boundaries. | Both validators pass. | Repair the named source and rebuild. |
 | Browser/PDF viewer | Open all lesson routes and representative PDFs, resize, page through the deck, test downloads. | Catch clipping and navigation problems. | Content and controls remain readable. | Correct the renderer or source and rebuild. |
-| Pilot computers | Follow `release/verification.md` and `release/level-02-verification.md` and `release/level-03-verification.md` from a fresh learner fork. | Prove real setup, generation, editing, and submission. | Evidence for every release gate. | Label the candidate prerelease while gates remain open. |
+| Pilot computers | Follow `release/verification.md` and `release/level-02-verification.md` and `release/level-03-verification.md` and `release/level-04-verification.md` from a fresh learner fork. | Prove real setup, generation, editing, and submission. | Evidence for every release gate. | Label the candidate prerelease while gates remain open. |
 | GitHub Desktop | Review and commit only intended source/generated files. | Save a reproducible candidate. | No `.zta`, keys, personal files, or learner exports. | Remove accidental files from staging, not from the learner's disk. |
 | Terminal | Run `uv run --frozen python scripts/package_release.py`. | Build downloads from an allowlist. | Two ZIPs and SHA256SUMS in `dist/`. | Fix a missing source/build output and rebuild. |
 | GitHub release page | Tag the reviewed commit and attach both ZIPs and SHA256SUMS. Mark **pre-release** if any gate is open. | Give downloads an exact version. | Tag, files, and status identify the same candidate. | Check assets before sharing links. |
@@ -43,7 +43,7 @@ uv run --frozen python scripts/export_course.py ../open-hub-learning-platform
 uv run --frozen python scripts/export_course.py ../open-hub-learning-platform --check
 ```
 
-The argument is the actual website checkout path. Replace it with the path shown in GitHub Desktop; quote it if it contains spaces. The exporter refuses folders without `course/landing.html`. It copies the course, preparation, linked Watchman and local-model project resources, project README handouts, release notes, validation/build helpers, and a version/hash manifest. Review and commit that generated diff in the website checkout. It does not merge or deploy. Website maintainers continue running their repository's checks before any separately approved release.
+The argument is the actual website checkout path. Replace it with the path shown in GitHub Desktop; quote it if it contains spaces. The exporter refuses folders without `course/landing.html`. It copies the course, preparation, linked Watchman, local-model, and front-desk project resources, project README handouts, release notes, validation/build helpers, and a version/hash manifest. Review and commit that generated diff in the website checkout. It does not merge or deploy. Website maintainers continue running their repository's checks before any separately approved release.
 
 ## Generate the private platform copy
 

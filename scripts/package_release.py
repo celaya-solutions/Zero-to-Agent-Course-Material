@@ -2,13 +2,14 @@
 import hashlib,json,zipfile,shutil
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
-VERSION='v1.2.0-rc.1'
+VERSION='v1.3.0-rc.1'
 
 def main():
     out=ROOT/'dist';out.mkdir(exist_ok=True)
     learner=[ROOT/'LICENSE',ROOT/'README.md',ROOT/'README.pdf',ROOT/'projects/documents/README.md',ROOT/'projects/documents/README.pdf',*sorted((ROOT/'preparation').rglob('*')),*sorted((ROOT/'release').glob('*.md'))]
     learner += [p for p in (ROOT/'projects/watchman').rglob('*') if p.is_file() and p.suffix in {'.py','.md','.pdf','.yml'}]
     learner += [p for p in (ROOT/'projects/local-models').rglob('*') if p.is_file() and p.suffix in {'.py','.md','.pdf'}]
+    learner += [p for p in (ROOT/'projects/front-desk').rglob('*') if p.is_file() and p.suffix in {'.py','.md','.pdf'}]
     for p in (ROOT/'courses/project-lab').rglob('*'):
         if not p.is_file():continue
         if p.name.startswith(('instructor.','answer-key.')):continue
@@ -22,6 +23,10 @@ def main():
             for p in sorted(set(files)):
                 if not p.is_file() or '__pycache__' in p.parts or p.suffix=='.pyc':continue
                 z.write(p,p.relative_to(ROOT))
+        checks[target.name]=hashlib.sha256(target.read_bytes()).hexdigest()
+    for name,source in [('level-04-lesson','student.pdf'),('level-04-saved-examples','assets/fallback-before-after.pdf'),('level-04-slides','slides.html')]:
+        target=out/f'{name}-{VERSION}{Path(source).suffix}'
+        shutil.copy2(ROOT/'courses/project-lab/level-04'/source,target)
         checks[target.name]=hashlib.sha256(target.read_bytes()).hexdigest()
     for name,source in [('level-03-lesson','student.pdf'),('level-03-saved-examples','assets/fallback-benchmark.pdf'),('level-03-slides','slides.html')]:
         target=out/f'{name}-{VERSION}{Path(source).suffix}'

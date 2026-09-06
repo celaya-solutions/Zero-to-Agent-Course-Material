@@ -1,12 +1,12 @@
 number: 4
-title: "The Front Desk, Attacked and Locked"
-objective: "Define, build, and test a safe front desk for the public Celaya Solutions Research case or an instructor-approved business, then attack it with ten known tricks, apply four defenses outside and around the model, and rerun the same test."
+title: The Front Desk, Attacked and Locked
+objective: Build a local front desk from an approved public brief, test five callers, compare the same ten attacks before and after four defenses, and show a saved log and a working stop control.
 prerequisites:
-  - "Levels 1 through 3 proof or the supplied catch-up cards"
-  - "A chat tool, the case binder, the caller card, and the attack card"
-  - "Owner approval before using any business other than the shared case"
-  - "Clear consent before testing a partner build"
-passing_proof: "A six-part spec and never list; five caller tests and one complete message card; the same ten attacks scored before and after four defenses, with the fake secret removed and a tested log, draft-only boundary, and off switch; and a sixty-second outcome pitch without the words AI, agent, or model."
-required_project_milestone: "Sell the outcome, not the robot. Fences, not promises."
-core_route: "Build and test the desk in a chat project from public and training-only records, then attack and repair it in the same project."
-builder_extension: "Run the ten attacks through a small automated harness, inspect its log for secrets, and draft a Vercel server-function contract with rate limits."
+- Levels 1 through 3 proof or the supplied catch-up cards
+- Each learner has their own prepared Ollama-capable computer and course fork
+- Ollama with local gemma3:4b; complete Level 4 preparation before class
+- Only supplied public and synthetic records; permission before a partner test
+passing_proof: A six-part spec and never list; five scored callers and a five-field message card; ten before and ten after rows with honest verdicts; one citation-rule edit and two retests; four visible defenses, a log and pause test; and a sixty-second outcome pitch. Label live, saved, failed, and not-submitted evidence.
+required_project_milestone: Sell the outcome, not the robot. Fences, not promises.
+core_route: Run the supplied local Front Desk app with Ollama, save fixed caller and attack runs, edit one source-citation rule, apply four defenses, and test pause.
+builder_extension: Trace one locked request and log; add an instructor-approved synthetic test in a separate branch after the fixed comparison. Draft any hosting plan without publishing.

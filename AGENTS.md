@@ -2,11 +2,11 @@
 
 ```text
 Document:    Course Repository Instructions
-Version:     v1.1.0
+Version:     v1.3.0
 Author:      Celaya Solutions
 Contact:     hello@celayasolutions.com
 Date:        2026-09-06
-SHA256:      b3207beb7b6eeba379fb5bd824e34b0dd6c49764e69a66e626580fc35bdf7300
+SHA256:      667562ffe50e98b976a16d09bf2f4b857b4353e661df708bcc9aec13bbc613a6
 Chain:       n/a
 Tx:          [not anchored]
 License:     All Rights Reserved / Celaya Solutions
@@ -16,7 +16,7 @@ This repository is the canonical authoring home for five 90-minute levels. Teach
 
 ## Next maintainer task
 
-Continue from the merged Level 3 source. Read [the handoff](release/next-section.md) and [Level 3 verification](release/level-03-verification.md). Begin Level 4 or publish only under a new instruction. Preserve earlier live gates.
+Continue from the committed Level 4 source branch until a main merge is requested. Read [the handoff](release/next-section.md) and [Level 4 verification](release/level-04-verification.md). Begin Level 5 or publish only under a new instruction; preserve earlier live gates.
 
 ## Work rules
 
@@ -30,15 +30,19 @@ For a Level 2 learner exercise, read `courses/project-lab/level-02/manual-edit.m
 
 For a Level 3 learner edit, follow `courses/project-lab/level-03/manual-edit.md`. Only the private `.zta/local-models/Modelfile` is authorized for the one-rule edit; all other private files remain out of scope. Preserve the local base, endpoint, tests, prompts, settings, and before receipts. The learner judges both after answers.
 
+For a Level 4 learner edit, follow `courses/project-lab/level-04/manual-edit.md`. Open only `.zta/front-desk/desk-instructions.md` for the one Source rule; do not read other private state, keys, or receipts. Preserve fixed tests, public records, model, endpoint, logs, controls, and earlier proof. The learner runs C1/C2 again and judges the replies.
+
 ## Validation and documentation
 
-Run `uv run --frozen zta test documents`, `uv run --frozen zta test watchman`, and `uv run --frozen zta test local-models`. Refresh the legacy workflow with `uv run --frozen python scripts/sync_watchman_starter.py`. After a course edit, update document hashes, regenerate slides and PDFs, run `LANG=en_US.UTF-8 ruby scripts/validate_project_lab.rb`, then `uv run --frozen python scripts/validate_materials.py`. See `release/maintaining.md` for exact commands.
+Run `uv run --frozen zta test documents`, `uv run --frozen zta test watchman`, `uv run --frozen zta test local-models`, and `uv run --frozen zta test front-desk`. Refresh the legacy workflow with `uv run --frozen python scripts/sync_watchman_starter.py`. After a course edit, update document hashes, regenerate slides and PDFs, run `LANG=en_US.UTF-8 ruby scripts/validate_project_lab.rb`, then `uv run --frozen python scripts/validate_materials.py`. See `release/maintaining.md` for exact commands.
 
 Every new document receives the standard metadata header. Canonical content is the UTF-8 text below that header, with leading/trailing blank space removed and one final newline; SHA256 covers those bytes. Preserve existing licenses and source attribution. Recheck public facts and provider prices before class. Saved examples are authored examples, never live test proof.
 
 Summaries use plain language and describe verified results. Unperformed device, cloud, and authenticated upload pilots remain open release gates. Do not infer classroom readiness from unit tests.
 
 ## Change notes
+
+- 2026-09-06: Committed Level 4 local desk, full learner/teacher pack, fixed caller/attack sets, source-rule retests, private log and pause control. All 116 project tests plus live model, browser, slides, and PDF checks pass; remaining classroom gates and actual model failures are recorded in release/level-04-verification.md. No merge or deployment was performed.
 
 - 2026-09-06: Completed and committed Level 3 local lab, six-row comparison, named-rule retests, and the learner/teacher pack. All 96 project tests and course/render checks pass; the committed Level 3 suite is included in the Windows/Mac CI matrix; actual model failures and open device/network/upload pilots are recorded in release/level-03-verification.md.
 

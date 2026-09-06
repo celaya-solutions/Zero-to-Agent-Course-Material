@@ -75,10 +75,23 @@ def doctor():
 
 def main():
     parser = argparse.ArgumentParser(prog="zta")
-    parser.add_argument("command", choices=["setup","doctor","start","test","prepare","offline","benchmark","create","check"])
-    parser.add_argument("project", nargs="?", choices=["documents","watchman","local-models"])
+    parser.add_argument("command", choices=["setup","doctor","start","test","prepare","offline","benchmark","create","check","callers","attacks","lock","pause","resume"])
+    parser.add_argument("project", nargs="?", choices=["documents","watchman","local-models","front-desk"])
     args = parser.parse_args()
     try:
+        if args.project == "front-desk":
+            project = root()/"projects/front-desk"
+            if args.command == "test":
+                command = [sys.executable,"-m","pytest",str(project/"tests"),"-q"]
+            elif args.command == "start":
+                command = [sys.executable,"-m","streamlit","run",str(project/"app.py"),"--server.address=127.0.0.1","--server.port=8504","--server.headless=true","--client.toolbarMode=minimal","--browser.gatherUsageStats=false"]
+            elif args.command in {"prepare","doctor","callers","attacks","lock","pause","resume"}:
+                command = [sys.executable,str(project/"desk.py"),args.command]
+            else:
+                raise ValueError("Read Level 4 preparation, then use zta prepare front-desk.")
+            return subprocess.call(command, cwd=root())
+        if args.command in {"callers","attacks","lock","pause","resume"}:
+            raise ValueError("This command requires the front-desk project.")
         if args.project == "local-models":
             project = root()/"projects/local-models"
             if args.command == "test":

@@ -15,7 +15,7 @@ REQUIRED_ASSETS = {
   1 => %w[public-identity-and-work.md public-contact-and-method.md training-record-a.md training-record-b.md rules-card.md fallback-grounded-run.md saved-runs.json],
   2 => %w[practice-page.html fallback-three-runs.md starter/README.md starter/watch.py starter/test_watch.py starter/watch.yml],
   3 => %w[command-card.md Modelfile.template benchmark-card.md fallback-benchmark.md prompts.json],
-  4 => %w[csr-public-brief.md training-faq.md desk-instructions.md caller-card.md fallback-caller-run.md mail-desk-vulnerable.md mail-desk-fixed.md attack-card.md fallback-before-after.md],
+  4 => %w[callers.json attacks.json csr-public-brief.md training-faq.md desk-instructions.md caller-card.md fallback-caller-run.md mail-desk-vulnerable.md mail-desk-fixed.md attack-card.md fallback-before-after.md],
   5 => %w[outage-presentation-packet.md project-paths.md cost-sheet.md],
 }.freeze
 
@@ -213,7 +213,7 @@ if File.file?(project_lab_landing)
     errors << "#{label} points to a missing file: #{href}" unless File.file?(File.join(COURSE, href))
   end
   linked_pdf_count = landing.scan(/<a\s+href="[^"]+\.pdf"\s+target="_blank"\s+rel="noopener">/).length
-  errors << "Project Lab landing page has #{linked_pdf_count} PDF links, expected 22" unless linked_pdf_count == 22
+  errors << "Project Lab landing page has #{linked_pdf_count} PDF links, expected 24" unless linked_pdf_count == 24
   slide_link_count = landing.scan(/<a\s+href="level-\d{2}\/slides\.html"\s+target="_blank"\s+rel="noopener">Slides<\/a>/).length
   errors << "Project Lab landing page has #{slide_link_count} new-tab slide links, expected 5" unless slide_link_count == 5
   errors << "Project Lab landing page still links to Markdown course material" if landing.match?(/<a\s+href="[^"]+\.md"/)

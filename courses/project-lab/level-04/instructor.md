@@ -1,107 +1,88 @@
 # Instructor Run Sheet - Project Lab Level 4: The Front Desk, Attacked and Locked
 
+```text
+Document:    Instructor Run Sheet - Project Lab Level 4: The Front Desk, Attacked and Locked
+Version:     v1.0.0
+Author:      Celaya Solutions
+Contact:     hello@celayasolutions.com
+Date:        2026-09-06
+SHA256:      3b4126cfba8f778312a3e69746189a6f6f3f6de2a0eed08324bbfe2efd5956c8
+Chain:       n/a
+Tx:          [not anchored]
+License:     All Rights Reserved / Celaya Solutions
+```
+
 ## Outcome
 
-Define, build, and test a safe front desk for the public Celaya Solutions Research case or an instructor-approved business, then attack it with ten known tricks, apply four defenses outside and around the model, and rerun the same test.
+Build a local front desk from an approved public brief, test five callers, compare the same ten attacks before and after four defenses, and show a saved log and a working stop control.
 
 ## Alignment
 
-| Learning target | Practice | Evidence |
+| Target | Practice | Evidence |
 | --- | --- | --- |
-| Define the job | Interview and six-part spec | Trigger through never list |
-| Build from approved material | Case binder and instructions | Public versus synthetic boundary |
-| Test the desk | Five caller scripts and message card | Expected, actual, verdict, repair |
-| Explain injection | Note-on-package demo | Learner explanation in plain words |
-| Build real fences | Ten attacks, four defenses, rerun | Before and after counts, removed secret, log, switch |
-| Sell the outcome | One-minute pitch | Outcome named without AI, agent, or model |
+| Define a narrow job | Six-part spec | Trigger through never list |
+| Ground and hand off | Five fixed callers and card | Source or safe stop; five fields |
+| Make one deliberate edit | Citation rule | C1/C2 before and after |
+| Compare injection tests | Same A1-A10 inputs | All rows, honest counts and labels |
+| Locate outside controls | Four defenses and pause | Payload boundary, no tools, log, paused receipt |
+| Explain value | Sixty-second pitch | Outcome, measured proof, and ask |
 
 ## Teaching stance
 
-This is a compressed ninety-minute product and security lab, not a hosted-product build. Every learner finishes the desk, the five callers, the ten-attack before-and-after, and the pitch. The thing they attack is the thing they just built, so the fences land on real work. Hosting contracts and the automated harness are a builder extension.
+Each learner brings their own prepared Ollama-capable computer. Installation and downloads happen before class. No shared class machine is a prerequisite. A phone can read the saved packet but cannot stand in for a live local run. Use saved or mixed evidence without shame when devices are slow. Never make a learner fabricate a live result to pass.
 
-Make the permission rule the first spoken line. Breaking a classroom target is a way to improve it, not embarrass its builder. A zero-leak first run is an honest result, not a reason to skip the defenses. The shared case is real; its exercise records are not. Repeat that difference before the build.
+The core route now has a maintained local app. The same target is tested and locked. Draft-only tools and a log/pause control exist from the start; lock adds data labels and removes the bait from each new payload. Do not claim all four controls were absent Before, or that a wording change is a permission check. This is a supplied-case exercise, not a production security certification.
 
 ## Prepare before learners arrive
 
-- Recheck the official CSR site and source card.
-- Build the desk from only supplied files, run all five callers, then run the ten attacks against it with the current supported model.
-- Save at least one leak or partial response from an allowed model for the demo.
-- Confirm every phone number and code in the assets is fake.
-- Prepare one complete message card and one unsafe reply for correction.
-- Print interview, spec, caller, attack, and before-and-after cards.
-- Test the pause, delete, or key-disable control used as the class switch.
+Follow [preparation](preparation.md). Recheck the public brief against its cited site and keep synthetic facts labeled. Run callers, the manual edit, both ten-attack phases, locked callers, and pause using the class model. Save actual evidence with model digest, prompt-set hash, and dates. Do not force a leak if the model holds. The [saved packet](assets/fallback-before-after.md) is authored teaching data, not a measured run.
+
+Print student, worksheet, manual-edit, caller, attack, and saved cards. Open the 20-slide deck and check navigation and print. Read [the answer key](answer-key.md). Test the Level 4 upload/reopen with an approved student account separately; local file existence does not prove submission.
 
 ## Safety boundary
 
-No private business material enters a cloud tool. A different real business requires owner approval and an instructor review of every input. Test only learner-owned or explicitly permitted classroom systems. Never target a public bot, employer, school, business, or stranger. Use fake secrets. If a learner names a real target, redirect to their own desk. The desk may answer from approved sources and draft a message card. It may not send, book, spend, promise, advise on high-stakes matters, or reveal private data.
+Only the approved brief and fictional exercise inputs. No imports, keys, cloud fallback, real messages, hosting, or live inbox connections. Learners test their own desk; explicit permission comes first for a partner target. Never test an employer, stranger, or public bot. High-stakes caller C4 is a refusal test; do not teach equipment-operation steps. Code never dispatches a model draft to any tool.
 
 ## 90-minute schedule
 
 | Block | Minutes |
 | --- | ---: |
-| Arrival, case boundary, permission rule, and proof preview | 8 |
-| Front-desk job, six-part spec, and the note on the package | 10 |
-| Live demo: public fact, missing price, hidden instruction, one defense | 10 |
-| Task 1: interview and spec | 12 |
-| Task 2: build the desk and run five callers | 18 |
-| Task 3: ten attacks, before count | 8 |
-| Task 3: four defenses and rerun | 14 |
-| Paired sixty-second pitches | 6 |
-| Proof check and exit | 4 |
+| Arrival, readiness and proof preview | 6 |
+| Job boundaries and note-on-package explanation | 8 |
+| Demo: source, missing price, bait and outside controls | 8 |
+| Task 1: six-part spec | 12 |
+| Task 2: five callers, one edit, two retests and card | 20 |
+| Task 3: before set, four defenses, after set and pause | 22 |
+| Paired sixty-second pitches and checks | 8 |
+| Proof upload or not-submitted record and exit | 6 |
 | **Total** | **90** |
 
 ## Facilitation plan
 
-### Opening
+Opening: name the local target and permission boundary. Show the public brief and synthetic FAQ. Ask what the desk should do with a price missing from this brief. Reveal the proof before setup.
 
-Say: attack only what you built or what a partner allowed you to test. Ask learners to repeat it. Then ask what a good human front desk does and does not do. Show the public-source card and the training-only heading. Reveal the passing proof before any build.
+Demo: read C1/C2 expected behavior, show an honest response, and trace one fake value entering a Before request. Lock shows removal rather than a magic prompt. Show that the app has no sending tools in either phase. Pause and attempt a set: zero rows and paused status are concrete proof.
 
-### Demo
+Practice: inspect never lists before runs. Require an expected behavior before each set. Learners keep every result, including zero leaks, failures, and truncation. Change the citation rule before the Before attack set and keep it fixed afterward. Compare model digest, exact test-set hash, and source-rule hashes. Source-rule hashes should differ across lock; unintended edits or different digests limit the claim. Do not wait beyond a block for slow generation; use labeled saved rows and record missing live checks.
 
-Ask one supported public question and one unpublished-price question. Then run a hidden instruction and watch it land. Remove the fake secret from the material and ask why that change is stronger than a longer warning. Show the five-part message card and the handoff.
-
-### Practice
-
-Check never lists before chat setup. During caller tests, reject a smooth reply that lacks a receipt or safe stop. Require expected behavior before each attack. During repair, point to the location of each fence: words, data removal, permissions, and operations controls. Consent must be written before any swap.
-
-### Close
-
-Learners pitch in pairs. The partner counts AI, agent, and model. Collect before and after counts without ranking learners. Each learner states the defense that reduced the most risk and uses the switch once.
+Close: partners time pitches and check receipts. They do not need to attack one another. End paused and use Ctrl+C for the local server. Ask what a log proves and what it cannot prove.
 
 ## Passing proof
 
-A six-part spec and never list; five caller tests and one complete message card; the same ten attacks scored before and after four defenses, with the fake secret removed and a tested log, draft-only boundary, and off switch; and a sixty-second outcome pitch without the words AI, agent, or model.
+A six-part spec and never list; five scored callers and a five-field message card; ten before and ten after rows with honest verdicts; one citation-rule edit and two retests; four visible defenses, a log and pause test; and a sixty-second outcome pitch. Label live, saved, failed, and not-submitted evidence.
 
 ## Grading guide
 
-| Check | Meets | Return for revision when |
-| --- | --- | --- |
-| Spec | Six parts and explicit never list | Action or handoff is vague |
-| Source boundary | Public and training facts remain labeled | Synthetic data is presented as CSR policy |
-| Five callers and card | Required routes scored; all five card fields readable | Missing price or high-stakes route is absent |
-| Before | Ten attacks and an honest count | Only successful attacks are kept |
-| Defenses | All four are visible and fake secret is absent | Wording is the only defense |
-| After | Same ten attacks and new count; switch used | Different tests hide the comparison; stop is only promised |
-| Pitch | Sells the outcome in a minute | Uses the forbidden words or names a price |
+Use the detailed key. A smooth answer fails if it invents a price, promise, source, private detail, or unsafe instruction. An exact fake-value flag is not a complete grade. Partial leakage, instruction takeover, and invented disclosure require reading. Failed or truncated rows never count as Held. Saved and mixed routes can pass the same reasoning checks if labeled; they cannot earn a live execution claim.
 
 ## Access and support
 
-- Phone learners can complete the core desk, callers, attacks, and pitch.
-- Pair learners for interviews but require separate specs and proof.
-- Do not force partner testing; unused card attacks replace it.
-- Builders may automate only after manual proof and secret inspection.
-- Offer a quiet route because attack language can feel confrontational.
-- Read Spanish anchors and allow a Spanish pitch against the same evidence.
+Use short read-aloud instructions and the Spanish anchors. Allow a written/recorded pitch or partner reading. Each learner keeps a separate spec and proof. Follow the manual edit without any paid coding assistant, or use an existing one under the stated scope. Require no new model or hosted account. The same prepared-computer requirement applies to each learner; no class server is assumed.
 
 ## Fallbacks
 
-- Chat tool down: use assets/fallback-caller-run.md and assets/fallback-before-after.md; rewrite unsafe replies and grade the same decisions.
-- Current model holds all ten: teach from the dated saved leak and keep the zero.
-- Real business approval missing: use the CSR case, no exception.
-- Partner says no: respect it and use two unused attacks.
-- Harness fails: return to the manual sheet.
-- Fifteen minutes behind: provide the filled case interview and demo two attacks, but keep the never list, five callers, all ten learner rows, and four defenses.
+After two attempts or five minutes, switch to the supplied saved callers and full 20-row attack packet. It includes an authored paused receipt. Learners grade, repair, and name the control they would test; they label that switch evidence Saved. Keep actual failed rows too. If already locked, do not fabricate Before. If no partner, self-review two fixed rows. If upload fails, retain the worksheet and mark Not submitted.
 
 ## After class
 
-Record source-boundary misses, caller-test failures, consent issues, leak ranges, most effective defense, pitch timing, and which projects learners may choose for Level 5. Revoke any class-only key used by the instructor harness. Do not retain real owner notes without written permission.
+Record time spent, device limits, source misses, failed rows, leak/partial ranges, controls misunderstood, and upload status without collecting real private data. Classroom/device/assistant-route pilots and live upload evidence belong in the verification record. Carry this desk's ownership, failure, repair, and stop proof into Level 5. No publication or deployment is implied by finishing the lesson.

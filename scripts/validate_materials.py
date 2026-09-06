@@ -25,7 +25,7 @@ def main():
         section=text.split('## 90-minute schedule',1)[1].split('\n## ',1)[0]
         total=sum(int(x) for x in re.findall(r'^\| (?!\*\*Total).*? \| (\d+) \|$',section,re.M))
         if total!=90:errors.append(f'{folder.name}: schedule totals {total}')
-    authored=[ROOT/'README.md',*sorted((ROOT/'preparation').glob('*.md')),*sorted((COURSE/'level-01').glob('*.md')),*sorted((COURSE/'level-02').rglob('*.md')),*sorted((COURSE/'level-03').rglob('*.md')),ROOT/'projects/local-models/README.md',ROOT/'release/level-03-verification.md',ROOT/'projects/watchman/README.md',ROOT/'release/level-02-verification.md']
+    authored=[ROOT/'README.md',*sorted((ROOT/'preparation').glob('*.md')),*sorted((COURSE/'level-01').glob('*.md')),*sorted((COURSE/'level-02').rglob('*.md')),*sorted((COURSE/'level-03').rglob('*.md')),*sorted((COURSE/'level-04').rglob('*.md')),ROOT/'projects/front-desk/README.md',ROOT/'release/level-04-verification.md',ROOT/'projects/local-models/README.md',ROOT/'release/level-03-verification.md',ROOT/'projects/watchman/README.md',ROOT/'release/level-02-verification.md']
     for path in authored:
         text=path.read_text(encoding="utf-8")
         for key in ['Document:','Version:','Author:','Contact:','Date:','SHA256:','Chain:','Tx:','License:']:
@@ -40,12 +40,19 @@ def main():
             if not target.exists():errors.append(f'{path.relative_to(ROOT)}: broken link {link}')
     for name in ['preparation','manual-edit','answer-key']:
         if not (COURSE/'level-03'/f'{name}.pdf').exists():errors.append(f'Level 3 missing {name}.pdf')
+    for name in ['preparation','manual-edit','answer-key']:
+        if not (COURSE/'level-04'/f'{name}.pdf').exists():errors.append(f'Level 4 missing {name}.pdf')
+    for group,count,prefix in [('callers',5,'C'),('attacks',10,'A')]:
+        tasks=json.loads((COURSE/f'level-04/assets/{group}.json').read_text(encoding='utf-8'))
+        if [t['id'] for t in tasks]!=[f'{prefix}{n}' for n in range(1,count+1)]:errors.append(f'Level 4 {group}: fixed IDs do not match')
+        card=(COURSE/('level-04/assets/caller-card.md' if group=='callers' else 'level-04/assets/attack-card.md')).read_text(encoding='utf-8')
+        if any(t['prompt'] not in card for t in tasks):errors.append(f'Level 4 {group}: card and runnable prompts differ')
     saved=json.loads((COURSE/'level-01/assets/saved-runs.json').read_text(encoding="utf-8"))
     if len(saved)!=5 or any(r['route']!='saved classroom example' for r in saved):errors.append('Saved route must have five labeled examples')
     # Tracked-state only. Never inspect private .zta contents.
     tracked=subprocess.check_output(['git','ls-files'],cwd=ROOT,text=True).splitlines()
     for p in tracked:
-        if p.startswith(('.zta/','.env','platform/')) or Path(p).name in {'PROJECT-LAB-01.md','PROJECT-LAB-02.md','PROJECT-LAB-03.md'}:errors.append(f'Private/generated learner data tracked: {p}')
+        if p.startswith(('.zta/','.env','platform/')) or Path(p).name in {'PROJECT-LAB-01.md','PROJECT-LAB-02.md','PROJECT-LAB-03.md','PROJECT-LAB-04.md'}:errors.append(f'Private/generated learner data tracked: {p}')
     template=ROOT/'projects/watchman/workflow.template.yml'
     if template.read_bytes()!=(COURSE/'level-02/assets/starter/watch.yml').read_bytes():errors.append('Legacy workflow copy is stale; run scripts/sync_watchman_starter.py')
     if errors:

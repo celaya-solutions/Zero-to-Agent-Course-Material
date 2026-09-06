@@ -1,40 +1,35 @@
 # Worksheet - Project Lab Level 4: The Front Desk, Attacked and Locked
 
-Name or course nickname: ____________________  Date: ____________________
+```text
+Document:    Worksheet - Project Lab Level 4: The Front Desk, Attacked and Locked
+Version:     v1.0.0
+Author:      Celaya Solutions
+Contact:     hello@celayasolutions.com
+Date:        2026-09-06
+SHA256:      a17f010aea570340248e2e6ef3c1aa4c1f62a2c2053c575eaecf1886186b2525
+Chain:       n/a
+Tx:          [not anchored]
+License:     All Rights Reserved / Celaya Solutions
+```
 
-Case: [ ] Celaya Solutions Research  [ ] Instructor-approved business
+Name or course nickname: __________ Date: __________
 
 ## Goal and pass check
 
-A six-part spec and never list; five caller tests and one complete message card; the same ten attacks scored before and after four defenses, with the fake secret removed and a tested log, draft-only boundary, and off switch; and a sixty-second outcome pitch without the words AI, agent, or model.
+A six-part spec and never list; five scored callers and a five-field message card; ten before and ten after rows with honest verdicts; one citation-rule edit and two retests; four visible defenses, a log and pause test; and a sixty-second outcome pitch. Label live, saved, failed, and not-submitted evidence.
 
-- [ ] Six-part spec
-- [ ] Five caller tests
-- [ ] Five-part message card
-- [ ] Ten before rows
-- [ ] Four defenses
-- [ ] Ten after rows
-- [ ] Log, draft-only rule, and switch test
-- [ ] One-minute outcome pitch
+Route for each section: Live / Saved / Mixed / Failed. Prepared computer: __________ Model/digest: __________
 
 ## Safety check / Verificación de seguridad
 
-- [ ] Public or training-only records only
-- [ ] Owner approval recorded for any alternate business
-- [ ] No private customer, price, calendar, key, or phone data
-- [ ] All secrets, names, numbers, and codes are fake
-- [ ] No real public system will be tested
-- [ ] Uso datos públicos o sintéticos. Pruebo solamente lo que construí o lo que me dieron permiso de probar.
+- [ ] Supplied public and fictional records only; no real keys or messages.
+- [ ] My own local desk. Any partner permission was given before testing.
+- [ ] Every reply remains a draft. No real service will be tested.
+- [ ] Cada evidencia está marcada en vivo, guardada, mixta o fallida.
 
-## Task 1 - Interview and spec
+## Task 1 - Interview and six-part spec
 
-| Interview question | Public answer or Not publicly known |
-| --- | --- |
-| What repeated questions arrive? |  |
-| Which requests need a human? |  |
-| What should never be shared? |  |
-| What can be answered from the public source? |  |
-| What outcome would make this useful? |  |
+Repeated question: __________ Missing fact: __________ Human handoff: __________ Useful outcome: __________
 
 | Spec part | My rule |
 | --- | --- |
@@ -45,103 +40,88 @@ A six-part spec and never list; five caller tests and one complete message card;
 | Access list |  |
 | Never list |  |
 
-## Task 2 - Five caller tests
+## Task 2 - Five callers and one edit
 
-| # | Route | Expected | Actual | Receipt | Verdict / fix |
-| --- | --- | --- | --- | --- | --- |
-| 1 | Easy public fact |  |  |  |  |
-| 2 | Unpublished price |  |  |  |  |
-| 3 | Urgent request |  |  |  |  |
-| 4 | High-stakes request |  |  |  |  |
-| 5 | Impersonation |  |  |  |  |
+First receipt: __________ Route: __________
 
-Miss I fixed and reran: ________________________________________________
+| ID | Expected behavior | Actual answer, source/boundary, verdict |
+| --- | --- | --- |
+| C1 Public fact |  |  |
+| C2 Missing price |  |  |
+| C3 Urgent request |  |  |
+| C4 High stakes |  |  |
+| C5 Impersonation |  |  |
 
-### Five-part message card
+Five-field card: Alias __________ Public route __________ Need __________ Urgency __________ Preferred time (request only) __________
 
-Name or safe alias: ___________________________________________________
+Old Source rule: __________ New Source rule: __________
 
-Public contact route: __________________________________________________
+Retest receipt: __________ C1 actual/verdict: __________ C2 actual/verdict: __________
 
-What they need: _______________________________________________________
+A citation I checked against the brief and heading: __________
 
-Urgency: [ ] Today  [ ] This week  [ ] Whenever
+## Task 3 - Same ten attacks
 
-Best follow-up time: __________________________________________________
+Expected safe behavior: __________ Before receipt: __________ After receipt: __________
 
-## Task 3 - Attack it, then lock it
+Before model digest/test-set hash: __________ After model digest/test-set hash: __________
 
-Fake secret placed in the desk: __________________  Expected safe behavior: ______________
+Rules unchanged between phases? __________ Comparison limits: __________
 
-Partner test requested: [ ] Yes  [ ] Not used    Partner said yes: [ ] Yes  [ ] Not applicable
+For each row record actual output or receipt row, verdict (Held / Leaked / Partial / Failed / Truncated), reason, and Live / Saved label.
 
-| # | Attack name | Before result | Held / Leaked / Partial | After result | Held / Leaked / Partial | Changed? |
-| --- | --- | --- | --- | --- | --- | --- |
-| 1 | Direct order |  |  |  |  |  |
-| 2 | Authority claim |  |  |  |  |  |
-| 3 | Costume or game |  |  |  |  |  |
-| 4 | Hidden P.S. |  |  |  |  |  |
-| 5 | Order inside document |  |  |  |  |  |
-| 6 | Translation request |  |  |  |  |  |
-| 7 | Repeat instructions |  |  |  |  |  |
-| 8 | One crumb at a time |  |  |  |  |  |
-| 9 | Urgency and pity |  |  |  |  |  |
-| 10 | Second-model attack |  |  |  |  |  |
+| ID | Before actual / verdict / reason / route | After actual / verdict / reason / route |
+| --- | --- | --- |
+| A1 |  |  |
+| A2 |  |  |
+| A3 |  |  |
+| A4 |  |  |
+| A5 |  |  |
+| A6 |  |  |
+| A7 |  |  |
+| A8 |  |  |
+| A9 |  |  |
+| A10 |  |  |
 
-Before leak count: ______  After leak count: ______
+Before leaked: ___ Partial: ___ Sum: ___ Failed/truncated: ___
 
-| Defense | What I changed | Where the fence lives | Checked |
-| --- | --- | --- | --- |
-| Mark untrusted text as data |  | Words around model | [ ] |
-| Remove fake secret |  | Outside model | [ ] |
-| Draft only; person acts |  | Permission layer | [ ] |
-| Log and switch |  | Operations layer | [ ] |
+After leaked: ___ Partial: ___ Sum: ___ Failed/truncated: ___
 
-Log location: _______________________  Switch: _________________________
+| Defense | Location and evidence |
+| --- | --- |
+| Visitor text as data |  |
+| Removed fake bait and history |  |
+| No action tools, human reviews |  |
+| Log and pause control |  |
 
-Strongest defense and why: ____________________________________________
+Locked caller retest receipt/verdicts: __________
 
-Partner attack result or unused-card replacement: ______________________
+Pause control receipt: __________ Paused run: __________ Status/row count: __________ Resume then exit pause: __________
 
-## Close - 60-second pitch
-
-Problem: ______________________________________________________________
-
-Outcome: ______________________________________________________________
-
-Proof: ________________________________________________________________
-
-Ask: __________________________________________________________________
-
-Forbidden-word count: AI ____  agent ____  model ____  Seconds: ______
+Strongest defense and remaining risk: __________
 
 ## Partner evidence check
 
-Partner initials: ______
+Permission or self-review: __________ Reviewer: __________
 
-- [ ] Never list is clear.
-- [ ] Five callers cover all required routes.
-- [ ] Message card has five parts.
-- [ ] Consent came before any partner attack.
-- [ ] Same ten attacks appear before and after.
-- [ ] Fake secret is absent from model material.
-- [ ] Switch was used once.
-- [ ] Pitch sells the outcome.
+- [ ] Five callers and a complete card.
+- [ ] One-rule edit, C1/C2 retests.
+- [ ] Same ten inputs; honest failures and labels.
+- [ ] Four locations and actual or labeled saved pause proof.
+- [ ] No sending or student-upload claim without evidence.
+
+## Close - Pitch
+
+Problem: __________ Outcome: __________ Proof: __________ Ask: __________
+
+Seconds: ___ Forbidden words: AI ___ agent ___ model ___
 
 ## Proof
 
-Spec receipt: __________________________________________________________
+Private worksheet saved at: __________ Supporting receipt names: __________
 
-Five-caller and message-card receipt: __________________________________
-
-Before and after sheets: ______________________________________________
-
-Four-defense, log, and switch receipt: _________________________________
-
-Pitch receipt: _________________________________________________________
+Level 4 upload time and reopened contents: __________ OR Not submitted, reason: __________
 
 ## Exit ticket
 
-The human still owns: __________________________________________________
-
-Fences, not promises means: ____________________________________________
+The person still owns: __________ A saved log cannot prove: __________

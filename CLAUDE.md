@@ -2,11 +2,11 @@
 
 ```text
 Document:    Claude Code Course Instructions
-Version:     v1.1.0
+Version:     v1.3.0
 Author:      Celaya Solutions
 Contact:     hello@celayasolutions.com
 Date:        2026-09-06
-SHA256:      2bcfc5b27a107942850eaf14984d1a9e1c747ba3587fe2323545ff19a33ea53f
+SHA256:      1d1d70fa2abdeb0ebde61070e409d8b992bb2008ca363816903f43736626d607
 Chain:       n/a
 Tx:          [not anchored]
 License:     All Rights Reserved / Celaya Solutions
@@ -14,7 +14,9 @@ License:     All Rights Reserved / Celaya Solutions
 
 Read [AGENTS.md](AGENTS.md) first. Codex and Claude Code use the same scope and checks.
 
-For **course maintenance**, Level 3 now has a local lab and teaching package. Follow [the handoff](release/next-section.md) and [verification](release/level-03-verification.md). Preserve earlier work and separate consumers. Do not begin Level 4 or publish as cleanup.
+For **course maintenance**, Level 4 now has a local front desk and teaching package. Follow [the handoff](release/next-section.md) and [verification](release/level-04-verification.md). Preserve earlier work and separate consumers. Do not begin Level 5, merge, or publish as cleanup.
+
+For a **Level 4 learner exercise**, follow [the manual card](courses/project-lab/level-04/manual-edit.md). Edit only the one Source rule in `.zta/front-desk/desk-instructions.md`; do not read other private files or keys. Preserve test inputs, records, model, endpoint, logs, and controls. Show the diff and callers command; the learner runs it and judges C1/C2.
 
 For a **Level 3 learner exercise**, follow [the manual card](courses/project-lab/level-03/manual-edit.md). Edit only the named private Modelfile rule. Do not open other `.zta/` files or keys. Keep the base, endpoint, prompts, limits, tests, and earlier evidence. Show the diff and create/check commands; the learner runs them and judges both answers.
 

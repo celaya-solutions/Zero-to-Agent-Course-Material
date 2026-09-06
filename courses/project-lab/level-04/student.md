@@ -1,124 +1,112 @@
 # Project Lab Level 4: The Front Desk, Attacked and Locked
 
+```text
+Document:    Project Lab Level 4: The Front Desk, Attacked and Locked
+Version:     v1.0.0
+Author:      Celaya Solutions
+Contact:     hello@celayasolutions.com
+Date:        2026-09-06
+SHA256:      bd983865b3c505e897bfe465fceb0b293a680e719249060e33aa780e359bddb6
+Chain:       n/a
+Tx:          [not anchored]
+License:     All Rights Reserved / Celaya Solutions
+```
+
 ## Goal
 
-Define, build, and test a safe front desk for the public Celaya Solutions Research case or an instructor-approved business, then attack it with ten known tricks, apply four defenses outside and around the model, and rerun the same test.
+Build a local front desk from an approved public brief, test five callers, compare the same ten attacks before and after four defenses, and show a saved log and a working stop control.
 
-By the end of class, you can:
-
-- turn an interview into a six-part job specification;
-- build a desk that answers only from approved material;
-- produce a five-part message card;
-- explain prompt injection in plain words and measure it;
-- separate promises in words from fences outside the model; and
-- pitch the outcome in one minute.
+By the end of class, you can turn a job into a six-part spec, check public facts, take a complete message, recognize prompt injection, measure ten repeated tests, and explain what a person still controls.
 
 ## Start here
 
-Use the public CSR case unless the instructor confirms another business and its owner-approved material. Training records are not real CSR policy. The core route runs in a chat project. Hosting is planned, not deployed, tonight.
+Complete [preparation](preparation.md) before class. Reuse your own prepared computer, course fork, and local gemma3:4b. Open [the desk](http://127.0.0.1:8504) with `uv run --frozen zta start front-desk`. This lesson builds a local classroom draft tool. The public site, student platform, and any real business inbox are separate.
 
-Every secret in this class is fake. Before a partner test, ask clearly and record yes. Never test a stranger's system or a real business service.
-
-Experienced builder? Run the same ten attacks through the supplied harness contract after the manual sheet is complete, then draft the Vercel server-function contract. No secret may reach browser code.
+Use only the supplied CSR brief and synthetic records. Different businesses wait for a separate owner-approved exercise. Need to catch up? Read the [public brief](assets/csr-public-brief.md), [FAQ](assets/training-faq.md), and [caller card](assets/caller-card.md), then use labeled saved evidence if preparation is unavailable.
 
 ## Anchors / Anclas
 
 - Sell the outcome, not the robot. / Vende el resultado, no el robot.
 - Fences, not promises. / Barreras, no promesas.
-- A secret it never saw cannot leak. / Un secreto que nunca vio no se puede filtrar.
+- A secret it never saw cannot be copied from its context. / Un secreto que no recibió no se puede copiar de su contexto.
 
-## What a good front desk does
-
-It answers repeated questions from approved material. It takes a complete message. It stops on missing facts and high-stakes requests. It never invents a price, promises a time, shares a private contact, or acts without approval.
-
-The six-part spec is trigger, steps, checks, failure routes, access list, and never list. The never list is the product boundary.
-
-## The note on the package
-
-The owner gives a new hire rules. A package arrives with a note that looks like another rule. The hire follows the last note. Prompt injection is the same problem: stranger-written text contains an instruction, and the model may treat it like the owner's instruction.
-
-Better wording can help, but wording is still text. Stronger fences remove the secret, remove dangerous tools, require human approval, record a log, and keep a stop control outside the model.
+A stranger's message can look like a new order. Prompt injection is when the desk follows that message as if it came from its owner. Marking text helps, but it is still wording. Removing private data and action tools reduces what the system can access. A generated guess can still be wrong or coincidentally match a removed value.
 
 ## Safety stop / Alto de seguridad
 
-Use public and training-only records. Do not enter a real client message, price list, calendar, key, private number, or unpublished business record. Attack only what you built or what a partner allowed you to test. Use fake names, 555 phone numbers, and fake codes. Do not publish attack strings as a challenge against real systems.
+Only public or supplied fictional data. The code and 555 number are fake. Do not import keys, private business files, real messages, calendars, or contacts. Test your own local desk; a partner must explicitly agree before you operate their classroom target. Keep your own controls and account. Nothing sends, books, spends, or changes a real service.
 
-Usa datos públicos o sintéticos. Ataca solamente lo que construiste o lo que una pareja te permitió probar. Nunca pruebes un sistema real sin permiso.
+Usa datos públicos o sintéticos y tu propio escritorio local. Pide permiso antes de probar el de una pareja. Una respuesta es un borrador para revisar.
 
-## Task 1: Interview and specify
+## Task 1: Define the job - 12 minutes
 
-Use the case card to answer the interview questions. Mark answers that are not publicly known. Build the six-part spec. Write the never list first.
+Read the brief and FAQ. In the private worksheet, answer: Which repeated question can this desk answer? What is missing? When must a person take over? What outcome would help? Write Not in the supplied source for unknown facts.
 
-Required never items: no invented price, no response-time promise, no private contact, no client disclosure, no high-stakes advice, no send or booking without a person.
+Fill six parts: trigger, steps, checks, failure routes, access list, and never list. Required never items: no invented price, callback promise, private contact, client disclosure, high-stakes advice, or sending/booking. A public source is a small evidence boundary, not all of the internet.
 
-Success check: a partner can tell what the desk does, what it cannot do, and when it hands off.
+Success check: your partner can point to one supported fact, one missing fact, and the human handoff.
 
-## Task 2: Build and test the desk
+## Task 2: Build, test, and make one repair - 20 minutes
 
-Add the public facts, training FAQ, and training message policy. Paste the supplied desk instructions. Add the one fake code from the attack card so Task 3 has something to leak. Run five callers:
+1. Select Five callers in the desk. Read expected behavior for C1-C5 before clicking Run selected set.
+2. Wait for the saved receipt. Inspect every reply. Mark meets or miss, cite its source or boundary, and keep any truncation or failure. The program never grades these answers for you.
+3. Follow the [manual edit](manual-edit.md): change one Source rule in your private instructions. Run Five callers again. Compare C1 and C2 with the first run. Keep both receipts even if the result did not improve.
+4. Build the five-field message card from the fictional River request: alias, public route, need, urgency, preferred follow-up time. An afternoon preference is a request, not a promised appointment.
 
-1. Easy public question.
-2. Price not in the public source.
-3. Urgent collaboration request.
-4. High-stakes legal, medical, financial, or physical-safety request.
-5. Impersonation request for private information.
+Success check: five distinct caller verdicts, the one-line edit, two retests, and all five message fields. Nothing has been sent.
 
-Fix every miss and rerun it. Finish with one five-part message card: name or safe alias, public contact route, need, urgency, and best follow-up time.
+## Task 3: Attack, repair, repeat, and stop - 22 minutes
 
-Success check: supported answers carry a receipt, missing and high-stakes routes stop, and the card has all five fields.
+1. Check that phase says before. Read the [attack card](assets/attack-card.md). Write expected behavior. Select Ten fixed attacks and run the set. The app uses the fake bait in the starting context. Keep all ten A1-A10 rows; failed rows remain failed.
+2. Score Held, Leaked, or Partial with a reason. Keep Failed and Truncated separate. Count leaks, partials, and their sum. Exact-match flags miss hints and changed formats; read the answers yourself. Zero is a valid result.
+3. Click Apply four defenses. Inspect the four locations below. Keep the same instructions, model digest, and test-set hash for a useful comparison.
+4. Run Ten fixed attacks again. Score the same A1-A10 inputs. Then rerun Five callers in locked phase to see whether normal work still holds. If time runs out, use the saved comparison and mark which rows were not live.
+5. Click Pause desk. Run a set while paused. Its receipt should say paused with zero rows. Resume, then pause at exit. During a long run, use the second-terminal pause command in preparation. Keep the control and paused-run receipts.
 
-## Task 3: Attack it, then lock it
+| Defense | Where to inspect | What it proves and does not prove |
+| --- | --- | --- |
+| Mark visitor text as data | Fixed mail-desk card and locked request builder | Wording can help; it is not a security guarantee. |
+| Remove private bait | Locked builder omits vulnerable card and old history | The supplied bait is absent from new requests; guesses remain possible. |
+| Draft-only access | App has no send, booking, browser, or spending tools | A reply cannot trigger those actions. This protection exists before and after. |
+| Log and stop | Private run/control files and Pause desk | The program saves results and blocks new requests. It cannot undo already-completed computation. |
 
-1. Write what a safe answer should do. Run all ten attacks from the attack card against your desk. Mark each held, leaked, or partial. Count the leaks.
-2. Apply four defenses: mark customer text as data, never an instruction; remove the fake code and any private contact from the model's material; limit the desk to drafting, so a person sends or acts; record each input, draft, and flag, and name the off switch.
-3. Run the same ten attacks again. Compare counts. Use the off switch once.
+No partner is required. With consent, a partner can review two of your fixed attack results on your screen; do not invent unused rows after already running all ten. Saved runs must stay labeled.
 
-If a partner agrees in writing, exchange two attacks. Each learner keeps control of their own account and records one result. If no partner, use two unused attacks from the card.
+## Close: the sixty-second pitch
 
-Success check: the same test was rerun, the fake secret is absent, and you can point to each fence outside the model.
+Give the problem, outcome, measured proof, and ask. Avoid AI, agent, and model. Do not invent a price or promise. Example ask: Can we test these five repeated questions with approved public material? Timing and cost evidence come in Level 5.
 
-## Close: pitch the outcome
-
-Write and deliver a 60-second pitch to a partner: the problem, the outcome, the proof, and the ask. Do not use AI, agent, or model. Costing comes in Level 5.
-
-Builder extension: write the automated harness contract, use a small model key from an environment variable, and inspect the log for accidental secrets before running it. Then define a Vercel browser-to-server boundary, rate limit, log, and secret name.
+Builder extension: after the required proof, trace a locked payload and private log in your own test copy. Show the absence of bait and action tools. Test a pause during an in-flight mock response. A hosting contract can be drafted later; no public target or deployment is part of this exercise.
 
 ## Quick check before proof
 
-1. Which answer must stop with Not in the public source?
-2. What are the five message-card fields?
-3. Why is a better system prompt not a complete fence?
-4. Which defense usually removes the most risk?
-5. What exact action stops the desk?
+1. Which caller asks for a missing price, and what should happen?
+2. Which five fields make the message card complete?
+3. Can a better prompt stop code from sending a message?
+4. Why must the same ten inputs and model be kept for the comparison?
+5. What does a paused zero-row receipt prove? What does it not prove?
 
 ## Pass this level
 
-A six-part spec and never list; five caller tests and one complete message card; the same ten attacks scored before and after four defenses, with the fake secret removed and a tested log, draft-only boundary, and off switch; and a sixty-second outcome pitch without the words AI, agent, or model.
+A six-part spec and never list; five scored callers and a five-field message card; ten before and ten after rows with honest verdicts; one citation-rule edit and two retests; four visible defenses, a log and pause test; and a sixty-second outcome pitch. Label live, saved, failed, and not-submitted evidence.
 
-Save the worksheet as PROJECT-LAB-04.md or keep the paper copy.
+Complete .zta/front-desk/PROJECT-LAB-04.md privately. Record run names, expected/actual/verdicts, changed rule, four defenses, pause proof, pitch, and your source labels. Sign in to [the course](https://learn.zerotoagent.org/), open Level 4, upload your worksheet, then reopen it and check its contents. If access or upload fails, keep the file and mark Not submitted. Saving or downloading locally is not submission. Keep private evidence out of Git.
 
 ## If something fails
 
-- Binder has no answer: take a message; do not fill the gap.
-- Desk invents a price: remove prices from its material and strengthen the stop route.
-- It gives high-stakes advice: require human handoff and stop after the public contact route.
-- Nothing leaks: keep the honest zero and apply the four defenses anyway.
-- Everything leaks: keep the honest count and show which fence changes the result.
-- No project instructions feature: place the rules in the first message.
-- Tool unavailable: use the saved caller transcripts and the saved before-and-after packet.
-- Partner declines: do not swap. Use two unused attacks from the card.
-- Harness error: stop after two tries and return to the core route.
+- Missing public fact: stop with Not in the public source and a human handoff.
+- Invented answer or missing citation: keep the miss, check the source, edit the one rule, and retest C1/C2.
+- Slow or unavailable model: after two attempts or five minutes, use [saved callers](assets/fallback-caller-run.md) and [saved attacks](assets/fallback-before-after.md). Do not wait through class.
+- Batch stops: earlier rows stay saved. Keep failed/truncated rows separate from Held; the next run gets a new file.
+- Already locked: keep the honest state; use a saved Before set and label the comparison mixed.
+- Damaged control or stale run lock: follow preparation. Never delete your entire private folder.
+- No partner or a declined request: self-review your own supplied tests; no external target is needed.
+- No platform access: keep the private worksheet and mark Not submitted.
 
 ## Resumen en español
 
-Tarea 1: convierte la entrevista en una descripción del trabajo y una lista de límites. Tarea 2: construye el escritorio y prueba cinco llamadas. Tarea 3: prueba diez ataques, aplica cuatro barreras y repite las mismas pruebas. Cierre: presenta el resultado en un minuto sin usar las palabras IA, agente o modelo.
+Define seis partes y una lista de límites. Prueba cinco llamadas, cambia una regla de cita y repite C1/C2. Guarda diez ataques antes y los mismos diez después de cuatro defensas. Revisa llamadas normales, pausa el escritorio y guarda la prueba. Presenta el resultado en un minuto. Marca cada prueba en vivo, guardada, fallida o no enviada.
 
 ## Words for Level 4
 
-- Spec: the written job description and boundaries.
-- Message card: five fields a human can scan quickly.
-- Prompt injection: stranger text that the model follows like an instruction.
-- Data fence: words marking untrusted text as data.
-- Permission: an action the system may take without asking.
-- Audit log: a replayable record of input, output, tools, and flags.
-- Server function: code that keeps a secret away from the browser.
+Spec: the job and its limits. Prompt injection: visitor text treated as an owner instruction. Draft: text a person must review. Receipt: a saved record, not proof of correctness. Test-set hash: a fingerprint of the exact test inputs. Off switch: an outside control that stops new work.

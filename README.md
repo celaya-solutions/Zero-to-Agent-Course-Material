@@ -2,11 +2,11 @@
 
 ```text
 Document:    Zero to Agent - Course Material
-Version:     v1.2.0
+Version:     v1.3.0
 Author:      Celaya Solutions
 Contact:     hello@celayasolutions.com
 Date:        2026-09-06
-SHA256:      76a2bac2cdca73ea3585c77e1811e4348bbf2954f4554358a5d14e248d0e7329
+SHA256:      2280a40830bc7b76d755510308c3ebfec29d6f2326aa639207f570d387fb239b
 Chain:       n/a
 Tx:          [not anchored]
 License:     All Rights Reserved / Celaya Solutions
@@ -41,16 +41,16 @@ Open http://127.0.0.1:8501. Keep the terminal open. Stop with Ctrl+C. Python and
 | [1 - Your Documents Answer Back](courses/project-lab/level-01/student.md) | [Document helper](projects/documents/README.md) | Five tests, source checks, change, private submission |
 | [2 - The Night Watchman](courses/project-lab/level-02/student.md) | [Page watcher](projects/watchman/README.md) | Baseline, unchanged, changed, off switch |
 | [3 - Nothing Leaves the Building](courses/project-lab/level-03/student.md) | [Local model lab](projects/local-models/README.md) | Observed offline result or labeled fallback, six rows, named-rule retest |
-| [4 - The Front Desk, Attacked and Locked](courses/project-lab/level-04/student.md) | Business desk | Caller and attack tests, defenses, human handoff |
+| [4 - The Front Desk, Attacked and Locked](courses/project-lab/level-04/student.md) | [Local front desk](projects/front-desk/README.md) | Five callers, one edit, fixed attacks, four defenses, log and pause |
 | [5 - Choose, Improve, and Present](courses/project-lab/level-05/student.md) | An earlier project | Improved outcome, cost, presentation |
 
-Level 2 now has a maintained watcher and full [preparation guide](courses/project-lab/level-02/preparation.md). Levels 3-5 retain their active five-level course lessons. Level 3 builds on setup performed earlier. The alternative-project catalog remains on [the course website](https://zerotoagent.org/course/catalog.html); it is not a second required course.
+Level 2 now has a maintained watcher and full [preparation guide](courses/project-lab/level-02/preparation.md). Levels 3 and 4 have maintained local labs and full preparation guides; both reuse earlier setup. Level 5 carries the evidence into a final presentation. The alternative-project catalog remains on [the course website](https://zerotoagent.org/course/catalog.html); it is not a second required course.
 
 ## Downloads and status
 
 Download the versioned learner and instructor ZIP files from [Releases](https://github.com/celaya-solutions/Zero-to-Agent-Course-Material/releases). Each includes PDFs and offline instructions. Learner code comes from your fork; a materials ZIP is not a Git working copy.
 
-The published Level 1 package remains **v1.0.0-rc.1**. The current Level 3 work is a local **v1.2.0-rc.1 review candidate**, including Levels 1 and 2; see [Level 3 verification](release/level-03-verification.md). Use its matching complete course checkout, not an older download. A merge does not publish the tag or its downloads. Earlier classroom gates remain in their verification records.
+The published Level 1 package remains **v1.0.0-rc.1**. The current Level 4 work is a local **v1.3.0-rc.1 review candidate**, including Levels 1-3; see [Level 4 verification](release/level-04-verification.md). Use its matching complete course checkout, not an older download. A merge does not publish the tag or its downloads. Earlier classroom gates remain in their verification records.
 
 ## What goes where
 
