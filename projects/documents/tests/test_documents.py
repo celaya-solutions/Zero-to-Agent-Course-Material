@@ -41,7 +41,7 @@ def test_bad_document_does_not_replace_index(index):
     with pytest.raises(ValueError): build_index(index,[("image.pdf",b"not a pdf")])
     assert inventory(index)==original
 
-@pytest.mark.parametrize('name,data',[("empty.md",b""),("binary.txt",b"\xff"),("bad.exe",b"words"),("big.txt",b"a"*(10*1024*1024+1))])
+@pytest.mark.parametrize('name,data',[("empty.md",b""),("binary.txt",b"\xff"),("bad.exe",b"words"),("big.txt",b"a"*(10*1024*1024+1))], ids=["empty", "binary", "unsupported", "oversized"])
 def test_rejects_unreadable_or_large(name,data):
     with pytest.raises(ValueError): extract(name,data)
 
