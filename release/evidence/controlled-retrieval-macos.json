@@ -1,0 +1,110 @@
+{
+  "kind": "maintainer live browser pilot with public and synthetic files",
+  "course_release": "1.0.0-rc.1",
+  "not_a_learner_submission": true,
+  "explanation": "The one-passage run retrieved only Record B and missed the conflict. The rerun retrieved both records and stated both labels and review targets with a synthetic warning and human review. Evidence coverage improved from one of two conflicting records to two of two.",
+  "runs": [
+    {
+      "role": "before",
+      "at": "2026-09-06T19:27:19+00:00",
+      "number": 5,
+      "question": "Which routing label and review target should be used for a research collaboration in this exercise?",
+      "provider": "ollama",
+      "model": "gemma3:4b",
+      "settings": {
+        "max_passages": 1,
+        "show_source_quotes": false
+      },
+      "passages": [
+        {
+          "id": "78d4c2f9d0a6",
+          "source": "training-record-b.md",
+          "heading": "Classroom inquiry routing label and review target",
+          "page": null,
+          "text": "For the exercise, label research-collaboration messages ROUTE: COLLABORATION.\nThe review target is three classroom days. A human reviews these messages.\nThis is a training-only synthetic record. If another supplied record disagrees, show both and ask for human review. Do not choose a winner.",
+          "class": "training-only"
+        }
+      ],
+      "result": {
+        "status": "answered",
+        "answer": "For this exercise, research collaboration messages should be labeled ROUTE: COLLABORATION and the review target is three classroom days. This is a training-only synthetic record.",
+        "citations": [
+          {
+            "id": "78d4c2f9d0a6",
+            "quote": "ROUTE: COLLABORATION"
+          },
+          {
+            "id": "78d4c2f9d0a6",
+            "quote": "three classroom days"
+          }
+        ],
+        "seconds": 2.38,
+        "usage": {
+          "input_tokens": 468,
+          "output_tokens": 90
+        },
+        "estimated_usd": 0.0
+      },
+      "human_verdict": "Miss"
+    },
+    {
+      "role": "after",
+      "at": "2026-09-06T19:28:24+00:00",
+      "number": 5,
+      "question": "Which routing label and review target should be used for a research collaboration in this exercise?",
+      "provider": "ollama",
+      "model": "gemma3:4b",
+      "settings": {
+        "max_passages": 4,
+        "show_source_quotes": true
+      },
+      "passages": [
+        {
+          "id": "78d4c2f9d0a6",
+          "source": "training-record-b.md",
+          "heading": "Classroom inquiry routing label and review target",
+          "page": null,
+          "text": "For the exercise, label research-collaboration messages ROUTE: COLLABORATION.\nThe review target is three classroom days. A human reviews these messages.\nThis is a training-only synthetic record. If another supplied record disagrees, show both and ask for human review. Do not choose a winner.",
+          "class": "training-only"
+        },
+        {
+          "id": "0d37efdacf0d",
+          "source": "training-record-a.md",
+          "heading": "Classroom inquiry routing label and review target",
+          "page": null,
+          "text": "For the exercise, label research-collaboration messages ROUTE: RESEARCH.\nThe review target is two classroom days. A human reviews these messages.\nThis is a training-only synthetic record. If another supplied record disagrees, show both and ask for human review. Do not choose a winner.",
+          "class": "training-only"
+        },
+        {
+          "id": "1cf20ea8b951",
+          "source": "public-contact-and-method.md",
+          "heading": "Public contact route for research collaboration",
+          "page": null,
+          "text": "For research collaborations, architecture conversations, or documentation requests, the public contact route is hello@celayasolutions.com.",
+          "class": "public"
+        }
+      ],
+      "result": {
+        "status": "conflict",
+        "answer": "Two passages provide conflicting routing labels and review targets. Passage 78d4c2f9d0a6 states: ROUTE: COLLABORATION, review target is three classroom days. Passage 0d37efdacf0d states: ROUTE: RESEARCH, review target is two classroom days. Both records are synthetic training-only records. Human review is needed to resolve this conflict.",
+        "citations": [
+          {
+            "id": "78d4c2f9d0a6",
+            "quote": "For the exercise, label research-collaboration messages ROUTE: COLLABORATION."
+          },
+          {
+            "id": "0d37efdacf0d",
+            "quote": "For the exercise, label research-collaboration messages ROUTE: RESEARCH"
+          }
+        ],
+        "seconds": 1.44,
+        "usage": {
+          "input_tokens": 662,
+          "output_tokens": 159
+        },
+        "estimated_usd": 0.0
+      },
+      "human_verdict": "Pass"
+    }
+  ]
+}

@@ -6,7 +6,7 @@ Version:     v1.0.0
 Author:      Celaya Solutions
 Contact:     hello@celayasolutions.com
 Date:        2026-09-06
-SHA256:      07a69d173103ac771e2565f8436c108d7899a61106b5787b1de56d649b6437bf
+SHA256:      3098870f59e9cf9630d07b29238f81b27726fd1cd410f10fdfe5fcdff6450e67
 Chain:       n/a
 Tx:          [not anchored]
 License:     All Rights Reserved / Celaya Solutions
@@ -24,10 +24,13 @@ Status: **release candidate; classroom readiness is not yet certified**. A worki
 | Answer time | 0.26–1.33 seconds in that recorded local pilot. | One machine/run; do not grade learners on this. |
 | Hardware recommendation | Provisional 16 GB RAM / 10 GB free disk. | Minimum supported hardware has not been measured on actual Windows and Mac learner devices. |
 | Claude and OpenAI adapters | Fixture checks only. | No live course API credentials were supplied to this workspace. Live billing/access/model behavior remains unverified. |
-| Windows install and app workflow | Pending real-device pilot. | The first hosted Windows job stalled and was canceled; a bounded diagnostic run is being checked. No Windows pass is claimed. |
+| Hosted Windows and Mac checks | Passed on both runners: locked install, 36 application tests, material validation, and clean working tree. | [GitHub run 34055813619](https://github.com/celaya-solutions/Zero-to-Agent-Course-Material/actions/runs/34055813619); [machine-readable receipt](evidence/ci-macos-windows.json). Physical-device installer and learner-account pilots remain open. |
 | Mac browser workflow | Passed for this maintainer pilot: binder, five live answers, classifications, two source checks, one/four-passage comparison, revision record, refresh/restart persistence, and Markdown download event. | The exported draft remains private; it is not a learner fork or course receipt. Theme contrast was corrected and visually checked. |
 | Shutdown | Passed: Ctrl+C ended the app process and its health URL refused connections. | Private progress survived restart. |
 | Generated website/platform copies | Course validator and platform standalone contracts pass in isolated worktrees. | No seed/reset, live deployment, or student-data mutation occurred. |
+| Fresh public clone on this Mac | Passed: clone, `uv sync --frozen`, interactive local setup, doctor, and unchanged tracked files. | Existing uv/model cache was reused; dependency setup took under one second. This is not the proposed 45–90 minute learner preparation measurement. |
+| Controlled retrieval exercise | Passed: reducing four passages to one omitted Record A; restoring four exposed both conflicting records. | [Before/after evidence](evidence/controlled-retrieval-macos.json). The one-passage answer was correctly judged a miss. |
+| Course page and slides | Passed: existing entry page, preparation/lesson links, next-slide control, End key, and slide 20; layout inspected. | Generated website preview, not a production deployment. |
 | Coding-assistant alternatives | Codex used to implement the project; manual change is specified. | Fresh learner Claude Code and Codex install/sign-in/edit pilots remain required. |
 | Course sign-in | Public sign-in route responds. | An authenticated test-student upload-and-reopen run remains required. |
 
