@@ -2,15 +2,19 @@
 
 ```text
 Document:    Level 4 Verification Record
-Version:     v1.0.0
+Version:     v1.0.1
 Author:      Celaya Solutions
 Contact:     hello@celayasolutions.com
 Date:        2026-09-06
-SHA256:      04bb395b0de2ee30432b4cd424707f18f94b237b3b66fcdf2c8d5b97af9c63f9
+SHA256:      9007fbb4a8809b149498f35c28867dc726f62ddaec9e06a710374e8716e0466a
 Chain:       n/a
 Tx:          [not anchored]
 License:     All Rights Reserved / Celaya Solutions
 ```
+
+## Deployment update — 2026-09-06
+
+Published v1.4.0-rc.1 and both live consumers are verified in [the delivery record](delivery-v1.4.0-rc.1.md). Anonymous downloads, hashes, offline slides, source links, and live delivery passed; remaining learner gates have specific missing resources. Earlier local-only delivery statements below describe the pre-publication review. New Spanish work and Spanish delivery pilots are excluded by the active user direction.
 
 Review candidate dated 2026-09-06. This file separates measured maintainer checks from authored teaching examples and unperformed classroom pilots.
 

@@ -2,15 +2,19 @@
 
 ```text
 Document:    Level 3 Verification Record
-Version:     v1.0.0
+Version:     v1.0.1
 Author:      Celaya Solutions
 Contact:     hello@celayasolutions.com
 Date:        2026-09-06
-SHA256:      25293e698af453db339796914601aaabe8b80ccf681b4e9ff746336c28094117
+SHA256:      39557909402deede095f67e9c77ff6456dc265893d6490910332b853ff77718d
 Chain:       n/a
 Tx:          [not anchored]
 License:     All Rights Reserved / Celaya Solutions
 ```
+
+## Deployment update — 2026-09-06
+
+Published v1.4.0-rc.1 and both live consumers are verified in [the delivery record](delivery-v1.4.0-rc.1.md). Anonymous downloads, hashes, offline slides, source links, and live delivery passed; remaining learner gates have specific missing resources. Earlier local-only delivery statements below describe the pre-publication review. New Spanish work and Spanish delivery pilots are excluded by the active user direction.
 
 Level 3 candidate dated 2026-09-06. This records actual checks separately from classroom claims. Merge authorization does not turn unperformed pilots into completed evidence.
 

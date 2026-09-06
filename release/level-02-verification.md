@@ -2,15 +2,19 @@
 
 ```text
 Document:    Level 2 Candidate Verification
-Version:     v1.0.1
+Version:     v1.0.2
 Author:      Celaya Solutions
 Contact:     hello@celayasolutions.com
 Date:        2026-09-06
-SHA256:      c1f98c196155e89409aaed2fd618161472c6ad9338af211b9f7f89224809ebb7
+SHA256:      3717c9e7d5f3db5da0acaab5e00d83b68db4cb819a5e375524d1e97637125794
 Chain:       n/a
 Tx:          [not anchored]
 License:     All Rights Reserved / Celaya Solutions
 ```
+
+## Deployment update — 2026-09-06
+
+Published v1.4.0-rc.1 and both live consumers are verified in [the delivery record](delivery-v1.4.0-rc.1.md). Anonymous downloads, hashes, offline slides, source links, and live delivery passed; remaining learner gates have specific missing resources. Earlier local-only delivery statements below describe the pre-publication review. New Spanish work and Spanish delivery pilots are excluded by the active user direction.
 
 Status: **local review candidate; not a published or classroom-certified release**. Scope is Level 2 only; existing Level 1 readability fixes are retained. Source starts from `codex/level-1-documents` at `1c50b67`, with work on isolated branch `codex/level-2-night-watchman`.
 

@@ -2,15 +2,19 @@
 
 ```text
 Document:    Release and Verify the Five-Level Course
-Version:     v1.1.0
+Version:     v1.1.1
 Author:      Celaya Solutions
 Contact:     hello@celayasolutions.com
 Date:        2026-09-06
-SHA256:      096f5e257a2494ba7da1b3b811c1cd99d11f222a50ac6a7994e771793fd2011a
+SHA256:      0b6cd03642df15df439eaefacc04df5cb47ac410f3e9b2575c7f5ee1d6e09f4b
 Chain:       n/a
 Tx:          [not anchored]
 License:     All Rights Reserved / Celaya Solutions
 ```
+
+## Delivery status
+
+Publication and deployment are complete for v1.4.0-rc.1. Read [the dated delivery record](delivery-v1.4.0-rc.1.md) before acting; continue the remaining learner gates without replacing the published tag or downloads. The release steps below remain the runbook for a future changed version.
 
 ## Active user direction
 

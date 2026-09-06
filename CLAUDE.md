@@ -2,11 +2,11 @@
 
 ```text
 Document:    Claude Code Course Instructions
-Version:     v1.5.0
+Version:     v1.5.1
 Author:      Celaya Solutions
 Contact:     hello@celayasolutions.com
 Date:        2026-09-06
-SHA256:      47f153931a960ca0856741a8ec923aaaaf107c176fb84c96b034f233b4f52129
+SHA256:      6ccc4d6c91b788a1ebdde48b60ba7787436c9cc076959ab022a04e52d5784722
 Chain:       n/a
 Tx:          [not anchored]
 License:     All Rights Reserved / Celaya Solutions
@@ -14,7 +14,7 @@ License:     All Rights Reserved / Celaya Solutions
 
 Read [AGENTS.md](AGENTS.md) first. Codex and Claude Code use the same scope and checks.
 
-For **course maintenance**, perform the user-directed [release and learner-verification handoff](release/next-section.md). Publish matching downloads, deploy the website and private course update through their separate release paths, and complete real learner/setup/upload/schedule/stop checks. Levels 4-5 are already merged locally. The 2026-09-06 direction supersedes historical no-release notes for this scope. Exclude new Spanish work and Spanish pilots. Keep actual evidence, preserve learner data, and request only specific missing resources or out-of-scope decisions.
+For **course maintenance**, publication and deployment of v1.4.0-rc.1 are complete. Read [the delivery record](release/delivery-v1.4.0-rc.1.md), then continue the remaining real English learner/setup/upload/schedule/stop checks in [the handoff](release/next-section.md). Keep the published tag and files unchanged. Preserve learner data and existing Spanish anchors; exclude new Spanish work and Spanish pilots. Request only specific missing resources or out-of-scope decisions.
 
 For a **Level 5 learner exercise**, follow [the one-repair card](courses/project-lab/level-05/manual-edit.md). Reuse earlier tested improvements. Only the earlier card's named edit is authorized; private proof and all other receipts stay out of scope. Help with a screen-safe script only when requested. Preserve evidence labels and unknowns; do not invent results, reset locks/state, or publish.
 

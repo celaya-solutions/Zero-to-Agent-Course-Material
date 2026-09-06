@@ -2,15 +2,19 @@
 
 ```text
 Document:    Level 5 Verification Record
-Version:     v1.0.0
+Version:     v1.0.1
 Author:      Celaya Solutions
 Contact:     hello@celayasolutions.com
 Date:        2026-09-06
-SHA256:      f739c08d2b81e46c66537563a427a014d2e05802dbd458b00f15b004c2ef53d3
+SHA256:      02eb343ef05813a28985a6f946174d4b541258a968b08bdf422b7a3596238bdb
 Chain:       n/a
 Tx:          [not anchored]
 License:     All Rights Reserved / Celaya Solutions
 ```
+
+## Deployment update — 2026-09-06
+
+Published v1.4.0-rc.1 and both live consumers are verified in [the delivery record](delivery-v1.4.0-rc.1.md). Anonymous downloads, hashes, offline slides, source links, and live delivery passed; remaining learner gates have specific missing resources. Earlier local-only delivery statements below describe the pre-publication review. New Spanish work and Spanish delivery pilots are excluded by the active user direction.
 
 Candidate v1.4.0-rc.1 expands the fifth and final level around the existing four projects. The final lesson, preparation, one-repair card, worksheet, answer key, proof-board card, project paths, cost sheet, presentation card, and complete authored outage example are canonical source.
 

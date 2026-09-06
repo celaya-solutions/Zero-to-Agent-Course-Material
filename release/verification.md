@@ -2,15 +2,19 @@
 
 ```text
 Document:    Level 1 Release Verification
-Version:     v1.0.0
+Version:     v1.0.1
 Author:      Celaya Solutions
 Contact:     hello@celayasolutions.com
 Date:        2026-09-06
-SHA256:      3098870f59e9cf9630d07b29238f81b27726fd1cd410f10fdfe5fcdff6450e67
+SHA256:      04b9af21a7ddce81ec4fada55a893b2a0c954d1b20622f06141f34030b4f6676
 Chain:       n/a
 Tx:          [not anchored]
 License:     All Rights Reserved / Celaya Solutions
 ```
+
+## Deployment update — 2026-09-06
+
+Published v1.4.0-rc.1 and both live consumers are verified in [the delivery record](delivery-v1.4.0-rc.1.md). Anonymous downloads, hashes, offline slides, source links, and live delivery passed; remaining learner gates have specific missing resources. Earlier local-only delivery statements below describe the pre-publication review. New Spanish work and Spanish delivery pilots are excluded by the active user direction.
 
 Status: **release candidate; classroom readiness is not yet certified**. A working app and passing fixture checks are useful evidence, but do not replace physical-device and authenticated student pilots.
 

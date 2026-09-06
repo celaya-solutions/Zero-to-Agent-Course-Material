@@ -2,11 +2,11 @@
 
 ```text
 Document:    Course Repository Instructions
-Version:     v1.5.0
+Version:     v1.5.1
 Author:      Celaya Solutions
 Contact:     hello@celayasolutions.com
 Date:        2026-09-06
-SHA256:      35c56abaef6394fb4a40c4227df373af3aea7b9108ac8d47873b7658d2ed9832
+SHA256:      8003b90fad455b21e58e46cbb39d29c2ac680987526239b9bd0e9300286652a7
 Chain:       n/a
 Tx:          [not anchored]
 License:     All Rights Reserved / Celaya Solutions
@@ -16,7 +16,9 @@ This repository is the canonical authoring home for five 90-minute levels. Teach
 
 ## Next maintainer task
 
-Execute [the release and learner-verification handoff](release/next-section.md): publish matching course downloads, deploy the website and private course update, and complete the real learner/setup/upload/schedule/stop checks. Levels 4-5 are already merged locally. The user's 2026-09-06 direction authorizes this scoped follow-through; older no-release notes describe earlier turns. Exclude all new Spanish work and Spanish delivery pilots; preserve existing text. Record actual results and specific external blockers rather than asking again for the same release permission.
+Publication and deployment of v1.4.0-rc.1 are complete; see [the delivery record](release/delivery-v1.4.0-rc.1.md). Continue its remaining English learner gates. Do not recreate or replace the published release.
+
+Use [the release and learner-verification handoff](release/next-section.md) for the remaining real learner/setup/upload/schedule/stop checks. The user authorized this scoped follow-through on 2026-09-06. Exclude all new Spanish work and Spanish delivery pilots; preserve existing text. Record actual results and specific external blockers rather than asking again for the same release permission.
 
 ## Work rules
 
@@ -43,6 +45,8 @@ Every new document receives the standard metadata header. Canonical content is t
 Summaries use plain language and describe verified results. Unperformed device, cloud, and authenticated upload pilots remain open release gates. Do not infer classroom readiness from unit tests.
 
 ## Change notes
+
+- 2026-09-06: Published v1.4.0-rc.1 and deployed both consumers; recorded verified downloads, live content, preserved records, and the exact remaining learner resources. The release tag and assets remain unchanged.
 
 - 2026-09-06: Committed instructions for publication, website/private-course deployment, and real learner/control verification as the next agent task; Spanish work is excluded. The earlier Level 4-5 merges are complete.
 
