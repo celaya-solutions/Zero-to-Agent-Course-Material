@@ -26,4 +26,4 @@ language_phases:
 passing_standard: "Complete all four projects, then improve and present one project with visible evidence, a tested failure route, and a working stop or fallback."
 production_boundary: "Repository package only until a separate approval to merge, sync the private course, or deploy the Railway Landing Page service."
 canonical_repository: "https://github.com/celaya-solutions/Zero-to-Agent-Course-Material"
-release: "1.3.0-rc.1"
+release: "1.4.0-rc.1"

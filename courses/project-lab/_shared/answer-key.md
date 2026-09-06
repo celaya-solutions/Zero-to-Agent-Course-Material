@@ -6,7 +6,7 @@ Version:     v1.1.0
 Author:      Celaya Solutions
 Contact:     hello@celayasolutions.com
 Date:        2026-09-06
-SHA256:      29c3bc72285fc3a3e3a29c0e73ada17ff672e00993e493ab3469399e731d1c87
+SHA256:      127244516bccf8177f41d32f39b5c2b82468ca5e02b6c93c6cacbae2adfd691d
 Chain:       n/a
 Tx:          [not anchored]
 License:     All Rights Reserved / Celaya Solutions
@@ -54,33 +54,4 @@ Use the [Level 4 answer key](../level-04/answer-key.md). Require a six-part spec
 
 ## Level 5
 
-The eight required proof items are ownership, before state, tested change, normal run, failure route, privacy or security fence, stop or fallback, and cost plus reflection. The cost sheet must use current official provider and hosting sources; the final number is a classroom estimate, and there is no approved CSR setup fee or subscription in this course. A polished video cannot replace a missing item. A saved outage run can replace a live service when the learner explains the decisions and evidence.
-
-### Project-specific normal and failure checks
-
-| Project | Normal route | Failure route | Required fence or stop |
-| --- | --- | --- | --- |
-| Documents | Supported fresh question with exact receipt | Missing or conflicting fresh question | Stop rule and opened source |
-| Watchman | Unchanged run with log | Controlled change or fetch failure | Never list and disabled workflow |
-| Local model | Named-model job offline | Missing fact or checked false claim | Localhost boundary and exited runner |
-| Front desk | Public answer and complete message card | Price, high-stakes, impersonation, or an unused attack | One business, one binder, secret absent, draft-only permission, switch |
-
-### Presentation timing
-
-| Part | Maximum |
-| --- | ---: |
-| Outcome | 30 seconds |
-| Normal run | 60 seconds |
-| Miss, change, and improved result | 45 seconds |
-| Fence and switch or fallback | 30 seconds |
-| Cost and next safe step | 15 seconds |
-
-For deployed work, ask three different questions: Did the browser behavior work from a fresh page? Did the service health check succeed? Did saved state remain after a restart or later request? Accept only the claims the receipts support.
-
-### Common Level 5 questions
-
-Does a live failure mean the learner fails? No. The learner can state the expected behavior, show the last verified receipt, use the outage route, and explain the next check. Hiding or mislabeling the failure is the problem.
-
-What if someone cannot present aloud? Use a recording or partner-read script while the learner controls and explains the evidence. The same proof items apply.
-
-Should the class vote for a winner? No ranking is required. Works, honest, and theirs guide revision. Applause is for every learner.
+Use the [Level 5 answer key](../level-05/answer-key.md) for the complete eight-item example, project-specific checks, cost arithmetic, and Works/Honest/Theirs scores. Use the [project paths](../level-05/assets/project-paths.md) for exact supported final checks. Fresh means a new execution; fixed tests may repeat. Keep personal live gates separate from authored-example analysis. A local save is not an upload.

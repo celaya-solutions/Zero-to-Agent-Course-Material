@@ -2,11 +2,11 @@
 
 ```text
 Document:    Course Repository Instructions
-Version:     v1.3.0
+Version:     v1.4.0
 Author:      Celaya Solutions
 Contact:     hello@celayasolutions.com
 Date:        2026-09-06
-SHA256:      667562ffe50e98b976a16d09bf2f4b857b4353e661df708bcc9aec13bbc613a6
+SHA256:      acd8b2f97fe29299203413af55079ef3bbc45089859b1f4d642a201544c1f609
 Chain:       n/a
 Tx:          [not anchored]
 License:     All Rights Reserved / Celaya Solutions
@@ -16,7 +16,7 @@ This repository is the canonical authoring home for five 90-minute levels. Teach
 
 ## Next maintainer task
 
-Continue from the committed Level 4 source branch until a main merge is requested. Read [the handoff](release/next-section.md) and [Level 4 verification](release/level-04-verification.md). Begin Level 5 or publish only under a new instruction; preserve earlier live gates.
+Continue from the committed Level 5 source branch until a main merge is requested. Read [the handoff](release/next-section.md) and [Level 5 verification](release/level-05-verification.md). All five levels have full packs; preserve earlier live gates and do not add a sixth level without a new instruction.
 
 ## Work rules
 
@@ -32,6 +32,8 @@ For a Level 3 learner edit, follow `courses/project-lab/level-03/manual-edit.md`
 
 For a Level 4 learner edit, follow `courses/project-lab/level-04/manual-edit.md`. Open only `.zta/front-desk/desk-instructions.md` for the one Source rule; do not read other private state, keys, or receipts. Preserve fixed tests, public records, model, endpoint, logs, controls, and earlier proof. The learner runs C1/C2 again and judges the replies.
 
+For Level 5, reuse one earlier tested change using courses/project-lab/level-05/manual-edit.md. Keep private proof in .zta/showcase/PROJECT-LAB-05.md. Do not read or rewrite learner receipts, create fake results, reset locks/state, or publish. Authored examples cannot close personal live gates.
+
 ## Validation and documentation
 
 Run `uv run --frozen zta test documents`, `uv run --frozen zta test watchman`, `uv run --frozen zta test local-models`, and `uv run --frozen zta test front-desk`. Refresh the legacy workflow with `uv run --frozen python scripts/sync_watchman_starter.py`. After a course edit, update document hashes, regenerate slides and PDFs, run `LANG=en_US.UTF-8 ruby scripts/validate_project_lab.rb`, then `uv run --frozen python scripts/validate_materials.py`. See `release/maintaining.md` for exact commands.
@@ -41,6 +43,9 @@ Every new document receives the standard metadata header. Canonical content is t
 Summaries use plain language and describe verified results. Unperformed device, cloud, and authenticated upload pilots remain open release gates. Do not infer classroom readiness from unit tests.
 
 ## Change notes
+
+- 2026-09-06: Committed Level 5's final proof board, project-specific checks, cost examples, accessible presentation routes, full handouts, and 20 slides. All 116 project tests and course/render/package checks pass; classroom gates are in release/level-05-verification.md. Source and consumers remain isolated; no merge or deployment.
+
 
 - 2026-09-06: Committed Level 4 local desk, full learner/teacher pack, fixed caller/attack sets, source-rule retests, private log and pause control. All 116 project tests plus live model, browser, slides, and PDF checks pass; remaining classroom gates and actual model failures are recorded in release/level-04-verification.md. No merge or deployment was performed.
 

@@ -1,109 +1,114 @@
 # Project Lab Level 5: Choose, Improve, and Present
 
+```text
+Document:    Project Lab Level 5: Choose, Improve, and Present
+Version:     v1.0.0
+Author:      Celaya Solutions
+Contact:     hello@celayasolutions.com
+Date:        2026-09-06
+SHA256:      e1a0446b14a269020baaad54b057574258de04c38ef5ad8947b581524f7ab379
+Chain:       n/a
+Tx:          [not anchored]
+License:     All Rights Reserved / Celaya Solutions
+```
+
 ## Goal
 
 Choose one course project, improve it from test evidence, prove its normal and failure routes, and present the result to the class in three clear minutes.
 
-By the end of class, you can:
-
-- choose one of your four projects for a specific person or job;
-- use a real miss to choose one useful change;
-- prove normal, failure, privacy, and stop routes separately;
-- state the running cost and next safe step; and
-- present the work without hiding the failure that improved it.
+By the end of class, you can choose one useful job, connect a miss to one change, judge a new run, use a stop or fallback, estimate monthly cost, and explain the evidence in three minutes.
 
 ## Start here
 
-Bring proof from all four levels. Choose one project before class if possible. You may present live or use the supplied outage route. A saved run is honest proof when the service is down; pretending a recording is live is not.
+Complete [preparation](preparation.md) before this 90-minute meeting. Bring your own prepared computer and earlier proof from Documents, Watchman, Local Model, and Front Desk. Choose one of those four projects. Use the same reviewed course copy and setup; no new app, account, model, or hosting purchase is required.
 
-Experienced builder? A deployed Vercel or Railway project must still show browser behavior, service health, and persistence as separate checks. A green deployment screen is not the whole proof.
+Open your private PROJECT-LAB-05.md worksheet and the [project paths](assets/project-paths.md). Keep one repaired project, its original miss, and its after receipt. An earlier tested improvement counts; you do not need to undo a working repair to stage a new failure.
+
+A fresh run means a new execution with a new receipt. The fixed local-model and front-desk tests reuse their supplied inputs. An unseen input is optional only where the app already supports it. A new screenshot of an old run is saved evidence.
 
 ## Anchors / Anclas
 
 - Show the work, the miss, the fix, and the switch. / Muestra el trabajo, el fallo, la corrección y el interruptor.
-- Working is not the same as proven. / Funcionar no es lo mismo que estar comprobado.
-- The audience should be able to repeat the check. / El público debe poder repetir la prueba.
-
-## Choose one project
-
-Pick Documents, Watchman, Local Model, or Front Desk. Name one user and one job. Experienced builders may instead bring one of the built course-edition repositories from the project catalog, forked and changed, if the instructor agreed before class. Choose the project with the clearest useful proof, not the one with the most code.
+- A claim needs a receipt. / Una afirmación necesita una prueba.
+- Show what happened, including what failed. / Muestra lo que pasó, incluso lo que falló.
 
 ## Safety stop / Alto de seguridad
 
-Clean the screen before presenting. Remove names, private records, browser history, tokens, environment values, notifications, and unrelated tabs. Use synthetic or public data. Never reveal a key to prove that a key exists.
+Use public or supplied synthetic data. Before sharing, close unrelated tabs, turn off notifications, and hide keys, account details, private records, and other people's work. Review the exact worksheet and images you will show. A screen-safe summary is enough; do not open all of .zta/ or a billing page on the projector. Keep your own controls.
 
-Limpia la pantalla antes de presentar. Quita datos privados, claves, notificaciones y pestañas ajenas. Usa datos públicos o sintéticos.
+Usa datos públicos o sintéticos. Cierra pestañas ajenas y oculta claves y datos privados. Etiqueta las pruebas guardadas. No publiques ni envíes datos de otras personas.
 
-## Task 1: Build the proof board
+Nothing in this lesson asks you to connect a real inbox, publish a site, enable a dormant workflow, reset private state, or let an assistant inspect your private proof. A request already sent cannot be undone by closing a tab.
 
-Collect eight items:
+## Task 1: Choose the job and assemble proof - 15 minutes
 
-1. Ownership: the files, account, or named local model are yours.
-2. Before state: the miss, weak result, or unmet need.
-3. Tested change: what you changed and why.
-4. Normal run: one fresh input and expected result.
-5. Failure route: missing data, bad input, attack, outage, or unavailable dependency.
-6. Privacy or security fence: source receipt, local boundary, removed secret, or approval gate.
-7. Stop or fallback: the switch used or the saved route opened.
-8. Cost and reflection: fill the cost sheet with current provider price links, model and hosting assumptions, expected use, and one hour of human review; compute the cost floor; then name one next safe improvement. These are classroom estimates, not a CSR price.
+1. Write: This project helps [one person or role] do [one small job]. Example: A workshop host can draft a clear workbench reminder. Describe an observed result; do not promise saved hours you have not measured.
+2. Use the [proof-board card](assets/proof-board.md). Locate eight items in your worksheet: ownership; original miss; one tested change; normal run; failure route; fence; used stop or fallback; cost plus reflection.
+3. For each receipt write its file or safe URL, date, evidence label, and one sentence saying what it proves. Copy only the safe excerpt needed for the claim. Your original private receipts stay unchanged.
+4. Open the [cost sheet](assets/cost-sheet.md). Choose local or hosted assumptions. Include at least one hour of human review. Copy the short final calculation into item 8 and keep the full calculation in the worksheet.
+5. Mark missing proof Not performed. Follow the [outage packet](assets/outage-presentation-packet.md) if an earlier project or service is unavailable. The supplied worked board is an authored example, not your own build.
 
-Success check: a partner can locate all eight without hearing your speech.
+Success check: a partner or self-review can find all eight items without hearing your speech. The cost has units, assumptions, and a source or an explicit classroom-example label.
 
-## Task 2: Run the final test
+## Task 2: Run, inspect, and keep one repair - 15 minutes
 
-Write expected results first. Run one normal input and one failure input not used in the original level. Use the switch or fallback once. Record actual results. Fix only a blocking miss; do not rebuild the project during rehearsal.
+1. Follow only your chosen [project path](assets/project-paths.md). Write the normal and failure inputs and expected results before pressing Run. A missing-information refusal is a successful failure route; a crashed request is a failed test.
+2. Run the current project once through both routes. Record actual text or decision, time, receipt name, and Meets / Miss / Failed / Not performed. Keep cut-off outputs marked Truncated. Code tests alone do not prove the answer is right.
+3. Connect one earlier before receipt, one change, and the same-input after receipt. If a blocking miss remains, use the [one-repair card](manual-edit.md). Change one permitted rule, then retest that same input and its companion failure check. Keep a failed repair visible; narrow the claim or use the saved route.
+4. Operate the project's stop or fallback. Record the action and observable result. Front Desk has a persisted pause control; a terminal program exits; a hosted watcher has separate workflow controls. Show only what your control actually stopped.
+5. Save the updated worksheet. Do not delete old receipts to make the board look cleaner.
 
-For a deployed build, check separately:
+Success check: normal, failure, repair comparison, and used stop are distinct pieces of proof. If you use a saved comparison, label each row and state which live check remains open.
 
-- browser behavior from a fresh page;
-- API or service health;
-- saved state after a restart or new request, when persistence is claimed.
+Builder extension: with prior instructor agreement, show an existing course-edition project. Check browser behavior from a fresh page, service health, and claimed persistence after a safe restart separately. Use only your approved test environment. Mark persistence Not claimed when it is not part of the project. Deployment or a purchase is outside this class session.
 
-## Task 3: Present to the class
+## Task 3: Rehearse and present - 35 minutes
 
-Use the three-minute rubric:
+Use the [presentation card](assets/presentation-card.md). Spend ten minutes in pairs: each person speaks for three minutes, receives one minute of feedback, and uses the remaining minute to adjust their board. Self-timing or a partner-read script is valid.
 
-- 30 seconds: who it helps and the outcome;
-- 60 seconds: fresh normal run;
-- 45 seconds: miss, change, and improved result;
-- 30 seconds: fence plus stop or fallback;
-- 15 seconds: cost and next safe step.
+Then present in the instructor's 25-minute round. Each learner gets three minutes plus one minute to change presenters. One table fits six learners. Larger groups use simultaneous tables, so everyone presents their own evidence.
 
-The class scores works, honest, and theirs from 1 to 3. Scores guide revision. They do not rank learners. Everyone receives applause.
+| Part | Seconds | Show or say |
+| --- | ---: | --- |
+| Outcome | 30 | One user, one job, one bounded claim |
+| Normal route | 60 | New run if available; label a saved run |
+| Miss and change | 45 | Before, one change, after, honest verdict |
+| Fence and stop | 30 | Boundary and used control or labeled saved action |
+| Cost and next step | 15 | Monthly estimate, main assumption, one safe next check |
 
-Builder extension: show a Vercel frontend or Railway service only if the three separate checks above are visible and no production secret or private data is shown.
+The totals are 180 seconds. If a run is slow, show the last labeled receipt and continue. Never keep the audience waiting for a model. Use Works, Honest, and Theirs from the [rubric](../_shared/demo-rubric.md); feedback helps revision and does not rank people.
 
 ## Quick check before proof
 
-1. Can another person repeat the normal test?
-2. Is the failure route visible?
-3. Did you use the switch or fallback?
-4. Is every screen safe for the room and recording?
+1. Can someone find all eight items and repeat the normal check?
+2. Do the before and after use the same input, with one named change?
+3. Is failure handled safely, or honestly marked as a miss?
+4. Did you actually use the stop or open the fallback?
+5. Does the cost include human review and any unknowns?
+6. Are saved, authored, and live evidence distinct?
 
 ## Pass this level
 
-Eight items: ownership, before state, tested change, normal run, failure route, privacy or security fence, stop or fallback, and cost plus reflection; followed by a three-minute class presentation.
+Eight items: ownership, before state, tested change, normal run, failure route, privacy or security fence, stop or fallback, and cost plus reflection; followed by a three-minute class presentation. Label live, saved, authored example, and not-performed evidence; reopen the Level 5 upload or mark Not submitted.
 
-Save the worksheet as PROJECT-LAB-05.md or keep the paper copy.
+Save your work privately as .zta/showcase/PROJECT-LAB-05.md. Keep safe receipts or excerpts inside this worksheet so the instructor does not need your local paths. In [the course](https://learn.zerotoagent.org/), open Level 5, upload the worksheet, then reopen the submitted file and check its contents. Record the time and upload result. If sign-in or upload fails, keep the file and mark Not submitted. A local file or download is not submission. Do not upload the whole .zta/ folder.
+
+The saved route can show your reasoning and presentation skill. Authored examples do not establish that you built, ran, edited, stopped, or submitted your own project. The instructor records that distinction and any remaining live check; earlier incomplete levels do not become complete automatically.
 
 ## If something fails
 
-- Service down: use the dated outage packet and explain the expected live check.
-- Network slow: use screenshots or a short saved run, clearly labeled.
-- Project breaks during rehearsal: show the break, read the log, and use the fallback.
-- Project breaks on stage: state the expected result, show the last verified receipt, and continue.
-- Learner does not want to speak: use a recorded or partner-read script while the learner controls the evidence.
-- Class is large: use table rounds, then one representative demo per table and collect every proof board.
+- Two attempts or five minutes without progress: open the outage packet, label the route, and continue.
+- Lost old receipt: mark the comparison missing; use an authored example for practice. Do not recreate it and call it the original.
+- No useful improvement yet: complete the bounded earlier edit with the instructor, or explain the untested change as a proposal.
+- The project fails on stage: state expected behavior, show the actual failure and last saved result, then open the fallback.
+- Price page unavailable: use a dated saved source, or use the clearly hypothetical cost example. An unknown bill is not zero.
+- Cannot speak aloud: use a recording or partner-read script while you choose and control the evidence. Paper and Spanish responses are accepted.
+- Upload unavailable: preserve the private file and record Not submitted.
 
 ## Resumen en español
 
-Tarea 1: reúne ocho pruebas. Tarea 2: ejecuta una prueba normal, una falla y el interruptor o alternativa. Tarea 3: presenta durante tres minutos el resultado, el fallo, la corrección, el límite y el costo.
+Elige un proyecto y un trabajo pequeño. Reúne ocho pruebas. Predice, ejecuta y compara un resultado normal y una falla. Conserva el antes, un cambio y el después. Usa la pausa o abre la alternativa. Calcula el costo con revisión humana. Presenta tres minutos. Entrega en el Nivel 5 y vuelve a abrir el archivo; si falla, escribe No entregado.
 
 ## Words for Level 5
 
-- Proof board: the eight artifacts supporting the project claim.
-- Normal route: the expected use when dependencies work.
-- Failure route: safe behavior when input or a dependency fails.
-- Persistence: saved state that remains after a restart or later request.
-- Rehearsal: a timed test of both the build and its explanation.
-- Cost floor: the total expected monthly operating cost.
+Proof board: eight items supporting a claim. Receipt: a saved result you can inspect, not a guarantee it is true. Fresh run: a new execution, even with a fixed input. Fence: a limit on data or actions. Cost floor: the estimated monthly operating total under written assumptions. Rehearsal: a timed practice presentation.

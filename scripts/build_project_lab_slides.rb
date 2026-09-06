@@ -87,23 +87,23 @@ DECKS = {
     exit: "<p>Which control lives in words, data, permissions, and operations? What can an ordinary local log prove? End paused; stop the server.</p>",
   },
   5 => {
-    routes: "<ul><li>Live build</li><li>Dated saved run</li><li>Recorded or partner-read presentation</li><li>Same eight proof items for every route</li></ul>",
-    anchors: "<ul><li>Show the work, the miss, the fix, and the switch.</li><li>Working is not the same as proven.</li><li>El público debe poder repetir la prueba.</li></ul>",
-    idea: "<p>The strongest project is not the one with the most code. It is the one whose claim, failure, repair, fence, and stop another person can inspect.</p>",
-    fence: "<ul><li>Public or synthetic screen only</li><li>No keys, notifications, private tabs, or client data</li><li>Saved material is labeled saved</li><li>Deployment status is not browser proof</li></ul>",
-    demo: "<p>Show a green deploy with no user result. Then show the eight-item proof board and one repeatable test.</p>",
-    task1: "<p>Choose Documents, Watchman, Local Model, or Front Desk. Assemble all eight proof items and fill the cost sheet.</p>",
-    task1_check: "<p>A partner can find ownership, before, change, normal, failure, fence, stop, cost, and reflection.</p>",
-    task2: "<p>Run one fresh normal input, one fresh failure input, and the switch or fallback. Record expected and actual.</p>",
-    task2_check: "<p>For deployed work, browser behavior, service health, and persistence claims are checked separately.</p>",
-    task3: "<p>Rehearse and present: 30 seconds outcome, 60 normal, 45 miss and fix, 30 fence and stop, 15 cost and next step.</p>",
-    task3_check: "<p>Three minutes. The class can follow the receipts. Works, honest, and theirs.</p>",
-    extension: "<p>Show a Vercel frontend or Railway service only when the three separate checks are visible and safe.</p>",
-    outage: "<p>State the unavailable dependency, last verified time, saved receipt, and exact check you would run now.</p>",
-    partner: "<ul><li>All eight items</li><li>Repeatable normal test</li><li>Visible failure route</li><li>Used switch or fallback</li><li>Safe screen</li></ul>",
-    spanish: "<p>Reúne ocho pruebas. Ejecuta una prueba normal y una falla. Usa el interruptor. Presenta durante tres minutos.</p>",
-    next: "<p>Keep the project that solves a real job. Keep the test sheet beside it.</p>",
-    exit: "<p>What will you keep using? What must a person still own?</p>",
+    routes: "<p>Own prepared computer and earlier project. Complete Level 5 preparation. No new app or purchase. Label live, saved, authored example, and not performed.</p>",
+    anchors: "<p>Show the work, the miss, the fix, and the switch. Muestra el trabajo, el fallo, la corrección y el interruptor. A claim needs a receipt.</p>",
+    idea: "<p>Choose one user and one small job. Keep eight proof items, one tested improvement, and the limits another person can inspect.</p>",
+    fence: "<p>Only public or synthetic excerpts. Hide keys, billing identities, unrelated tabs, and notifications. Never upload the private folder.</p>",
+    demo: "<p>Label the authored workbench board. Compare four sentences Before with two After. Open the fallback as a real action. No live model run is claimed.</p>",
+    task1: "<p>Collect ownership, before, change, normal, failure, fence, used stop/fallback, and cost plus reflection. Include one review hour.</p>",
+    task1_check: "<p>Eight items have safe excerpts, labels, dates, and limits. Local example: 0 + 1 power + 2 hardware + 20 review = $23/month; hypothetical.</p>",
+    task2: "<p>Predict first. Make a new execution of supported tests. Fixed prompts can repeat. Keep same-input repair proof and both current route results.</p>",
+    task2_check: "<p>Missing-information refusal differs from failed request. Use the actual stop or open the fallback. Preserve misses, truncation, and old receipts.</p>",
+    task3: "<p>Rehearse 10 minutes. Present 30 seconds outcome, 60 normal, 45 before/change/after, 30 fence/stop, 15 cost/next check: 180 seconds.</p>",
+    task3_check: "<p>Six learners per table fit 24 minutes plus collection. Each person presents and submits. Works, Honest, Theirs guide one revision.</p>",
+    extension: "<p>Existing approved deployed project only: inspect browser behavior, service health, and claimed persistence separately. No new hosting required.</p>",
+    outage: "<p>After two attempts or five minutes, open saved proof. No real run? Use the authored board; keep personal live checks Not performed.</p>",
+    partner: "<p>Locate eight items, repeat the normal check, inspect one repair and used control. Check cost assumptions and evidence labels. Self-review is valid.</p>",
+    spanish: "<p>Elige un proyecto. Reúne ocho pruebas. Predice, ejecuta y compara. Usa pausa o alternativa. Calcula y presenta. Entrega y vuelve a abrir.</p>",
+    next: "<p>Save private PROJECT-LAB-05.md. Upload to Level 5 and reopen; otherwise mark Not submitted. Earlier incomplete levels remain open.</p>",
+    exit: "<p>End in the safe stop state. Which job stays with a person? Which next check is still needed? Unknown cost is not zero.</p>",
   },
 }.freeze
 
@@ -244,7 +244,7 @@ DECKS.each do |number, content|
   header = <<~META
     <!--
     Document:    Project Lab Level #{number} - #{manifest.fetch("title")}
-    Version:     v1.1.0
+    Version:     #{number == 5 ? "v1.2.0" : "v1.1.0"}
     Author:      Celaya Solutions
     Contact:     hello@celayasolutions.com
     Date:        2026-09-06

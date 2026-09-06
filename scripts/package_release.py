@@ -2,7 +2,7 @@
 import hashlib,json,zipfile,shutil
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
-VERSION='v1.3.0-rc.1'
+VERSION='v1.4.0-rc.1'
 
 def main():
     out=ROOT/'dist';out.mkdir(exist_ok=True)
@@ -23,6 +23,10 @@ def main():
             for p in sorted(set(files)):
                 if not p.is_file() or '__pycache__' in p.parts or p.suffix=='.pyc':continue
                 z.write(p,p.relative_to(ROOT))
+        checks[target.name]=hashlib.sha256(target.read_bytes()).hexdigest()
+    for name,source in [('level-05-lesson','student.pdf'),('level-05-proof-board','worksheet.pdf'),('level-05-saved-example','assets/outage-presentation-packet.pdf'),('level-05-slides','slides.html')]:
+        target=out/f'{name}-{VERSION}{Path(source).suffix}'
+        shutil.copy2(ROOT/'courses/project-lab/level-05'/source,target)
         checks[target.name]=hashlib.sha256(target.read_bytes()).hexdigest()
     for name,source in [('level-04-lesson','student.pdf'),('level-04-saved-examples','assets/fallback-before-after.pdf'),('level-04-slides','slides.html')]:
         target=out/f'{name}-{VERSION}{Path(source).suffix}'

@@ -1,11 +1,11 @@
 number: 5
-title: "Choose, Improve, and Present"
-objective: "Choose one course project, improve it from test evidence, prove its normal and failure routes, and present the result to the class in three clear minutes."
+title: Choose, Improve, and Present
+objective: Choose one course project, improve it from test evidence, prove its normal and failure routes, and present the result to the class in three clear minutes.
 prerequisites:
-  - "Proof from all four project levels"
-  - "One selected project and its test sheet"
-  - "A live build or the supplied outage-presentation route"
-passing_proof: "Eight items: ownership, before state, tested change, normal run, failure route, privacy or security fence, stop or fallback, and cost plus reflection; followed by a three-minute class presentation."
-required_project_milestone: "Show the work, the miss, the fix, and the switch."
-core_route: "Improve one existing project and present from the course rubric."
-builder_extension: "Show a Vercel frontend or Railway service only when browser behavior, service health, and persistence are proved separately."
+- Earlier proof from four project levels, with incomplete checks labeled
+- Each learner has their own prepared computer and reviewed course copy
+- One chosen project, before/after evidence, private Level 5 worksheet, and saved fallback
+passing_proof: 'Eight items: ownership, before state, tested change, normal run, failure route, privacy or security fence, stop or fallback, and cost plus reflection; followed by a three-minute class presentation. Label live, saved, authored example, and not-performed evidence; reopen the Level 5 upload or mark Not submitted.'
+required_project_milestone: Show the work, the miss, the fix, and the switch.
+core_route: Improve or reuse one tested change in an existing project; assemble eight labeled proof items, run supported final checks, use a stop/fallback, cost it, and present.
+builder_extension: Inspect an already approved deployed course edition with separate browser, service, and persistence proof; no new deployment required.

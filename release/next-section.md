@@ -1,31 +1,27 @@
-# Continue After Level 4
+# Continue After Level 5
 
 ```text
-Document:    Continue After Level 4
+Document:    Continue After Level 5
 Version:     v1.0.0
 Author:      Celaya Solutions
 Contact:     hello@celayasolutions.com
 Date:        2026-09-06
-SHA256:      84c3ddb6d635353c90b968a8e28ebf3469aa27ed4a586a84c04627ca1be1acd2
+SHA256:      7a74928f9ccf6cee7168da7678a97723b12052cc3d0e5f460a076c940e4c6c11
 Chain:       n/a
 Tx:          [not anchored]
 License:     All Rights Reserved / Celaya Solutions
 ```
 
-Level 4 now has a local front desk, full teaching pack, fixed before/after tests, source-rule edit, private receipts, and a persisted pause control. Continue from the committed Level 4 source branch until its merge is separately requested. Read [Level 4 verification](level-04-verification.md) and preserve earlier gates and fixes.
+All five levels now have full learner/instructor packs. Continue from the committed Level 5 source branch until main integration is directly requested. Level 4 and Level 5 remain cumulative isolated work; the earlier Level 3 merge instruction does not authorize merging later levels.
 
 ## Next work
 
-Begin Level 5 under a new instruction. Carry forward the learner's chosen project, normal/failure proof, one repair, control boundary, used stop, cost evidence, and reflection. Do not claim every learner has a hosted app or a live upload. Preserve the five 90-minute levels and each learner's own prepared computer requirement.
+Review [Level 5 verification](level-05-verification.md) and the earlier Level 1-4 records before a classroom release. Complete real learner-device, owned hosted workflow, network observation, assistant-edit, and authenticated upload/reopen gates that remain open. Do not create a sixth level or reset course records as cleanup.
 
 ## Maintenance
 
-Use a new isolated codex worktree. Run all four project suites (documents, watchman, local-models, front-desk), update document hashes, rebuild slides/PDFs, validate both course checks, and package the candidate. Export the website with scripts/export_course.py. Sync/check the separate private platform without seeding or resetting learner data. Keep receipts tied to the committed canonical source.
-
-## Learner edit boundary
-
-The Level 4 learner edit opens only .zta/front-desk/desk-instructions.md and the manual card for one Source rule. Other private files and credentials remain out of scope. The actual payload/permission controls and fixed tests stay unchanged. Logs and before outputs are never replaced to improve a score.
+Run all four project suites; update document hashes; build slides and PDFs; run both validators; package the v1.4.0-rc.1 candidate. Export the website and sync/check the private platform from the committed canonical source. Consumer copies must identify that source commit. Never seed/reset the private platform or change submissions during content sync.
 
 ## Delivery boundary
 
-The current request continues Level 4. Its isolated source and consumer commits do not imply a main merge, push, release publication, or deployment. The earlier Level 3 merge instruction was specific to Level 3. Review the candidate's source links and open classroom/device/upload gates before any public release.
+The Level 5 continuation authorizes isolated source and consumer commits. A main merge, push, release tag, public downloads, and deployment are separate actions. Review PDF source links against the exact published candidate tag before advertising them. Local packages and local browser checks do not prove live publication or a learner upload.
