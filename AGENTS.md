@@ -6,7 +6,7 @@ Version:     v1.1.0
 Author:      Celaya Solutions
 Contact:     hello@celayasolutions.com
 Date:        2026-09-06
-SHA256:      a03102e2bdc91288403bdb0f1d44f81a19a9ab1e551739fbbc5e5911b20e6a4f
+SHA256:      b3207beb7b6eeba379fb5bd824e34b0dd6c49764e69a66e626580fc35bdf7300
 Chain:       n/a
 Tx:          [not anchored]
 License:     All Rights Reserved / Celaya Solutions
@@ -40,7 +40,7 @@ Summaries use plain language and describe verified results. Unperformed device, 
 
 ## Change notes
 
-- 2026-09-06: Completed and committed Level 3 local lab, six-row comparison, named-rule retests, and the learner/teacher pack. All 96 project tests and course/render checks pass; actual model failures and open device/network/upload pilots are recorded in release/level-03-verification.md.
+- 2026-09-06: Completed and committed Level 3 local lab, six-row comparison, named-rule retests, and the learner/teacher pack. All 96 project tests and course/render checks pass; the committed Level 3 suite is included in the Windows/Mac CI matrix; actual model failures and open device/network/upload pilots are recorded in release/level-03-verification.md.
 
 
 - 2026-09-06: Built the maintained Level 2 watcher, failure/recovery checks, full learner/teacher pack, and candidate downloads; 79 app checks, fresh-clone installation, and document/slide/PDF review pass locally. Hosted, device, schedule, and student-upload gates remain in release/level-02-verification.md.

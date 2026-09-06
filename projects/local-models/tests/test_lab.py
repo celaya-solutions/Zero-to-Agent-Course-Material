@@ -1,5 +1,6 @@
 import importlib.util
 import json
+import os
 from pathlib import Path
 import subprocess
 import sys
@@ -168,5 +169,5 @@ def test_named_check_uses_identical_before_after_prompts(tmp_path):
 
 def test_level3_command_cannot_start_documents():
     # Exercise the installed entry point since cli.py deliberately has no module launch hook.
-    result=subprocess.run([str(Path(sys.executable).parent/'zta'),'offline','documents'],cwd=ROOT,capture_output=True,text=True)
+    result=subprocess.run([str(Path(sys.executable).parent/('zta.exe' if os.name == 'nt' else 'zta')),'offline','documents'],cwd=ROOT,capture_output=True,text=True)
     assert result.returncode==1 and 'requires the local-models project' in result.stderr
