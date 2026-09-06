@@ -2,11 +2,12 @@
 import hashlib,json,zipfile,shutil
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
-VERSION='v1.0.0-rc.1'
+VERSION='v1.1.0-rc.1'
 
 def main():
     out=ROOT/'dist';out.mkdir(exist_ok=True)
-    learner=[ROOT/'LICENSE',ROOT/'release/attribution.md',ROOT/'README.md',ROOT/'README.pdf',*sorted((ROOT/'preparation').rglob('*'))]
+    learner=[ROOT/'LICENSE',ROOT/'README.md',ROOT/'README.pdf',ROOT/'projects/documents/README.md',ROOT/'projects/documents/README.pdf',*sorted((ROOT/'preparation').rglob('*')),*sorted((ROOT/'release').glob('*.md'))]
+    learner += [p for p in (ROOT/'projects/watchman').rglob('*') if p.is_file() and p.suffix in {'.py','.md','.pdf','.yml'}]
     for p in (ROOT/'courses/project-lab').rglob('*'):
         if not p.is_file():continue
         if p.name.startswith(('instructor.','answer-key.')):continue
@@ -20,6 +21,10 @@ def main():
             for p in sorted(set(files)):
                 if not p.is_file() or '__pycache__' in p.parts or p.suffix=='.pyc':continue
                 z.write(p,p.relative_to(ROOT))
+        checks[target.name]=hashlib.sha256(target.read_bytes()).hexdigest()
+    for name,source in [('level-02-lesson','student.pdf'),('level-02-saved-examples','assets/fallback-three-runs.pdf'),('level-02-slides','slides.html')]:
+        target=out/f'{name}-{VERSION}{Path(source).suffix}'
+        shutil.copy2(ROOT/'courses/project-lab/level-02'/source,target)
         checks[target.name]=hashlib.sha256(target.read_bytes()).hexdigest()
     for name,source in [('level-01-lesson','student.pdf'),('level-01-saved-examples','assets/fallback-grounded-run.pdf'),('level-01-slides','slides.html')]:
         target=out/f'{name}-{VERSION}{Path(source).suffix}'

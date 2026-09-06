@@ -32,11 +32,12 @@ def inline(element):
         if child.tag=='a':
             href=html.escape(child.get('href',''),quote=True)
             if not href.startswith(('https://','http://','mailto:','#')):
-                # PDFs are distributed independently: preserve a usable online source link.
+                # Absolute source URLs also work when Rails serves a PDF through
+                # an authenticated resource route. Publish this tag before release.
                 from urllib.parse import quote
                 part, _, anchor = child.get('href','').partition('#')
                 path = (CURRENT_SOURCE.parent / part).resolve().relative_to(ROOT)
-                href = 'https://github.com/celaya-solutions/Zero-to-Agent-Course-Material/blob/v1.0.0-rc.1/' + quote(path.as_posix()) + ('#' + anchor if anchor else '')
+                href = 'https://github.com/celaya-solutions/Zero-to-Agent-Course-Material/blob/v1.1.0-rc.1/' + quote(path.as_posix()) + ('#' + anchor if anchor else '')
             text+=f'<link href="{href}" color="#236346">{inline(child)}</link>'
         elif child.tag in {'strong','b'}:text+='<b>'+inline(child)+'</b>'
         elif child.tag in {'em','i'}:text+='<i>'+inline(child)+'</i>'
@@ -80,12 +81,12 @@ def convert(elements):
 
 def footer(canvas,doc):
     canvas.saveState();canvas.setFont('Helvetica',7);canvas.setFillColor(colors.HexColor('#456c59'))
-    canvas.drawString(44,25,'ZERO TO AGENT | CELAYA SOLUTIONS LEARNING | v1.0.0-rc.1')
+    canvas.drawString(44,25,'ZERO TO AGENT | CELAYA SOLUTIONS LEARNING | v1.1.0-rc.1 REVIEW CANDIDATE')
     canvas.drawRightString(letter[0]-44,25,str(doc.page));canvas.restoreState()
 
 def main():
     global CURRENT_SOURCE
-    sources=sorted((ROOT/'courses/project-lab').rglob('*.md'))+sorted((ROOT/'preparation').glob('*.md'))+[ROOT/'README.md',ROOT/'projects/documents/README.md']
+    sources=sorted((ROOT/'courses/project-lab').rglob('*.md'))+sorted((ROOT/'preparation').glob('*.md'))+[ROOT/'README.md',*sorted((ROOT/'projects').glob('*/README.md'))]
     for source in sources:
         CURRENT_SOURCE=source
         rendered=markdown.markdown(normalize(source.read_text(encoding="utf-8")),extensions=['tables','fenced_code'],output_format='xhtml')

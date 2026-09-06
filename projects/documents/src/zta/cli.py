@@ -75,11 +75,25 @@ def doctor():
 
 def main():
     parser = argparse.ArgumentParser(prog="zta")
-    parser.add_argument("command", choices=["setup","doctor","start","test"])
-    parser.add_argument("project", nargs="?", choices=["documents"])
+    parser.add_argument("command", choices=["setup","doctor","start","test","prepare"])
+    parser.add_argument("project", nargs="?", choices=["documents","watchman"])
     args = parser.parse_args()
     try:
-        if args.command == "setup":
+        if args.project == "watchman":
+            project = root()/"projects/watchman"
+            if args.command == "test":
+                command = [sys.executable,"-m","pytest",str(project/"tests"),"-q"]
+            elif args.command == "start":
+                command = [sys.executable,str(project/"watch.py")]
+            elif args.command in {"prepare","doctor"}:
+                command = [sys.executable,str(project/"manage.py"),args.command]
+            else:
+                print("Watchman needs no model setup. Start with zta doctor watchman.")
+                return 0
+            return subprocess.call(command, cwd=root())
+        elif args.command == "prepare":
+            raise ValueError("Use zta prepare watchman for Level 2; follow the preparation guide for documents.")
+        elif args.command == "setup":
             setup()
         elif args.command == "doctor":
             doctor()

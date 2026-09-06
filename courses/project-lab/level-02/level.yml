@@ -1,11 +1,21 @@
+# Document:    Level 2 Course Contract
+# Version:     v1.0.0
+# Author:      Celaya Solutions
+# Contact:     hello@celayasolutions.com
+# Date:        2026-09-06
+# SHA256:      a085d73342cf74c9357f119ddf0320ed6940376f3109fdf960b7c84bb71f761a
+# Chain:       n/a
+# Tx:          [not anchored]
+# License:     All Rights Reserved / Celaya Solutions
+
 number: 2
 title: "The Night Watchman"
 objective: "Specify, run, and test a scheduled page watcher that records each round, alerts only on a meaningful change, and stops through a tested switch."
 prerequisites:
   - "Level 1 proof or the supplied catch-up card"
   - "A GitHub account for the live route"
-  - "A laptop or a partner with one; paper and saved-run routes remain valid"
+  - "Own suitable Windows/Mac computer for the live route; partner, paper, and saved work are labeled fallbacks"
 passing_proof: "A complete watchman spec; baseline, unchanged, and changed runs; one useful alert and log trail; a never list; and proof that the learner used the off switch."
 required_project_milestone: "Look, compare, tell."
-core_route: "Use the supplied starter and GitHub Actions from a browser."
+core_route: "Prepare the maintained watcher in the existing learner fork; use GitHub Actions for hosted runs and a same-fork practice issue."
 builder_extension: "Inspect or revise the watcher code and document a Railway always-on contract without deploying it."

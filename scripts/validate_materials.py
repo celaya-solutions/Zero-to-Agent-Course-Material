@@ -25,7 +25,7 @@ def main():
         section=text.split('## 90-minute schedule',1)[1].split('\n## ',1)[0]
         total=sum(int(x) for x in re.findall(r'^\| (?!\*\*Total).*? \| (\d+) \|$',section,re.M))
         if total!=90:errors.append(f'{folder.name}: schedule totals {total}')
-    authored=[ROOT/'README.md',*sorted((ROOT/'preparation').glob('*.md')),*sorted((COURSE/'level-01').glob('*.md'))]
+    authored=[ROOT/'README.md',*sorted((ROOT/'preparation').glob('*.md')),*sorted((COURSE/'level-01').glob('*.md')),*sorted((COURSE/'level-02').rglob('*.md')),ROOT/'projects/watchman/README.md',ROOT/'release/level-02-verification.md']
     for path in authored:
         text=path.read_text(encoding="utf-8")
         for key in ['Document:','Version:','Author:','Contact:','Date:','SHA256:','Chain:','Tx:','License:']:
@@ -43,7 +43,9 @@ def main():
     # Tracked-state only. Never inspect private .zta contents.
     tracked=subprocess.check_output(['git','ls-files'],cwd=ROOT,text=True).splitlines()
     for p in tracked:
-        if p.startswith(('.zta/','.env','platform/')) or Path(p).name=='PROJECT-LAB-01.md':errors.append(f'Private/generated learner data tracked: {p}')
+        if p.startswith(('.zta/','.env','platform/')) or Path(p).name in {'PROJECT-LAB-01.md','PROJECT-LAB-02.md'}:errors.append(f'Private/generated learner data tracked: {p}')
+    template=ROOT/'projects/watchman/workflow.template.yml'
+    if template.read_bytes()!=(COURSE/'level-02/assets/starter/watch.yml').read_bytes():errors.append('Legacy workflow copy is stale; run scripts/sync_watchman_starter.py')
     if errors:
         print('\n'.join('ERROR: '+e for e in errors));return 1
     print('Course materials valid: five levels, 90 minutes each, links, PDFs, slides, and private-data boundary.');return 0

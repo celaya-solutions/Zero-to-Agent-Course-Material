@@ -2,6 +2,7 @@
 # frozen_string_literal: true
 
 require "cgi"
+require "digest"
 require "fileutils"
 require "yaml"
 
@@ -29,23 +30,23 @@ DECKS = {
     exit: "<p>Reopen the upload receipt. Stop the app with Ctrl+C. Explain one missing-information rule and one conflict rule.</p>",
   },
   2 => {
-    routes: "<ul><li>Core: supplied watcher and GitHub Actions</li><li>Partner: spec, predictions, and log review</li><li>Outage: saved three-run packet</li></ul>",
-    anchors: "<ul><li>Look, compare, tell.</li><li>Mira, compara y avisa.</li><li>If it cannot be turned off, it is not finished.</li></ul>",
-    idea: "<p>A good guard follows the same route, reads one stable signal, compares it with the last round, and alerts only when a written rule says it matters.</p>",
-    fence: "<ul><li>One approved page</li><li>One stable value</li><li>No buy, reply, delete, post, or spend</li><li>One log and one switch</li></ul>",
-    demo: "<p>Run baseline. Run unchanged. Change OPEN to PAUSED. Read the alert and every log line.</p>",
-    task1: "<p>Write address, signal, meaningful-change rule, trigger, alert, and never list.</p>",
-    task1_check: "<p>A partner can predict exactly when an alert appears.</p>",
-    task2: "<p>Run baseline, unchanged, and controlled-change tests. Record expected and actual results.</p>",
-    task2_check: "<p>One change creates one issue. No change creates no issue. Failure is not called no change.</p>",
-    task3: "<p>Disable the workflow. Try the control again. Record the stopped state and who owns the switch.</p>",
-    task3_check: "<p>The switch was used, not merely named.</p>",
-    extension: "<p>Narrow the parser, then write a Railway contract: start, environment, health, state, persistence, schedule, stop, and cost.</p>",
-    outage: "<p>Use the saved baseline, unchanged, and changed logs. Identify the same receipts and switch.</p>",
-    partner: "<ul><li>Spec predicts behavior</li><li>Three states are distinct</li><li>Old and new values are visible</li><li>Switch is proved</li></ul>",
-    spanish: "<p>Escribe la regla. Ejecuta tres pruebas. Lee el registro. Usa el interruptor.</p>",
-    next: "<p>The warehouse computer worked while your laptop was closed. Next, bring the model onto your machine.</p>",
-    exit: "<p>What may your watcher do? Where is its off switch?</p>",
+    routes: "<p>Own computer and existing course fork. Complete Level 2 preparation before class. Local, partner, and saved routes are labeled fallbacks.</p>",
+    anchors: "<p>Look, compare, tell. Mira, compara y avisa. If it cannot be turned off, it is not finished.</p>",
+    idea: "<p>A clock starts ordinary code. Read one OPEN/PAUSED signal, compare saved state, record a decision. No language model is needed for this rule.</p>",
+    fence: "<p>Only the supplied public page in your fork. One practice issue is allowed there. Never buy, reply, delete, post elsewhere, track people, or spend.</p>",
+    demo: "<p>Trace source commit, previous/current values, decision, and time. Baseline is not an alert. A failed request is not no change.</p>",
+    task1: "<p>Write six lines: address, marked signal, valid change, trigger, same-fork issue, never list. Predict before enabling.</p>",
+    task1_check: "<p>A partner predicts baseline = quiet, same status = quiet, OPEN to PAUSED = one issue. Unknown status = failure.</p>",
+    task2: "<p>Enable WATCHMAN_ENABLED=true. Actions > Project Lab Watchman > Run workflow on the default branch. Record baseline, unchanged, then change OPEN to PAUSED.</p>",
+    task2_check: "<p>Use a new run after the page commit. Inspect one issue with old/new values and source. Repeat PAUSED: no additional issue.</p>",
+    task3: "<p>Disable workflow. Set WATCHMAN_ENABLED=false. Cancel queued or active work and wait for its final state. Refresh without re-enabling.</p>",
+    task3_check: "<p>Record the disabled state, unavailable manual trigger, time, and no outstanding runs. Do not claim an unobserved daily tick.</p>",
+    extension: "<p>Local footer edit: predict, run, change only unrelated text, rerun. Same status stays quiet. Railway is a written plan only.</p>",
+    outage: "<p>After two attempts or five minutes: authored saved packet, honest verdicts, missing live fields marked Not performed. Preserve failed receipts.</p>",
+    partner: "<p>Six-line spec, predictions before results, three main receipts, one issue, quiet repeat, and operated stop. Keep private worksheet out of Git.</p>",
+    spanish: "<p>Predice y ejecuta. OPEN, sin cambio, PAUSED y un aviso. Repite sin otro aviso. Desactiva, cancela y verifica. Entrega privada.</p>",
+    next: "<p>Save PROJECT-LAB-02.md. Upload to Level 2 and reopen it. Keep the workflow disabled after class.</p>",
+    exit: "<p>Explain where the job runs, why state persists, what failure means, what the token permits, and what your stop test proved.</p>",
   },
   3 => {
     routes: "<ul><li>Core: reuse earlier Ollama setup; prepare small and medium models</li><li>Partner: prompt, stopwatch, source, verdict</li><li>Outage: dated benchmark packet</li></ul>",
@@ -239,7 +240,21 @@ DECKS.each do |number, content|
   directory = File.join(COURSE, format("level-%02d", number))
   manifest = YAML.safe_load_file(File.join(directory, "level.yml"))
   FileUtils.mkdir_p(directory)
-  File.write(File.join(directory, "slides.html"), render_deck(number, manifest, content))
+  body = render_deck(number, manifest, content)
+  header = <<~META
+    <!--
+    Document:    Project Lab Level #{number} - #{manifest.fetch("title")}
+    Version:     v1.1.0
+    Author:      Celaya Solutions
+    Contact:     hello@celayasolutions.com
+    Date:        2026-09-06
+    SHA256:      #{Digest::SHA256.hexdigest(body.strip + "\n")}
+    Chain:       n/a
+    Tx:          [not anchored]
+    License:     All Rights Reserved / Celaya Solutions
+    -->
+  META
+  File.write(File.join(directory, "slides.html"), header + body)
 end
 
 puts "Built #{DECKS.length} Project Lab slide decks."

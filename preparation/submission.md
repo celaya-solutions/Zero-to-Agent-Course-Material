@@ -2,11 +2,11 @@
 
 ```text
 Document:    Course Access and Private Submission
-Version:     v1.0.0
+Version:     v1.1.0
 Author:      Celaya Solutions
 Contact:     hello@celayasolutions.com
 Date:        2026-09-06
-SHA256:      0f94098215b9177792cb9b9e83fb5cb5cfc1bf4fb737fecd4dca9b4995c01379
+SHA256:      567a3d114191e99b563de8c09e183872e4ab35be0960d480662856689ee498ad
 Chain:       n/a
 Tx:          [not anchored]
 License:     All Rights Reserved / Celaya Solutions
@@ -25,3 +25,9 @@ Code changes go to your GitHub fork. Evidence goes to the course platform. The e
 | Submission history | Open the latest entry and view/download the submitted file; compare the nickname, final commit, and last run | Verifies receipt and contents | Correct file and timestamp are visible | Resubmit the corrected file if needed; a download alone is not a receipt |
 
 The private platform is maintained separately. A real student-account upload pilot is a release gate; screenshots and the exact observed navigation are recorded in release/verification.md. Do not use an instructor-only page as proof that students can upload. Personal enrollment links/codes and student files never belong in this public repo.
+
+## Level 2 submission
+
+Use the same sign-in and course-list steps, then open **Level 2 - The Night Watchman**. Its evidence file is `.zta/PROJECT-LAB-02.md`, created by `zta prepare watchman` and completed in a text editor. Use the upload control's file picker, navigate to the course clone's `.zta` folder, and select that file. On Mac the file picker can open the folder with Command+Shift+G and the actual folder path; never paste a sample path. On Windows type the actual `.zta` folder path in the file picker's address bar.
+
+Submit, open the resulting entry, and view/download the file. Compare your nickname, final run link, and off-switch evidence. Record the receipt privately. A missing Level 2 form or inaccessible student account remains a block, not a reason to publish the worksheet. A real Level 2 student-account upload/reopen pilot remains required in `release/level-02-verification.md`.

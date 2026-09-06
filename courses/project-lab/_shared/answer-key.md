@@ -1,5 +1,17 @@
 # Instructor Answer Key
 
+```text
+Document:    Instructor Answer Key
+Version:     v1.1.0
+Author:      Celaya Solutions
+Contact:     hello@celayasolutions.com
+Date:        2026-09-06
+SHA256:      0e4f8d029443e0600e73088e1c459003456eaea2bb39cc0da0a2d24b20009b02
+Chain:       n/a
+Tx:          [not anchored]
+License:     All Rights Reserved / Celaya Solutions
+```
+
 Use this key with the level grading guides. Exact model wording is never required. Grade the evidence trail and safe behavior.
 
 ## Level 1
@@ -28,33 +40,9 @@ Does a model miss fail the learner? A learner must identify it, show the evidenc
 
 ## Level 2
 
-- The first run records a baseline. An unchanged second run records no change.
-- A controlled page edit creates one meaningful alert and a log entry.
-- The never list forbids buying, replying, deleting, posting, or spending.
-- Disabling the workflow or using the documented stop prevents a new run.
+Use the [complete Level 2 key](../level-02/answer-key.md) for the six-line spec, expected receipts, failure/recovery cases, and exit answers. Baseline and unchanged create no issue; OPEN to PAUSED creates one practice issue in the learner's own fork; a repeat creates none. Failures preserve the last confirmed state. The never list explicitly permits that practice issue and forbids posting elsewhere.
 
-### Expected Level 2 runs
-
-| Run | Expected console or log meaning | Alert |
-| --- | --- | --- |
-| First | First look saved; OPEN; baseline saved | None |
-| Second, unchanged | No change; OPEN; no change | None |
-| Third, after edit | Controlled value changed from OPEN to PAUSED | One issue naming old and new |
-| Disabled | Workflow cannot be manually started or scheduled | None |
-
-The starter watches only the element with id watch-value. A moving footer should not trigger it. A failed fetch must return a failed run, not write no change.
-
-The sample schedule uses 13:00 UTC. That is about 6 a.m. during Mountain Standard Time and 7 a.m. during Mountain Daylight Time. GitHub schedules can be delayed. Do not promise an exact delivery minute.
-
-### Common Level 2 questions
-
-Where does it run? On a GitHub-hosted runner for each scheduled or manual job.
-
-Why is the state committed? A new runner starts clean. The saved previous value and log have to persist somewhere the next run can read.
-
-Is an issue the same as an email? No. The repository issue is the assessed alert. Email depends on the learner's notification settings.
-
-When should this move to Railway? Only when the task needs a frequent or always-on process and its start, health, state, persistence, stop, and monthly cost have been written and tested.
+The daily template is 13:17 UTC and may be delayed or dropped. Disabling future triggers, setting WATCHMAN_ENABLED=false, and cancelling queued/active work are separate steps. Grade the observed disabled state honestly; do not claim a future schedule tick was tested without a real observation. Partner/local/saved routes do not prove an individual hosted launch.
 
 ## Level 3
 

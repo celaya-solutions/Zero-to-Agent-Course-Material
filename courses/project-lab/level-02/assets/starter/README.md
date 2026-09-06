@@ -1,34 +1,29 @@
 # Night Watchman Starter Map
 
-Use a new practice repository. Do not put these files into an employer or production repository.
+```text
+Document:    Night Watchman Starter Map
+Version:     v1.0.0
+Author:      Celaya Solutions
+Contact:     hello@celayasolutions.com
+Date:        2026-09-06
+SHA256:      0255e75b6cf48120456bd96773e96061a956d0b7c8c6b99bcf7ba25137e0fb67
+Chain:       n/a
+Tx:          [not anchored]
+License:     All Rights Reserved / Celaya Solutions
+```
 
-## Put each file here
+Use the same complete learner course fork as Level 1. Do not create a second repository or place Python files at its root.
 
-| Course file | Practice repository location |
-| --- | --- |
-| watch.py | /watch.py |
-| test_watch.py | /test_watch.py |
-| ../practice-page.html | /practice-page.html |
-| watch.yml | /.github/workflows/watch.yml |
+The maintained project is [projects/watchman](../../../../../projects/watchman/README.md). Follow [Level 2 preparation](../../preparation.md) for exact Windows/Mac folder, installation, GitHub controls, and recovery steps. Run these from the course root:
 
-## Before the first hosted run
+```sh
+uv run --frozen zta doctor watchman
+uv run --frozen zta test watchman
+uv run --frozen zta prepare watchman
+```
 
-1. Run python -m unittest test_watch.py locally or use the instructor's tested copy.
-2. Commit all four files.
-3. Replace WATCH_URL in the workflow. A simple route is the raw public address of your practice page: https://raw.githubusercontent.com/ACCOUNT/REPOSITORY/main/practice-page.html.
-4. Open repository Settings, Actions, General, Workflow permissions. The class starter needs read and write permission to save its state and create its practice issue.
-5. Run the workflow by hand. The first run saves OPEN as the baseline.
+The last command copies the canonical workflow template to `.github/workflows/watchman.yml` and creates ignored `.zta/PROJECT-LAB-02.md`, keeping existing files. It does not publish or enable anything. Review and commit only the workflow to your own default branch. Enable the job deliberately during the lesson, then leave it disabled with WATCHMAN_ENABLED=false and no active/queued run.
 
-The workflow uses the temporary repository token supplied by GitHub Actions. Do not create or paste a personal token.
+`watch.py` and `test_watch.py` in this legacy folder are small compatibility entry points that require the complete clone. Edit and test the maintained project, not these wrappers. `watch.yml` is a generated copy of `projects/watchman/workflow.template.yml`; maintainers refresh it with `scripts/sync_watchman_starter.py`.
 
-## Class test
-
-1. Run once: baseline, no issue.
-2. Run unchanged: no change, no issue.
-3. Change only OPEN to PAUSED in practice-page.html.
-4. Run again: one issue and one changed log line.
-5. Disable the workflow and record the stopped state.
-
-## Schedule note
-
-GitHub schedules use UTC and can be delayed. The sample 13:00 UTC schedule is about 6 a.m. MST and 7 a.m. MDT in El Paso. Review the schedule when daylight-saving time changes. Do not promise an exact alert minute.
+The same supplied practice page stays at `courses/project-lab/level-02/assets/practice-page.html`. Class checks are baseline OPEN, unchanged OPEN, controlled PAUSED change, repeat PAUSED, and the off switch. One same-fork practice issue is allowed; no posting elsewhere. The daily schedule is 13:17 UTC and may be delayed or dropped. Use new manual runs for the classroom test.

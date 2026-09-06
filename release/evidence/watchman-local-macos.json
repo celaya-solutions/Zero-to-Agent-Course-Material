@@ -1,0 +1,59 @@
+{
+  "route": "local command rehearsal on maintainer macOS",
+  "network_requests": 0,
+  "hosted_issues": 0,
+  "installed_workflow_enabled": false,
+  "commands": [
+    "zta doctor watchman",
+    "zta prepare watchman (twice, preserves files)",
+    "zta start watchman (four rounds)"
+  ],
+  "results": [
+    {
+      "current": "OPEN",
+      "decision": "baseline saved",
+      "previous": null,
+      "route": "local rehearsal",
+      "run": "local",
+      "source_commit": "local",
+      "time": "2026-09-06T21:15:44+00:00"
+    },
+    {
+      "current": "OPEN",
+      "decision": "no change",
+      "previous": "OPEN",
+      "route": "local rehearsal",
+      "run": "local",
+      "source_commit": "local",
+      "time": "2026-09-06T21:15:44+00:00"
+    },
+    {
+      "current": "PAUSED",
+      "decision": "changed",
+      "issue": "local rehearsal alert file; no hosted issue",
+      "previous": "OPEN",
+      "route": "local rehearsal",
+      "run": "local",
+      "source_commit": "local",
+      "time": "2026-09-06T21:15:44+00:00",
+      "transition": "b44cbbb640aacae72cb9c3f7"
+    },
+    {
+      "current": "PAUSED",
+      "decision": "no change",
+      "previous": "PAUSED",
+      "route": "local rehearsal",
+      "run": "local",
+      "source_commit": "local",
+      "time": "2026-09-06T21:15:44+00:00"
+    }
+  ],
+  "fresh_clone": {
+    "tested_source_commit": "0b5b42f2e8b819b45ddf33aa268ef1ed2e6a7e03",
+    "platform": "maintainer macOS",
+    "install": "uv sync --frozen --offline; own environment",
+    "doctor": "passed",
+    "watchman_tests": 43,
+    "windows_device_pilot": false
+  }
+}

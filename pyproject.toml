@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "zero-to-agent-course"
-version = "1.0.0rc1"
-description = "Zero to Agent: a local document helper and evidence workbook"
+version = "1.1.0rc1"
+description = "Zero to Agent: a local document helper, bounded watcher, and evidence workbook"
 requires-python = ">=3.12,<3.14"
 dependencies = ["streamlit>=1.49,<2", "httpx>=0.28,<1", "pypdf>=6,<7"]
 
@@ -19,4 +19,4 @@ where = ["projects/documents/src"]
 dev = ["pytest>=8,<10", "pyyaml>=6,<7", "reportlab>=4,<5", "markdown>=3.7,<4"]
 
 [tool.pytest.ini_options]
-testpaths = ["projects/documents/tests", "tests"]
+testpaths = ["projects/documents/tests", "projects/watchman/tests"]
