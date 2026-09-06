@@ -1,5 +1,5 @@
 """Versioned offline learner/instructor packets. Never package a whole checkout."""
-import hashlib,json,zipfile
+import hashlib,json,zipfile,shutil
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 VERSION='v1.0.0-rc.1'
@@ -20,6 +20,10 @@ def main():
             for p in sorted(set(files)):
                 if not p.is_file() or '__pycache__' in p.parts or p.suffix=='.pyc':continue
                 z.write(p,p.relative_to(ROOT))
+        checks[target.name]=hashlib.sha256(target.read_bytes()).hexdigest()
+    for name,source in [('level-01-lesson','student.pdf'),('level-01-saved-examples','assets/fallback-grounded-run.pdf'),('level-01-slides','slides.html')]:
+        target=out/f'{name}-{VERSION}{Path(source).suffix}'
+        shutil.copy2(ROOT/'courses/project-lab/level-01'/source,target)
         checks[target.name]=hashlib.sha256(target.read_bytes()).hexdigest()
     (out/'SHA256SUMS.txt').write_text(''.join(f'{v}  {k}\n' for k,v in checks.items()))
     print(json.dumps(checks,indent=2))

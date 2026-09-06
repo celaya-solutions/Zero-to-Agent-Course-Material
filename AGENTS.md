@@ -6,7 +6,7 @@ Version:     v1.0.0
 Author:      Celaya Solutions
 Contact:     hello@celayasolutions.com
 Date:        2026-09-06
-SHA256:      488517c4f323afeceb7c2ab51cdcf18533de6cf76b571e6eee38f72578616e01
+SHA256:      bd623a5a3879f601ce6e25b065e9725f5181081e97e9dc1ef6fd156fc8be7a17
 Chain:       n/a
 Tx:          [not anchored]
 License:     All Rights Reserved / Celaya Solutions
@@ -32,4 +32,4 @@ Summaries use plain language and describe verified results. Unperformed device, 
 
 ## Change notes
 
-- 2026-09-06: Added the custom Level 1 app, shared setup guides, source exercises, teaching pack, locked runtime, and release checks. Migrated the five active levels; retained later project scope and license notices.
+- 2026-09-06: Added and committed the Level 1 starter and five-level teaching pack. Browser review confirmed source checks, the controlled improvement, private export, and persistence; added a fixed light theme and bounded CI diagnostics. Device, cloud, and authenticated-student gates are tracked in `release/verification.md`.

@@ -4,7 +4,12 @@ permissions:
   contents: read
 jobs:
   documents:
+    timeout-minutes: 5
+    env:
+      PYTHONUNBUFFERED: "1"
+      PYTEST_ADDOPTS: "-vv -o faulthandler_timeout=30"
     strategy:
+      fail-fast: false
       matrix:
         os: [macos-latest, windows-latest]
     runs-on: ${{ matrix.os }}

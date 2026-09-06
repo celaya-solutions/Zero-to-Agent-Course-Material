@@ -6,7 +6,7 @@ Version:     v1.0.0
 Author:      Celaya Solutions
 Contact:     hello@celayasolutions.com
 Date:        2026-09-06
-SHA256:      9f54a7c1e51e4dfcd4c1ec941653e9a1bb9a38ccef5376362b8db2273e4e7d72
+SHA256:      07a69d173103ac771e2565f8436c108d7899a61106b5787b1de56d649b6437bf
 Chain:       n/a
 Tx:          [not anchored]
 License:     All Rights Reserved / Celaya Solutions
@@ -24,7 +24,10 @@ Status: **release candidate; classroom readiness is not yet certified**. A worki
 | Answer time | 0.26–1.33 seconds in that recorded local pilot. | One machine/run; do not grade learners on this. |
 | Hardware recommendation | Provisional 16 GB RAM / 10 GB free disk. | Minimum supported hardware has not been measured on actual Windows and Mac learner devices. |
 | Claude and OpenAI adapters | Fixture checks only. | No live course API credentials were supplied to this workspace. Live billing/access/model behavior remains unverified. |
-| Windows install and app workflow | Pending real-device pilot. | CI can check Python behavior; it cannot certify OS installer/UI instructions or learner hardware. |
+| Windows install and app workflow | Pending real-device pilot. | The first hosted Windows job stalled and was canceled; a bounded diagnostic run is being checked. No Windows pass is claimed. |
+| Mac browser workflow | Passed for this maintainer pilot: binder, five live answers, classifications, two source checks, one/four-passage comparison, revision record, refresh/restart persistence, and Markdown download event. | The exported draft remains private; it is not a learner fork or course receipt. Theme contrast was corrected and visually checked. |
+| Shutdown | Passed: Ctrl+C ended the app process and its health URL refused connections. | Private progress survived restart. |
+| Generated website/platform copies | Course validator and platform standalone contracts pass in isolated worktrees. | No seed/reset, live deployment, or student-data mutation occurred. |
 | Coding-assistant alternatives | Codex used to implement the project; manual change is specified. | Fresh learner Claude Code and Codex install/sign-in/edit pilots remain required. |
 | Course sign-in | Public sign-in route responds. | An authenticated test-student upload-and-reopen run remains required. |
 
