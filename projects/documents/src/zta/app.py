@@ -10,13 +10,12 @@ from zta.providers import ProviderError, request_answer, request_estimate, RATES
 from zta.storage import config, data_dir, now, progress, root, save_progress, settings
 
 st.set_page_config(page_title="Your Documents Answer Back | Zero to Agent", page_icon="📄", layout="wide")
+# Keep foregrounds and backgrounds in Streamlit's theme so a saved dark-mode
+# preference cannot put white widget text on a custom light background.
 st.markdown("""<style>
 .stAppDeployButton {display:none;}
-.stApp { background: #f6f2e9; color: #192a25; }
-h1,h2,h3 {font-family: Georgia,serif; color:#19392e;}
-[data-testid="stSidebar"] {background:#e7e9dd;}
-.stButton>button {border-radius:3px; border:1px solid #456c59;}
-a {color:#236346;}
+h1,h2,h3 {font-family: Georgia,serif;}
+.stButton>button {border-radius:3px;}
 </style>""", unsafe_allow_html=True)
 try:
     cfg = config()
