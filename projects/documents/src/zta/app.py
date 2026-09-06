@@ -10,33 +10,117 @@ from zta.providers import ProviderError, request_answer, request_estimate, RATES
 from zta.storage import config, data_dir, now, progress, root, save_progress, settings
 
 st.set_page_config(page_title="Your Documents Answer Back | Zero to Agent", page_icon="📄", layout="wide")
-# Keep foregrounds and backgrounds in Streamlit's theme so a saved dark-mode
-# preference cannot put white widget text on a custom light background.
+# The course uses one fixed light palette, including nested widget text and
+# source cards. A saved Streamlit theme must not mix foreground/background pairs.
 st.markdown("""<style>
+:root {
+    --zta-paper:#f6f2e9;
+    --zta-panel:#e7e9dd;
+    --zta-ink:#192a25;
+    --zta-muted:#45594f;
+    --zta-accent:#236346;
+    --zta-border:#829285;
+}
+.stApp {
+    --zta-text:var(--zta-ink);
+    color:var(--zta-text) !important;
+    background:var(--zta-paper) !important;
+    color-scheme:light;
+}
 .stAppDeployButton {display:none;}
 h1,h2,h3 {font-family: Georgia,serif;}
-.stButton>button {border-radius:3px;}
-/* Pair these course surfaces explicitly: nested Markdown must not inherit
-   a saved theme's white text while the label or tab has a pale background. */
-.stTabs [role="tablist"],
-[data-testid="stFileUploader"] > [data-testid="stWidgetLabel"] {
-    background-color:#f6f2e9 !important;
-    color:#192a25 !important;
+.stApp [data-testid="stHeader"] {background:var(--zta-paper) !important;}
+.stApp [data-testid="stSidebar"] {background:var(--zta-panel) !important;}
+.stApp :is(h1,h2,h3,h4,h5,h6,[data-testid="stMarkdownContainer"],
+    [data-testid="stText"],[data-testid="stCaptionContainer"],[data-testid="stWidgetLabel"]) {
+    color:var(--zta-text) !important;
     opacity:1 !important;
 }
-.stTabs [role="tab"] {
-    background-color:transparent !important;
-    color:#192a25 !important;
-    opacity:1 !important;
-}
-.stTabs [role="tab"] p,
-[data-testid="stFileUploader"] > [data-testid="stWidgetLabel"] p {
+.stApp :is([data-testid="stMarkdownContainer"],[data-testid="stText"],
+    [data-testid="stCaptionContainer"],[data-testid="stWidgetLabel"]) :is(p,span,label,code) {
     color:inherit !important;
     opacity:1 !important;
 }
-.stTabs [role="tab"][aria-selected="true"] {
-    color:#236346 !important;
+.stApp [data-testid="stCaptionContainer"] {--zta-text:var(--zta-muted);}
+.stApp a {color:var(--zta-accent) !important; text-decoration:underline;}
+.stApp :is([data-testid="stCode"],[data-testid="stCode"] pre,[data-testid="stCode"] code) {
+    color:var(--zta-ink) !important;
+    background:var(--zta-panel) !important;
+}
+.stApp [data-testid="stCode"] span {color:inherit !important;}
+.stApp [data-testid="stMarkdownContainer"] code {
+    background:var(--zta-panel) !important;
+}
+.stApp [data-testid="stText"] {
+    background:var(--zta-paper) !important;
+    border-left:3px solid var(--zta-accent);
+    padding:.75rem 1rem;
+    font-size:1rem;
+    line-height:1.65;
+}
+.stApp [data-testid="stText"] span {font-size:inherit; line-height:inherit;}
+.stApp [data-testid="stExpander"] details {
+    background:var(--zta-paper) !important;
+    border-color:var(--zta-border) !important;
+}
+.stApp [data-testid="stExpander"] summary {
+    --zta-text:var(--zta-ink);
+    color:var(--zta-text) !important;
+    background:var(--zta-panel) !important;
+}
+.stApp [data-testid="stExpanderDetails"] {background:var(--zta-paper) !important;}
+.stApp button[kind] {
+    --zta-text:var(--zta-ink);
+    color:var(--zta-text) !important;
+    background:var(--zta-paper) !important;
+    border-color:var(--zta-border) !important;
+    border-radius:3px;
+}
+.stApp button[kind="primary"] {
+    --zta-text:#ffffff;
+    background:var(--zta-accent) !important;
+    border-color:var(--zta-accent) !important;
+}
+.stApp button[kind]:disabled {
+    --zta-text:var(--zta-muted);
+    background:var(--zta-panel) !important;
+    border-style:dashed;
+    opacity:1 !important;
+}
+.stApp :is(input,textarea,[data-testid="stSelectbox"] [role="group"],
+    [data-testid="stSelectbox"] button,[data-testid="stFileUploaderDropzone"]) {
+    color:var(--zta-ink) !important;
+    background:var(--zta-panel) !important;
+    caret-color:var(--zta-ink);
+}
+.stApp :is(input,textarea)::placeholder {color:var(--zta-muted) !important; opacity:1;}
+.stApp [data-testid="stFileUploaderDropzoneInstructions"] {color:var(--zta-muted) !important;}
+.stApp [data-testid="stFileUploaderDropzoneInstructions"] * {color:inherit !important;}
+.stApp [data-testid="stAlert"] > div {
+    --zta-text:var(--zta-ink);
+    background:var(--zta-panel) !important;
+    color:var(--zta-text) !important;
+}
+.stApp .stTabs [role="tablist"] {background:var(--zta-paper) !important;}
+.stApp .stTabs [role="tab"] {
+    --zta-text:var(--zta-ink);
+    color:var(--zta-text) !important;
+    background:transparent !important;
+    opacity:1 !important;
+}
+.stApp .stTabs [role="tab"][aria-selected="true"] {
+    --zta-text:var(--zta-accent);
     font-weight:600;
+}
+.stApp .react-aria-SelectionIndicator {background:var(--zta-accent) !important;}
+/* React Aria mounts selection menus outside the app container. */
+[role="listbox"], [role="option"] {
+    color:var(--zta-ink) !important;
+    background:var(--zta-paper) !important;
+}
+[role="option"]:is([data-focused],[aria-selected="true"]) {
+    color:var(--zta-ink) !important;
+    background:var(--zta-panel) !important;
 }
 </style>""", unsafe_allow_html=True)
 try:

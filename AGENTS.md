@@ -2,11 +2,11 @@
 
 ```text
 Document:    Course Repository Instructions
-Version:     v1.0.2
+Version:     v1.0.3
 Author:      Celaya Solutions
 Contact:     hello@celayasolutions.com
 Date:        2026-09-06
-SHA256:      506192a7ae70e884ff5088101e746e140c7b724adf2d0e2d1a352c6562340b0e
+SHA256:      e5f276218b2bbdac1f1b684bc3ffecd1835103cc91f82a49847ea4ab9eb7cc80
 Chain:       n/a
 Tx:          [not anchored]
 License:     All Rights Reserved / Celaya Solutions
@@ -37,3 +37,5 @@ Summaries use plain language and describe verified results. Unperformed device, 
 - 2026-09-06: Removed fixed app colors that mixed pale backgrounds with dark-mode white text. Verified sidebar, tabs, and upload controls in light and dark browser previews; all 36 app checks pass.
 
 - 2026-09-06: Added explicit paired colors for course tabs and the upload label, including nested text. Browser checks at 874 x 1087 measured 13.43:1 text contrast and 6.38:1 on the active tab; all 36 app checks pass.
+
+- 2026-09-06: Unified the fixed course palette across passage cards, labels, controls, menus, alerts, and code; increased passage spacing. All five screens passed browser contrast checks with light and dark defaults (minimum checked text 6.12:1, passages 13.43:1), with source cards reviewed at 887 x 1087; all 36 app checks pass.
