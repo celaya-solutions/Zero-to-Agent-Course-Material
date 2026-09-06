@@ -17,6 +17,6 @@ def main():
             runs.append({'number':i,'question':q,'at':now(),'result':answer,'passages':passages})
             print(i,answer['status'],answer['answer'])
     dest=r/'.zta'/f'live-pilot-{cfg["provider"]}.json';dest.parent.mkdir(exist_ok=True)
-    dest.write_text(json.dumps({'recorded_at':now(),'os':platform.platform(),'provider':cfg['provider'],'model':cfg['model'],'runs':runs},indent=2))
+    dest.write_text(json.dumps({'recorded_at':now(),'os':platform.platform(),'provider':cfg['provider'],'model':cfg['model'],'runs':runs},indent=2), encoding="utf-8")
     print('Saved locally:',dest.name,'Review semantic results before copying a sanitized record into release/evidence.')
 if __name__=='__main__':main()

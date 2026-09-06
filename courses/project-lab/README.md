@@ -1,5 +1,17 @@
 # ZERO TO AGENT: Project Lab
 
+```text
+Document:    ZERO TO AGENT: Project Lab
+Version:     v1.0.0
+Author:      Celaya Solutions
+Contact:     hello@celayasolutions.com
+Date:        2026-09-06
+SHA256:      a7df22fd824687f36c4e806c04a3f2e6f1c9696507d605bd79eee8e39b7bbb9c
+Chain:       n/a
+Tx:          [not anchored]
+License:     All Rights Reserved / Celaya Solutions
+```
+
 Five ninety-minute meetings. Four required projects. One final presentation.
 
 This is a standalone, shorter course for a room that may include a person opening a chat tool for the first time and a person who already writes software. Everyone completes the same core proof. Experienced builders may complete the builder extension, but extra code never replaces clear evidence.
@@ -43,21 +55,12 @@ Learners may replace the case with their own business or an owner-approved busin
 
 ## Teaching and release boundary
 
-This is the one course. The earlier twelve-level and eight-week drafts are kept under archive/ for history and are not taught.
+This is the one active course. Retired drafts remain in the old website archive; they are not part of this repository or the teaching path.
 The canonical authoring home is https://github.com/celaya-solutions/Zero-to-Agent-Course-Material. This directory is the source for generated website and private-platform copies.
 The platform copies this directory with its `zta:sync_content` task, then checks
 the copy before it can be committed. Syncing files does not change the live
-course database or the Course Edge service. A public release may deploy this
-repository only to the Railway Landing Page service after a local pilot, merge
-approval, and a fresh browser check.
+course database or the Course Edge service. The website receives a generated copy from this repository. Any website merge or live deployment is a separate release action; do not deploy this application/source repository to an existing website service.
 
 ## Build and validation
 
-Run:
-
-    ruby scripts/build_project_lab_pdfs.rb
-    ruby scripts/build_project_lab_slides.rb
-    LANG=en_US.UTF-8 ruby scripts/validate_project_lab.rb
-    python3 -m http.server 4173
-
-Then open /courses/project-lab/ and at least one lesson PDF and slide deck in a browser.
+Follow [Maintaining the course](../../release/maintaining.md) from this repository's root. It lists the locked dependencies, hash update, PDF and slide builds, validators, release packaging, and generated-copy commands in order. The private platform source and learner submissions never belong in this repository.

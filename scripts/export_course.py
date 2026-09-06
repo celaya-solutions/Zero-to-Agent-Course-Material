@@ -18,6 +18,6 @@ def main():
         print(f'Generated website copy matches {len(files)} files.');return
     for p in files:
         target=dest/p.relative_to(ROOT);target.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(p,target)
-    (dest/'course-material-source.json').write_text(json.dumps(manifest,indent=2)+'\n')
+    (dest/'course-material-source.json').write_text(json.dumps(manifest,indent=2)+'\n', encoding="utf-8")
     print(f'Exported {len(files)} source/generated files. Review and commit the destination worktree; no deployment performed.')
 if __name__=='__main__':main()

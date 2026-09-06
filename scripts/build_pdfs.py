@@ -88,7 +88,7 @@ def main():
     sources=sorted((ROOT/'courses/project-lab').rglob('*.md'))+sorted((ROOT/'preparation').glob('*.md'))+[ROOT/'README.md',ROOT/'projects/documents/README.md']
     for source in sources:
         CURRENT_SOURCE=source
-        rendered=markdown.markdown(normalize(source.read_text()),extensions=['tables','fenced_code'],output_format='xhtml')
+        rendered=markdown.markdown(normalize(source.read_text(encoding="utf-8")),extensions=['tables','fenced_code'],output_format='xhtml')
         tree=ET.fromstring('<root>'+rendered+'</root>')
         output=source.with_suffix('.pdf')
         SimpleDocTemplate(str(output),pagesize=letter,rightMargin=44,leftMargin=44,topMargin=40,bottomMargin=40,title=next(iter(tree)).text or source.stem,author='Celaya Solutions').build(convert(tree),onFirstPage=footer,onLaterPages=footer)

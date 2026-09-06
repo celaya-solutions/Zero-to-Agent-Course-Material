@@ -6,7 +6,7 @@ Version:     v1.0.0
 Author:      Celaya Solutions
 Contact:     hello@celayasolutions.com
 Date:        2026-09-06
-SHA256:      b4c609843452712047d3213513c280d9e0e69c4795bd6d9295ce3215f81c5a03
+SHA256:      bd6002a18f7a9301aa94e9948e6f2bec707cc71c33a42670c2882dfcd8c4241a
 Chain:       n/a
 Tx:          [not anchored]
 License:     All Rights Reserved / Celaya Solutions
@@ -32,4 +32,4 @@ Summaries use plain language and describe verified results. Unperformed device, 
 
 ## Change notes
 
-- 2026-09-06: Added and committed the Level 1 starter and five-level teaching pack. Browser review confirmed source checks, the controlled improvement, private export, and persistence; added a fixed light theme and bounded CI diagnostics with short test-case labels. Device, cloud, and authenticated-student gates are tracked in `release/verification.md`.
+- 2026-09-06: Added and committed the Level 1 starter and five-level teaching pack. Browser review confirmed source checks, the controlled improvement, private export, and persistence; added a fixed light theme and bounded CI diagnostics with short test-case labels and explicit UTF-8 reads for Windows. Device, cloud, and authenticated-student gates are tracked in `release/verification.md`.

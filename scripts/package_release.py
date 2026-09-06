@@ -25,6 +25,6 @@ def main():
         target=out/f'{name}-{VERSION}{Path(source).suffix}'
         shutil.copy2(ROOT/'courses/project-lab/level-01'/source,target)
         checks[target.name]=hashlib.sha256(target.read_bytes()).hexdigest()
-    (out/'SHA256SUMS.txt').write_text(''.join(f'{v}  {k}\n' for k,v in checks.items()))
+    (out/'SHA256SUMS.txt').write_text(''.join(f'{v}  {k}\n' for k,v in checks.items()), encoding="utf-8")
     print(json.dumps(checks,indent=2))
 if __name__=='__main__':main()

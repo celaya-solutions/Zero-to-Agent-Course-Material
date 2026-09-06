@@ -185,7 +185,7 @@ with questions:
     with st.expander("Service unavailable? Use a labeled saved example"):
         st.write("This imports an authored classroom example. It is not a live model result. You still write expectations, inspect sources, and judge each answer.")
         if st.button("Load five saved examples",disabled=not ready):
-            saved=json.loads((assets/'saved-runs.json').read_text())
+            saved=json.loads((assets/'saved-runs.json').read_text(encoding="utf-8"))
             current=progress()
             for r in saved:
                 r.update({"id":uuid.uuid4().hex[:12],"at":now(),"expected":st.session_state[f"expected_{r['number']}"],"verdict":"Choose","route":"saved classroom example"})
