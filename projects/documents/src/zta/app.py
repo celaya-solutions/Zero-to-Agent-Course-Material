@@ -16,6 +16,28 @@ st.markdown("""<style>
 .stAppDeployButton {display:none;}
 h1,h2,h3 {font-family: Georgia,serif;}
 .stButton>button {border-radius:3px;}
+/* Pair these course surfaces explicitly: nested Markdown must not inherit
+   a saved theme's white text while the label or tab has a pale background. */
+.stTabs [role="tablist"],
+[data-testid="stFileUploader"] > [data-testid="stWidgetLabel"] {
+    background-color:#f6f2e9 !important;
+    color:#192a25 !important;
+    opacity:1 !important;
+}
+.stTabs [role="tab"] {
+    background-color:transparent !important;
+    color:#192a25 !important;
+    opacity:1 !important;
+}
+.stTabs [role="tab"] p,
+[data-testid="stFileUploader"] > [data-testid="stWidgetLabel"] p {
+    color:inherit !important;
+    opacity:1 !important;
+}
+.stTabs [role="tab"][aria-selected="true"] {
+    color:#236346 !important;
+    font-weight:600;
+}
 </style>""", unsafe_allow_html=True)
 try:
     cfg = config()

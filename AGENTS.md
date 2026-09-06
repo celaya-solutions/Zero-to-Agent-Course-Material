@@ -2,11 +2,11 @@
 
 ```text
 Document:    Course Repository Instructions
-Version:     v1.0.1
+Version:     v1.0.2
 Author:      Celaya Solutions
 Contact:     hello@celayasolutions.com
 Date:        2026-09-06
-SHA256:      2af2697f6c2d28c1a614fd2f208f0536e1f044702213afbec4db7efe41d635b8
+SHA256:      506192a7ae70e884ff5088101e746e140c7b724adf2d0e2d1a352c6562340b0e
 Chain:       n/a
 Tx:          [not anchored]
 License:     All Rights Reserved / Celaya Solutions
@@ -35,3 +35,5 @@ Summaries use plain language and describe verified results. Unperformed device, 
 - 2026-09-06: Added and committed the Level 1 starter and five-level teaching pack. Browser review confirmed source checks, the controlled improvement, private export, and persistence; added a fixed light theme and bounded CI diagnostics with short test-case labels and explicit UTF-8 reads for Windows. Windows and Mac hosted checks pass. Physical-device, cloud, and authenticated-student gates are tracked in `release/verification.md`.
 
 - 2026-09-06: Removed fixed app colors that mixed pale backgrounds with dark-mode white text. Verified sidebar, tabs, and upload controls in light and dark browser previews; all 36 app checks pass.
+
+- 2026-09-06: Added explicit paired colors for course tabs and the upload label, including nested text. Browser checks at 874 x 1087 measured 13.43:1 text contrast and 6.38:1 on the active tab; all 36 app checks pass.
