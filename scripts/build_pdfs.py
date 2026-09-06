@@ -37,7 +37,7 @@ def inline(element):
                 from urllib.parse import quote
                 part, _, anchor = child.get('href','').partition('#')
                 path = (CURRENT_SOURCE.parent / part).resolve().relative_to(ROOT)
-                href = 'https://github.com/celaya-solutions/Zero-to-Agent-Course-Material/blob/v1.1.0-rc.1/' + quote(path.as_posix()) + ('#' + anchor if anchor else '')
+                href = 'https://github.com/celaya-solutions/Zero-to-Agent-Course-Material/blob/v1.2.0-rc.1/' + quote(path.as_posix()) + ('#' + anchor if anchor else '')
             text+=f'<link href="{href}" color="#236346">{inline(child)}</link>'
         elif child.tag in {'strong','b'}:text+='<b>'+inline(child)+'</b>'
         elif child.tag in {'em','i'}:text+='<i>'+inline(child)+'</i>'
@@ -81,7 +81,7 @@ def convert(elements):
 
 def footer(canvas,doc):
     canvas.saveState();canvas.setFont('Helvetica',7);canvas.setFillColor(colors.HexColor('#456c59'))
-    canvas.drawString(44,25,'ZERO TO AGENT | CELAYA SOLUTIONS LEARNING | v1.1.0-rc.1 REVIEW CANDIDATE')
+    canvas.drawString(44,25,'ZERO TO AGENT | CELAYA SOLUTIONS LEARNING | v1.2.0-rc.1 REVIEW CANDIDATE')
     canvas.drawRightString(letter[0]-44,25,str(doc.page));canvas.restoreState()
 
 def main():

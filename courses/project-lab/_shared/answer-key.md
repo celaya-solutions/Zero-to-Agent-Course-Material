@@ -6,7 +6,7 @@ Version:     v1.1.0
 Author:      Celaya Solutions
 Contact:     hello@celayasolutions.com
 Date:        2026-09-06
-SHA256:      0e4f8d029443e0600e73088e1c459003456eaea2bb39cc0da0a2d24b20009b02
+SHA256:      55b3766fdfb751258b263702da965defc1352e2eaaec028c512d06ba505fd3c2
 Chain:       n/a
 Tx:          [not anchored]
 License:     All Rights Reserved / Celaya Solutions
@@ -44,34 +44,9 @@ Use the [complete Level 2 key](../level-02/answer-key.md) for the six-line spec,
 
 The daily template is 13:17 UTC and may be delayed or dropped. Disabling future triggers, setting WATCHMAN_ENABLED=false, and cancelling queued/active work are separate steps. Grade the observed disabled state honestly; do not claim a future schedule tick was tested without a real observation. Partner/local/saved routes do not prove an individual hosted launch.
 
-## Level 3
+## Level 3: Nothing Leaves the Building
 
-- The selected local model answers while wifi is off.
-- The learner records model name, file size, time, quality, and a checked fact.
-- A custom rule set runs under a learner-chosen name and does not guess a price or date.
-- The learner states one job for local use and one reason to use the cloud.
-
-### Expected Level 3 evidence
-
-Model names and sizes are not fixed in this key. The instructor records the approved choices during the same week as class. A learner must use those exact names, not a remembered brand name.
-
-The arithmetic prompt has a checked answer:
-
-    84 × 1.0825 = 90.93 dollars
-
-A result of 90.92 dollars is a miss. The point is not that the local model failed. The point is that the learner checked.
-
-The airplane test proves the answer was generated without an internet connection on that device. It does not prove the output is correct, that the model has a suitable license for every use, or that no other local program stores the prompt.
-
-### Common Level 3 questions
-
-How much memory is enough? The model file plus working space must fit. Use measured class hardware and the prepared small model instead of promising a universal size.
-
-Does a graphics chip make local models possible? Small models can run without one. A suitable GPU makes many models faster.
-
-Is open-weight the same as open-source? No. Open-weight usually publishes the trained file. Open-source should also make the relevant source and license inspectable. Check each model's actual license.
-
-Why use the cloud at all? A cloud model may be stronger for a hard job, easier on limited hardware, or supported by a needed tool. The learner should choose from evidence and privacy needs.
+Use the [Level 3 answer key](../level-03/answer-key.md). Judge observed or labeled fallback evidence, six fair comparison rows, an independent source and arithmetic check, and both named-helper tests before/after one writing-rule edit. Total completion time is not time to first word. Private proof stays out of Git.
 
 ## Level 4
 

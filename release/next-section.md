@@ -1,56 +1,31 @@
-# Continue the Level 2 Candidate
+# Continue After Level 3
 
 ```text
-Document:    Continue the Level 2 Candidate
-Version:     v1.1.0
+Document:    Continue After Level 3
+Version:     v1.0.0
 Author:      Celaya Solutions
 Contact:     hello@celayasolutions.com
 Date:        2026-09-06
-SHA256:      c9e1319c5c2c032d3e25a843fcb6c9532de0b49b036aa65d9952d2ebc97784f6
+SHA256:      746c915bd1baea0fb8c09d4a7566da951ad2096fb8d9339970f9218382ae79a4
 Chain:       n/a
 Tx:          [not anchored]
 License:     All Rights Reserved / Celaya Solutions
 ```
 
-## Current work
+Level 3: Nothing Leaves the Building has a maintained local lab and full teaching package. Start from the merged canonical main after verifying its branch status, and preserve Level 1/2 fixes. Read [Level 3 verification](level-03-verification.md) for measured results and unperformed classroom pilots.
 
-Level 2: The Night Watchman is implemented on isolated branch `codex/level-2-night-watchman` in sibling worktree `Zero-to-Agent-Level-02`. This branch starts from the Level 1 handoff at `1c50b67`, preserving its unpublished readability fixes. Do not start from stale local main or the older published v1.0.0-rc.1 tag.
+## Authoring and checks
 
-Read [Level 2 verification](level-02-verification.md) for actual test evidence and open gates. The [learner lesson](../courses/project-lab/level-02/student.md), [preparation](../courses/project-lab/level-02/preparation.md), and [project map](../projects/watchman/README.md) are the next review entry points. All five levels remain 90 minutes.
+Use a new isolated codex worktree. Edit canonical course source first. Run the three project suites: `uv run --frozen zta test documents`, `uv run --frozen zta test watchman`, and `uv run --frozen zta test local-models`. Refresh headers, slides, and PDFs, then run both material validators and build the versioned download package.
 
-## Continue in this order
+Level 3 learner edits may access only `.zta/local-models/Modelfile` under the exact manual-card scope. Do not read other learner state or keys. Keep the two supplied models, local endpoint, prompts, limits, and prior receipts intact. Named rules are not fine-tuning or enforced security.
 
-1. Inspect branch/worktree status and preserve unrelated work. Start a new isolated worktree from this branch's current tip if making a new coding change. Install its own locked environment; do not symlink `.venv`.
-2. Finish any explicitly approved hosted pilot in the designated public practice repository. The canonical course repository is blocked by the watcher and must not get an installed active workflow. Obtain the exact repository approval before creating issues or enabling scheduled work.
-3. Follow the learner route: baseline OPEN, unchanged OPEN, change to PAUSED, repeat unchanged, one useful issue, state, logs/artifact, then disable/false variable/cancel outstanding work. Observe an actual daily scheduled event separately before claiming scheduled execution tested. A manual job or local fixture is not that evidence.
-4. Finish fresh Windows/Mac learner setup, each assistant edit path, and a test-student Level 2 upload/reopen. Keep credentials and student evidence private. Existing Level 1 live gates remain in [its verification record](verification.md).
-5. Before a separately requested release, rebuild from canonical source, rerun checks, refresh the separate consumer branches, inspect source/download links, and publish a new version. Never rewrite the existing Level 1 tag or merge/deploy as cleanup.
+## Next work
 
-## Build and validation commands
+Begin Level 4 only under a new instruction. Before a classroom/public release, finish the open device, observed-offline, assistant-route, and student-upload pilots. Preserve older Level 1 and Level 2 gates, including the exact approved repository requirement for hosted Watchman work. A manual job does not prove a daily scheduled tick.
 
-From the canonical root:
+## Generated consumers
 
-```sh
-uv sync --frozen
-uv run --frozen zta test documents
-uv run --frozen zta test watchman
-uv run --frozen python scripts/sync_watchman_starter.py
-uv run --frozen python scripts/update_headers.py
-ruby scripts/build_project_lab_slides.rb
-uv run --frozen python scripts/build_pdfs.py
-LANG=en_US.UTF-8 ruby scripts/validate_project_lab.rb
-uv run --frozen python scripts/validate_materials.py
-uv run --frozen python scripts/package_release.py
-```
+Use `scripts/export_course.py` for the separate website checkout and guarded `zta:sync_content` / `zta:check_content` for the separate private platform. Never copy Rails source, database, keys, or student submissions into public course source. Do not seed/reset courses during a content export. Keep website and private main status, source receipts, and deployment state distinct.
 
-The two old starter Python files are compatibility entry points, not a second implementation. Update the maintained watcher under `projects/watchman/`; regenerate the old workflow copy after template changes. Do not delete `.watch-state` or clear a pending send flag to force a passing demonstration. Uncertain delivery intentionally stops until a human can establish the result.
-
-## Consumer boundaries
-
-Website updates belong in the separate `course-material-site-level02` review checkout on `codex/course-material-level02`, based on the prior Level 1 website review branch. Private Rails updates belong in `course-material-platform-level02` on `codex/course-material-level02`, based on its prior canonical-source review branch. Verify these actual states before reusing them; final results are recorded in their agent notes.
-
-Use the existing exporter and guarded `zta:sync_content` / `zta:check_content` tasks. The Rails source, database, and student submissions must never be copied into public course source. Keep the original website main, live service, private runtime configuration, and earlier review worktrees intact.
-
-## Stopping point
-
-This task prepares a review candidate, not automatic permission to publish or deploy. Keep unperformed hosted/device/schedule/student pilots explicit. Do not begin Level 3, revive retired curricula, or change the alternative-project catalog without a new instruction.
+The current instruction authorizes merging the finished Level 3 work and its prerequisite course copies. Public push, release publication, deployment, and live student-data changes remain separate actions. Package/source links marked v1.2.0-rc.1 need that actual release before they are advertised as public downloads.

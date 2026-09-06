@@ -14,7 +14,7 @@ LINKED_SHARED_PDFS = %w[answer-key.pdf safety-card.pdf test-sheet.pdf access-and
 REQUIRED_ASSETS = {
   1 => %w[public-identity-and-work.md public-contact-and-method.md training-record-a.md training-record-b.md rules-card.md fallback-grounded-run.md saved-runs.json],
   2 => %w[practice-page.html fallback-three-runs.md starter/README.md starter/watch.py starter/test_watch.py starter/watch.yml],
-  3 => %w[command-card.md Modelfile.template benchmark-card.md fallback-benchmark.md],
+  3 => %w[command-card.md Modelfile.template benchmark-card.md fallback-benchmark.md prompts.json],
   4 => %w[csr-public-brief.md training-faq.md desk-instructions.md caller-card.md fallback-caller-run.md mail-desk-vulnerable.md mail-desk-fixed.md attack-card.md fallback-before-after.md],
   5 => %w[outage-presentation-packet.md project-paths.md cost-sheet.md],
 }.freeze

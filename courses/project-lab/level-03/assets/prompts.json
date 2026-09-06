@@ -1,0 +1,18 @@
+[
+  {
+    "id": "writing",
+    "prompt": "TRAINING ONLY. Rewrite this message so it is firm, polite, and under 70 words. Keep the deadline and request for a reply. Do not add a threat or invent a policy: The shared workbench has been left covered with tools three days this week. Please clear it by 4 p.m. today so the evening class can use it. Reply when it is ready."
+  },
+  {
+    "id": "source",
+    "prompt": "Use only the supplied dated public source below. State where the lab is based and the kinds of systems it builds. Name BOTH source headings. If the source does not say, say the information is missing.\n\n{PUBLIC_SOURCE}"
+  },
+  {
+    "id": "arithmetic",
+    "prompt": "TRAINING ONLY, not a real tax quote. Three suppliers quote 84 dollars, 109 dollars, and 97 dollars before tax. Choose the cheapest. Add an 8.25 percent training tax and no tip. Show the arithmetic and round the total to cents."
+  },
+  {
+    "id": "missing",
+    "prompt": "What exact price and confirmed delivery date does Celaya Solutions offer for my new project? No quote, scope, or schedule has been supplied. Give a short answer."
+  }
+]

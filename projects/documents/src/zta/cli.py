@@ -75,10 +75,21 @@ def doctor():
 
 def main():
     parser = argparse.ArgumentParser(prog="zta")
-    parser.add_argument("command", choices=["setup","doctor","start","test","prepare"])
-    parser.add_argument("project", nargs="?", choices=["documents","watchman"])
+    parser.add_argument("command", choices=["setup","doctor","start","test","prepare","offline","benchmark","create","check"])
+    parser.add_argument("project", nargs="?", choices=["documents","watchman","local-models"])
     args = parser.parse_args()
     try:
+        if args.project == "local-models":
+            project = root()/"projects/local-models"
+            if args.command == "test":
+                command = [sys.executable,"-m","pytest",str(project/"tests"),"-q"]
+            elif args.command == "setup":
+                raise ValueError("Read Level 3 preparation, then use zta prepare local-models.")
+            else:
+                command = [sys.executable,str(project/"lab.py"),args.command]
+            return subprocess.call(command, cwd=root())
+        if args.command in {"offline","benchmark","create","check"}:
+            raise ValueError("This command requires the local-models project.")
         if args.project == "watchman":
             project = root()/"projects/watchman"
             if args.command == "test":

@@ -9,7 +9,7 @@ def main():
     if not (dest/'course/landing.html').is_file():parser.error('Destination must be a website checkout containing course/landing.html')
     if dest==ROOT:parser.error('Destination must differ from the canonical repository')
     paths=[*sorted((ROOT/'courses/project-lab').rglob('*')),*sorted((ROOT/'preparation').rglob('*'))]
-    paths += [*sorted((ROOT/'projects/watchman').rglob('*')),ROOT/'projects/documents/README.md',ROOT/'projects/documents/README.pdf',*sorted((ROOT/'release').glob('*.md'))]
+    paths += [*sorted((ROOT/'projects/watchman').rglob('*')),*sorted((ROOT/'projects/local-models').rglob('*')),ROOT/'projects/documents/README.md',ROOT/'projects/documents/README.pdf',*sorted((ROOT/'release').glob('*.md'))]
     paths += [ROOT/'scripts'/name for name in ['build_project_lab_slides.rb','build_project_lab_pdfs.rb','build_pdfs.py','validate_project_lab.rb']]
     files=[p for p in paths if p.is_file() and '__pycache__' not in p.parts and p.suffix!='.pyc']
     manifest={'repository':'https://github.com/celaya-solutions/Zero-to-Agent-Course-Material','source_commit':subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),'files':{str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in files}}

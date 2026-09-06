@@ -1,11 +1,11 @@
 number: 3
 title: "Nothing Leaves the Building"
-objective: "Run a local model with the network off, compare two supported local models, verify one answer, and create a named model with a useful rule set."
+objective: "Run a local model with external network links disconnected, compare two models using the same prompts, verify one answer, and test a named model with a missing-information rule."
 prerequisites:
-  - "Level 2 proof or the supplied catch-up card"
-  - "A supported laptop with at least 8 GB memory, or a partner role"
-  - "The instructor-prepared runner, model files, and USB fallback"
-passing_proof: "One offline answer; a two-model benchmark with time, size, and quality; one fact checked against a source; a named custom model; and a written local-versus-cloud choice."
+  - "Your own Ollama-capable Windows or Mac computer and the shared course setup"
+  - "Level 3 preparation completed online before class, including both model downloads where hardware allows"
+  - "Level 2 proof or an honestly labeled catch-up route"
+passing_proof: "An observed offline answer or a labeled fallback; six benchmark rows with model identity, size, total time, and your quality verdict; one checked source; a named model tested before and after one rule edit; and a written local-versus-cloud choice."
 required_project_milestone: "The model is a file."
-core_route: "Run the prepared small model, complete the benchmark, and build from the supplied model template."
-builder_extension: "Connect the Level 1 binder to local retrieval or open a phone window only on the classroom router."
+core_route: "Use the local lab, compare Gemma 3 1B and 4B, check the supplied source, and revise one named writing rule."
+builder_extension: "Compare a second round on the same machine; keep the endpoint on localhost and explain run-to-run variation."

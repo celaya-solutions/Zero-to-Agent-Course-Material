@@ -1,108 +1,136 @@
-# Worksheet - Project Lab Level 3: Nothing Leaves the Building
+# Worksheet - Nothing Leaves the Building
 
-Name or course nickname: ____________________  Date: ____________________
+```text
+Document:    Worksheet - Nothing Leaves the Building
+Version:     v1.0.0
+Author:      Celaya Solutions
+Contact:     hello@celayasolutions.com
+Date:        2026-09-06
+SHA256:      8651ec9efe95a5ab824d9ace8e545e6688c171e467623d9dbcb3c8d892fd0ea8
+Chain:       n/a
+Tx:          [not anchored]
+License:     All Rights Reserved / Celaya Solutions
+```
 
-Device role: [ ] My laptop  [ ] Paired operator  [ ] Instructor station  [ ] Saved run
+Nickname: `________________________`  Date: `________________________`  Computer/OS/RAM: `________________________`
 
-Memory: ______ GB  Operating system: _________________________________
+Route: own computer / partner computer / saved / mixed. Name the route for every row.
 
 ## Goal and pass check
 
-One offline answer; a two-model benchmark with time, size, and quality; one fact checked against a source; a named custom model; and a written local-versus-cloud choice.
-
-- [ ] Offline answer observed
-- [ ] Same three prompts on two models
-- [ ] One fact verified
-- [ ] Named model ran
-- [ ] Local and cloud choices explained
+An observed offline answer or a labeled fallback; six benchmark rows with model identity, size, total time, and your quality verdict; one checked source; a named model tested before and after one rule edit; and a written local-versus-cloud choice.
 
 ## Safety check / Verificación de seguridad
 
-- [ ] Instructor-approved model files only
-- [ ] Core runner stays on localhost
-- [ ] No private record enters cloud comparison
-- [ ] Cualquier puerta de red opcional se cierra antes de salir.
+- [ ] Supplied public/synthetic prompts only; no private records or keys.
+- [ ] Localhost listener checked; no router port or public tunnel.
+- [ ] Other course model jobs closed before comparison.
+- [ ] Prepared online; downloaded models before disconnecting.
 
-## Task 1 - Airplane test
+## Task 1: Offline observation
 
-Small model exact name: ________________________________________________
+Prediction before run: `________________________`
 
-File size: __________________  Start command: __________________________
+Model name, full digest, bytes, Ollama version: `________________________`
 
-First prompt result: __________________________________________________
+Checked wifi / Ethernet / USB tether / other links: `________________________`
 
-Wifi turned off at: __________  Partner initials: _____________________
+Disconnected at: `________________________`  Restored at: `________________________`
 
-Offline prompt: _______________________________________________________
+Partner observation and nickname (or Not observed): `________________________`
 
-Observed offline result: ______________________________________________
+Actual answer and receipt filename: `________________________`
 
-This proves: __________________________________________________________
+Total completion seconds: `________________________`
 
-This does not prove: __________________________________________________
+Verdict and limits: `________________________`
 
-## Task 2 - Two-model benchmark
+If saved/connected, write why offline execution was Not performed: `________________________`
 
-| Prompt | Small model seconds / quality 1-3 | Medium model seconds / quality 1-3 | Better fit and why |
-| --- | --- | --- | --- |
-| Rewrite |  |  |  |
-| Public fact |  |  |  |
-| Three-quote math |  |  |  |
 
-Medium model exact name: ______________________________________________
+## Task 2: Fair benchmark
 
-Medium file size: _____________________________________________________
+Predict before running: which model suits each task, and why? `________________________`
 
-Public fact claimed: __________________________________________________
+Expected source location/work/headings: `________________________`
 
-Official source and section: __________________________________________
+Expected arithmetic and your independent calculation: `________________________`
 
-Verdict or correction: ________________________________________________
+Same computer, fixed prompts/options, unload-before timing confirmed: `________________________`
 
-## Task 3 - Named model
 
-New model name: _______________________________________________________
+| Model/test | Route and receipt | Bytes/digest | Total seconds | Score 1-3 or failed | Reason/correction |
+| --- | --- | --- | --- | --- | --- |
+| 1B writing | | | | | |
+| 1B source | | | | | |
+| 1B arithmetic | | | | | |
+| 4B writing | | | | | |
+| 4B source | | | | | |
+| 4B arithmetic | | | | | |
 
-Job: __________________________________________________________________
+Source opened: `________________________`  Heading(s): `________________________`
 
-Rule 1: _______________________________________________________________
+Answer claim checked: `________________________`
 
-Rule 2: _______________________________________________________________
+Supported / unsupported / incomplete, and why: `________________________`
 
-Rule 3: _______________________________________________________________
+Limit or failed rows kept visible: `________________________`
 
-Missing price or date stop rule: ______________________________________
+Choice for daily writing on this computer, with a tradeoff: `________________________`
 
-Normal test result: ___________________________________________________
 
-Missing-fact test result: _____________________________________________
+## Task 3: Named helper and one-rule retest
 
-## Partner evidence check
+Name: zta-desk:latest. Base model/digest: `________________________`
 
-Partner initials: ______
+Original job, rules, and stop rule: `________________________`
 
-- [ ] Offline observation is clear.
-- [ ] Model comparison used the same prompts.
-- [ ] Public fact was checked outside the model.
-- [ ] Named model ran, not just the template.
-- [ ] Optional network door is closed.
+Before normal answer and receipt: `________________________`
+
+Before missing price/date answer and verdict: `________________________`
+
+Prediction for the one-rule change: `________________________`
+
+Route: manual / Claude Code / Codex. Exact changed line: `________________________`
+
+After normal answer and receipt: `________________________`
+
+After missing price/date answer and verdict: `________________________`
+
+Two sentences, under 50 words, deadline/reply retained: `________________________`
+
+Did missing information still stop? `________________________`
+
+What improved, failed, or was restored? `________________________`
+
+Code test result (separate from answer quality): `________________________`
+
+
+## Partner
+
+Reviewer nickname: `________________________`
+
+Can they trace the observation, six rows, independent check, and before/after? `________________________`
+
+One correction requested and made: `________________________`
+
 
 ## Proof
 
-Offline receipt: ______________________________________________________
+- [ ] Actual/saved/connected rows clearly identified; no invented timings.
+- [ ] Private worksheet saved as PROJECT-LAB-03.md.
+- [ ] All before/after attempts and a local-versus-cloud reason included.
+- [ ] Active requests stopped and external connections restored.
+- [ ] Uploaded to Level 3 and reopened, or marked Not submitted.
+Upload filename/time and reopen check: `________________________`
 
-Benchmark receipt: ____________________________________________________
-
-Verification receipt: __________________________________________________
-
-Named-model receipt: __________________________________________________
-
-Local-first job and why: ______________________________________________
-
-Cloud-needed job and why: _____________________________________________
 
 ## Exit ticket
 
-The model is a file means: _____________________________________________
+One job I would keep local, and why: `________________________`
 
-Nada sale del edificio means: _________________________________________
+One public/synthetic job where I might choose cloud, and what would leave: `________________________`
+
+One thing an offline answer does NOT prove: `________________________`
+
+What creating the named model changed, and what it did not: `________________________`

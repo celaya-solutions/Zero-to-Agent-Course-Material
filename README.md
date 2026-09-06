@@ -2,11 +2,11 @@
 
 ```text
 Document:    Zero to Agent - Course Material
-Version:     v1.1.0
+Version:     v1.2.0
 Author:      Celaya Solutions
 Contact:     hello@celayasolutions.com
 Date:        2026-09-06
-SHA256:      9df78530a303064325219b55a8ddb22708a898feccc0e0c47d6bb65c407de8ff
+SHA256:      76a2bac2cdca73ea3585c77e1811e4348bbf2954f4554358a5d14e248d0e7329
 Chain:       n/a
 Tx:          [not anchored]
 License:     All Rights Reserved / Celaya Solutions
@@ -40,7 +40,7 @@ Open http://127.0.0.1:8501. Keep the terminal open. Stop with Ctrl+C. Python and
 | --- | --- | --- |
 | [1 - Your Documents Answer Back](courses/project-lab/level-01/student.md) | [Document helper](projects/documents/README.md) | Five tests, source checks, change, private submission |
 | [2 - The Night Watchman](courses/project-lab/level-02/student.md) | [Page watcher](projects/watchman/README.md) | Baseline, unchanged, changed, off switch |
-| [3 - Nothing Leaves the Building](courses/project-lab/level-03/student.md) | Local model lab | Offline result, comparison, named rules |
+| [3 - Nothing Leaves the Building](courses/project-lab/level-03/student.md) | [Local model lab](projects/local-models/README.md) | Observed offline result or labeled fallback, six rows, named-rule retest |
 | [4 - The Front Desk, Attacked and Locked](courses/project-lab/level-04/student.md) | Business desk | Caller and attack tests, defenses, human handoff |
 | [5 - Choose, Improve, and Present](courses/project-lab/level-05/student.md) | An earlier project | Improved outcome, cost, presentation |
 
@@ -50,7 +50,7 @@ Level 2 now has a maintained watcher and full [preparation guide](courses/projec
 
 Download the versioned learner and instructor ZIP files from [Releases](https://github.com/celaya-solutions/Zero-to-Agent-Course-Material/releases). Each includes PDFs and offline instructions. Learner code comes from your fork; a materials ZIP is not a Git working copy.
 
-The published Level 1 package is **v1.0.0-rc.1**. Level 2 is a local **v1.1.0-rc.1 review candidate**, not yet published; see [Level 2 verification](release/level-02-verification.md). Use its matching complete course copy, not the older Level 1 download. See [release verification](release/verification.md) for observed checks and outstanding gates. Do not describe an unperformed Windows or cloud pilot as verified.
+The published Level 1 package remains **v1.0.0-rc.1**. The current Level 3 work is a local **v1.2.0-rc.1 review candidate**, including Levels 1 and 2; see [Level 3 verification](release/level-03-verification.md). Use its matching complete course checkout, not an older download. A merge does not publish the tag or its downloads. Earlier classroom gates remain in their verification records.
 
 ## What goes where
 

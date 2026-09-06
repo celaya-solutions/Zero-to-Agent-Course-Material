@@ -6,7 +6,7 @@ Version:     v1.1.0
 Author:      Celaya Solutions
 Contact:     hello@celayasolutions.com
 Date:        2026-09-06
-SHA256:      afb37d09d05fe917369eef9fe2f93aa44719b2c921f16568a7114fb1419ccdbe
+SHA256:      a03102e2bdc91288403bdb0f1d44f81a19a9ab1e551739fbbc5e5911b20e6a4f
 Chain:       n/a
 Tx:          [not anchored]
 License:     All Rights Reserved / Celaya Solutions
@@ -16,7 +16,7 @@ This repository is the canonical authoring home for five 90-minute levels. Teach
 
 ## Next maintainer task
 
-Review the completed local **Level 2: The Night Watchman** candidate and finish its explicit live gates. Read [the continuation handoff](release/next-section.md) and [Level 2 verification](release/level-02-verification.md). Start future work from this branch's current tip to preserve Level 1 readability fixes and Level 2 work. Do not begin Level 3 or publish without a new instruction.
+Continue from the merged Level 3 source. Read [the handoff](release/next-section.md) and [Level 3 verification](release/level-03-verification.md). Begin Level 4 or publish only under a new instruction. Preserve earlier live gates.
 
 ## Work rules
 
@@ -28,15 +28,20 @@ Keys, imported files, indexes, progress, and learner exports belong only in igno
 
 For a Level 2 learner exercise, read `courses/project-lab/level-02/manual-edit.md`. The bounded edit changes only unrelated practice-page text; preserve the marked status, workflow, tests, state, and expectations. Never enable workflows, create issues, or publish on the learner's behalf without their explicit request.
 
+For a Level 3 learner edit, follow `courses/project-lab/level-03/manual-edit.md`. Only the private `.zta/local-models/Modelfile` is authorized for the one-rule edit; all other private files remain out of scope. Preserve the local base, endpoint, tests, prompts, settings, and before receipts. The learner judges both after answers.
+
 ## Validation and documentation
 
-Run `uv run --frozen zta test documents` and `uv run --frozen zta test watchman`. Refresh the legacy workflow with `uv run --frozen python scripts/sync_watchman_starter.py`. After a course edit, update document hashes, regenerate slides and PDFs, run `LANG=en_US.UTF-8 ruby scripts/validate_project_lab.rb`, then `uv run --frozen python scripts/validate_materials.py`. See `release/maintaining.md` for exact commands.
+Run `uv run --frozen zta test documents`, `uv run --frozen zta test watchman`, and `uv run --frozen zta test local-models`. Refresh the legacy workflow with `uv run --frozen python scripts/sync_watchman_starter.py`. After a course edit, update document hashes, regenerate slides and PDFs, run `LANG=en_US.UTF-8 ruby scripts/validate_project_lab.rb`, then `uv run --frozen python scripts/validate_materials.py`. See `release/maintaining.md` for exact commands.
 
 Every new document receives the standard metadata header. Canonical content is the UTF-8 text below that header, with leading/trailing blank space removed and one final newline; SHA256 covers those bytes. Preserve existing licenses and source attribution. Recheck public facts and provider prices before class. Saved examples are authored examples, never live test proof.
 
 Summaries use plain language and describe verified results. Unperformed device, cloud, and authenticated upload pilots remain open release gates. Do not infer classroom readiness from unit tests.
 
 ## Change notes
+
+- 2026-09-06: Completed and committed Level 3 local lab, six-row comparison, named-rule retests, and the learner/teacher pack. All 96 project tests and course/render checks pass; actual model failures and open device/network/upload pilots are recorded in release/level-03-verification.md.
+
 
 - 2026-09-06: Built the maintained Level 2 watcher, failure/recovery checks, full learner/teacher pack, and candidate downloads; 79 app checks, fresh-clone installation, and document/slide/PDF review pass locally. Hosted, device, schedule, and student-upload gates remain in release/level-02-verification.md.
 
