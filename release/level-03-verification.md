@@ -2,11 +2,11 @@
 
 ```text
 Document:    Level 3 Verification Record
-Version:     v1.0.1
+Version:     v1.0.2
 Author:      Celaya Solutions
 Contact:     hello@celayasolutions.com
 Date:        2026-09-06
-SHA256:      39557909402deede095f67e9c77ff6456dc265893d6490910332b853ff77718d
+SHA256:      969d57ab7bc06e55b3ab95c148caf804c564276fc6c7ffacd898710da02ea107
 Chain:       n/a
 Tx:          [not anchored]
 License:     All Rights Reserved / Celaya Solutions
@@ -40,3 +40,7 @@ Fresh learner Windows and Mac setup on representative 8/16 GB hardware, partner-
 ## Release boundary
 
 Source and generated consumers can be merged under the current user instruction. No hosted Level 2 practice workflow, issues, course reset, student-data migration, public release tag, push, or deployment is part of this Level 3 merge. Earlier Level 1/2 live gates remain in their own records. The v1.2.0-rc.1 PDF source links become public only after that separate version is published; local PDFs and local Markdown remain usable in the meantime.
+
+## Follow-through on 2026-09-06
+
+See [the live learner and control record](learner-verification-20260906.md). Level 1 synthetic learner upload/reopen, hosted Watchman manual rounds and interim shutdown, and a live local Front Desk pause now have actual evidence. Levels 2-5 uploads are date-gated; physical learners, observers and the actual scheduled event remain open. The published tag/downloads are unchanged.

@@ -2,11 +2,11 @@
 
 ```text
 Document:    Level 4 Verification Record
-Version:     v1.0.1
+Version:     v1.0.2
 Author:      Celaya Solutions
 Contact:     hello@celayasolutions.com
 Date:        2026-09-06
-SHA256:      9007fbb4a8809b149498f35c28867dc726f62ddaec9e06a710374e8716e0466a
+SHA256:      c1c38289866e535a784d054c0de7bb44299968f3ea26b773aa900843b39006e2
 Chain:       n/a
 Tx:          [not anchored]
 License:     All Rights Reserved / Celaya Solutions
@@ -57,3 +57,7 @@ A fresh learner fork on representative Windows and Mac computers, all coding-ass
 ## Release boundary
 
 Level 4 source and generated website/private copies are committed on isolated branches. No Level 4 merge, push, release tag, deployment, real inbox connection, course seed/reset, or student-data change is authorized by this continuation. Candidate PDF source links need the matching public tag before being advertised as published downloads.
+
+## Follow-through on 2026-09-06
+
+See [the live learner and control record](learner-verification-20260906.md). Level 1 synthetic learner upload/reopen, hosted Watchman manual rounds and interim shutdown, and a live local Front Desk pause now have actual evidence. Levels 2-5 uploads are date-gated; physical learners, observers and the actual scheduled event remain open. The published tag/downloads are unchanged.

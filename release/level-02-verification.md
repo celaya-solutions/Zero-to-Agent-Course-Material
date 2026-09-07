@@ -2,11 +2,11 @@
 
 ```text
 Document:    Level 2 Candidate Verification
-Version:     v1.0.2
+Version:     v1.0.3
 Author:      Celaya Solutions
 Contact:     hello@celayasolutions.com
 Date:        2026-09-06
-SHA256:      3717c9e7d5f3db5da0acaab5e00d83b68db4cb819a5e375524d1e97637125794
+SHA256:      d8a847e3028862c872bf670ff8f5b3a8cf4ebe71c56191c9eb80b3d20078cd5d
 Chain:       n/a
 Tx:          [not anchored]
 License:     All Rights Reserved / Celaya Solutions
@@ -36,13 +36,13 @@ Authored fallback logs are teaching material, not execution evidence. Machine/AP
 | --- | --- | --- |
 | Fresh Windows setup and local rehearsal | Not performed on a Windows device | Exact OS, command versions, install, tests, three local rounds |
 | Fresh Mac learner-fork setup | Maintainer local verification only | Independent learner setup, tools, expected outcomes and time |
-| Hosted baseline/unchanged/changed/repeat | Pending designated practice-fork authorization | Four real run URLs, one real issue, state and artifact receipts |
-| Hosted failure and recovery | Not performed | Controlled failure log, preserved state, repaired run without duplicate issue |
+| Hosted baseline/unchanged/changed/repeat | Passed in dedicated synthetic practice copy | Four run receipts and one practice issue in the follow-through record |
+| Hosted failure and recovery | Passed | Invalid-signal failure, unchanged last good state, repaired run and no duplicate issue |
 | Actual daily scheduled event | Not observed | A real `schedule` event receipt with intended and actual time; disable afterward |
-| Browser stop controls | Not performed in a designated fork | Disabled state, false variable, no queued/active run, attempted trigger evidence |
+| Stop controls | Passed through GitHub API/CLI; browser-specific exercise remains open | Disabled state, false variable, zero active runs, HTTP 422 dispatch rejection |
 | Claude Code/Codex fresh assistant edit | Not performed | Actual login and bounded edit, same local before/after expectation |
-| Test-student Level 2 upload/reopen | Not performed | Authenticated student navigation, correct private file and receipt |
-| Published version/download links | Not published | Reviewed source tag, generated packets, matching checksums and links |
+| Test-student Level 2 upload/reopen | Blocked until September 12 at 06:00 UTC | Dedicated student signed in; actual date gate refused access |
+| Published version/download links | Passed v1.4.0-rc.1 | See delivery record; tag and attached downloads unchanged |
 
 The public v1.0.0-rc.1 tag belongs to Level 1 and must not be rewritten. PDF source links target the proposed v1.1.0-rc.1 tag so they remain usable when the platform serves a standalone PDF. That tag is not yet published: source URLs remain a release gate. For local review, use the matching Markdown files included in the packets. The canonical workflow template is not installed or enabled by maintenance builds.
 
@@ -57,3 +57,7 @@ Refresh course copies into separate website and private-platform review worktree
 - [Disable/enable](https://docs.github.com/en/actions/how-tos/manage-workflow-runs/disable-and-enable-workflows) and [cancel](https://docs.github.com/en/actions/how-tos/manage-workflow-runs/cancel-a-workflow-run): stop future triggers and outstanding work separately.
 - [Permissions](https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax#permissions): job-level contents/issues writes and unspecified scopes set to none.
 - [Contents](https://docs.github.com/en/rest/repos/contents#create-or-update-file-contents), [Issues](https://docs.github.com/en/rest/issues/issues), and [artifacts](https://docs.github.com/en/actions/how-tos/manage-workflow-runs/download-workflow-artifacts): state persistence, practice issue, and inspectable per-run receipts.
+
+## Follow-through on 2026-09-06
+
+See [the live learner and control record](learner-verification-20260906.md). Level 1 synthetic learner upload/reopen, hosted Watchman manual rounds and interim shutdown, and a live local Front Desk pause now have actual evidence. Levels 2-5 uploads are date-gated; physical learners, observers and the actual scheduled event remain open. The published tag/downloads are unchanged.

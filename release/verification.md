@@ -2,11 +2,11 @@
 
 ```text
 Document:    Level 1 Release Verification
-Version:     v1.0.1
+Version:     v1.0.2
 Author:      Celaya Solutions
 Contact:     hello@celayasolutions.com
 Date:        2026-09-06
-SHA256:      04b9af21a7ddce81ec4fada55a893b2a0c954d1b20622f06141f34030b4f6676
+SHA256:      b1e3f3bd1649dbcd6b8b65a42cb64193cb2b23485187bd3e6f24045d9cfcef81
 Chain:       n/a
 Tx:          [not anchored]
 License:     All Rights Reserved / Celaya Solutions
@@ -56,3 +56,7 @@ Complete each row on the actual selected platform; keep private student evidence
 A live pilot can be recorded from the canonical repository with `uv run --frozen python scripts/live_pilot.py --live` after `zta setup`. That command makes exactly five requests to the chosen provider and can incur charges. It writes `.zta/live-pilot-PROVIDER.json`; review/redact before copying a public-only result into `release/evidence/`. Human verdicts remain mandatory.
 
 No minimum-funding figure is promised: check the provider's checkout during each pilot. Record any required deposit and the displayed price before the first paid request. Do not automatically fund accounts or retry paid requests.
+
+## Follow-through on 2026-09-06
+
+See [the live learner and control record](learner-verification-20260906.md). Level 1 synthetic learner upload/reopen, hosted Watchman manual rounds and interim shutdown, and a live local Front Desk pause now have actual evidence. Levels 2-5 uploads are date-gated; physical learners, observers and the actual scheduled event remain open. The published tag/downloads are unchanged.

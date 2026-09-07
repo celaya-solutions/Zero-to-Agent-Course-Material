@@ -1,0 +1,94 @@
+{
+  "repository": "celaya-solutions/Zero-to-Agent-Watchman-Pilot-20260906",
+  "source_tag": "v1.4.0-rc.1",
+  "source_commit": "8492461afdc7e852c3a0f042461e4e8a5c988ac1",
+  "repository_kind": "separate synthetic copy; the signed-in owner owns the canonical repository and cannot fork it into the same account",
+  "rounds": [
+    {
+      "current": "OPEN",
+      "decision": "baseline saved",
+      "previous": null,
+      "route": "GitHub Actions",
+      "run": "34069339344/1",
+      "source_commit": "da152154d5bbc24a6dfa644b578da613361185d1",
+      "time": "2026-09-07T00:17:38+00:00",
+      "phase": "baseline",
+      "artifact_sha256": "cc7c55a3e5352f355e9bb47ce80ba84d204adda4cb64b71db1f49c8ee140bf73",
+      "run_url": "https://github.com/celaya-solutions/Zero-to-Agent-Watchman-Pilot-20260906/actions/runs/34069339344"
+    },
+    {
+      "current": "OPEN",
+      "decision": "no change",
+      "previous": "OPEN",
+      "route": "GitHub Actions",
+      "run": "34069421255/1",
+      "source_commit": "76be79843a8cc65a67c9918818b078b276d1f560",
+      "time": "2026-09-07T00:18:59+00:00",
+      "phase": "unchanged",
+      "artifact_sha256": "67580296a3619be34d965c3772e2b44ad598b5315d6f317cfe96af72317e98cb",
+      "run_url": "https://github.com/celaya-solutions/Zero-to-Agent-Watchman-Pilot-20260906/actions/runs/34069421255"
+    },
+    {
+      "current": "PAUSED",
+      "decision": "changed",
+      "issue": "https://github.com/celaya-solutions/Zero-to-Agent-Watchman-Pilot-20260906/issues/1",
+      "previous": "OPEN",
+      "route": "GitHub Actions",
+      "run": "34069482873/1",
+      "source_commit": "a926000d0d93f8075db24101f549bc467c7a0932",
+      "time": "2026-09-07T00:20:10+00:00",
+      "transition": "7ebf9b5471f19e749725947e",
+      "phase": "changed",
+      "artifact_sha256": "4c8eb0d3d28d5ab28d4e6d9d590f95690528767ee0e7f36a1e0204f46079ad3b",
+      "run_url": "https://github.com/celaya-solutions/Zero-to-Agent-Watchman-Pilot-20260906/actions/runs/34069482873"
+    },
+    {
+      "current": "PAUSED",
+      "decision": "no change",
+      "previous": "PAUSED",
+      "route": "GitHub Actions",
+      "run": "34069532084/1",
+      "source_commit": "76e0a9d1b8fda78d17c92eb50b12949be7151f67",
+      "time": "2026-09-07T00:21:05+00:00",
+      "phase": "repeat",
+      "artifact_sha256": "f8c23d78f5747e7888e26d13a39a25794101010d1e8cf6f197147ba56d892e8d",
+      "run_url": "https://github.com/celaya-solutions/Zero-to-Agent-Watchman-Pilot-20260906/actions/runs/34069532084"
+    },
+    {
+      "decision": "failed",
+      "error": "watch-value must be OPEN or PAUSED. Unknown or empty text is a failure.",
+      "previous": "PAUSED",
+      "route": "GitHub Actions",
+      "run": "34069596969/1",
+      "source_commit": "eb31488a64941d7f6d02ee71104bc5afa7973bce",
+      "time": "2026-09-07T00:22:20+00:00",
+      "phase": "failure",
+      "artifact_sha256": "3ce9efd4f5fe0c277031fa2ad788467940bd33c00067d33f04d52d524004b4ac",
+      "run_url": "https://github.com/celaya-solutions/Zero-to-Agent-Watchman-Pilot-20260906/actions/runs/34069596969"
+    },
+    {
+      "current": "PAUSED",
+      "decision": "no change",
+      "previous": "PAUSED",
+      "route": "GitHub Actions",
+      "run": "34069692678/1",
+      "source_commit": "8bf995f0146e37f6a9484dc32c14c2b4f711483f",
+      "time": "2026-09-07T00:24:07+00:00",
+      "phase": "recovery",
+      "artifact_sha256": "a95b759674ae8d740257cdc1fc086a073ce348bd0b0844de3e3a68edc87f42b0",
+      "run_url": "https://github.com/celaya-solutions/Zero-to-Agent-Watchman-Pilot-20260906/actions/runs/34069692678"
+    }
+  ],
+  "stop": {
+    "workflow_state": "disabled_manually",
+    "WATCHMAN_ENABLED": "false",
+    "active_runs": 0,
+    "disabled_dispatch_http_status": 422,
+    "issue_count": 1
+  },
+  "actual_schedule": {
+    "status": "blocked",
+    "reason": "No actual schedule event observed. Workflow remains disabled; unattended follow-up requires explicit owner approval after automatic review rejection.",
+    "configured_cron_utc": "17 13 * * *"
+  }
+}

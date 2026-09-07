@@ -1,0 +1,52 @@
+{
+  "source_commit": "8492461afdc7e852c3a0f042461e4e8a5c988ac1",
+  "test": "maintainer live local request pause; no human observer",
+  "events": [
+    {
+      "event": "request_body_sent_waiting_for_response",
+      "time": 1788740152.1404831
+    },
+    {
+      "event": "pause_saved",
+      "time": 1788740152.141078
+    },
+    {
+      "event": "run_returned",
+      "time": 1788740154.3537269
+    }
+  ],
+  "requests": [
+    {
+      "method": "GET",
+      "path": "/api/tags",
+      "time": 1788740152.120811
+    },
+    {
+      "method": "POST",
+      "path": "/api/show",
+      "time": 1788740152.127033
+    },
+    {
+      "method": "POST",
+      "path": "/api/generate",
+      "time": 1788740152.1403031
+    }
+  ],
+  "model": {
+    "model": "gemma3:4b",
+    "digest": "a2af6cc3eb7fa8be8504abaf9b04e88f17a119ec3f04a3addf55f92841195f5a",
+    "size_bytes": 3338801804
+  },
+  "first_status": "control changed; stopped",
+  "row_statuses": [
+    "suppressed after control change"
+  ],
+  "answers_saved": 0,
+  "paused_status": "paused",
+  "paused_rows": 0,
+  "paused_requests": 0,
+  "receipt_sha256": [
+    "5a680f7b91fd377b64740c4d5b3bb7c172c2af7d17a5b9dafa8ae7414d9816b4",
+    "441c0733604fb799d4f99ec7ffedcb05d4bde256e614366f56c685ce01432957"
+  ]
+}

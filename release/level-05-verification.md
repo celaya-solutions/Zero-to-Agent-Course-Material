@@ -2,11 +2,11 @@
 
 ```text
 Document:    Level 5 Verification Record
-Version:     v1.0.1
+Version:     v1.0.2
 Author:      Celaya Solutions
 Contact:     hello@celayasolutions.com
 Date:        2026-09-06
-SHA256:      02eb343ef05813a28985a6f946174d4b541258a968b08bdf422b7a3596238bdb
+SHA256:      e39e4bbc50283cf6d0c10b439ae3527546ead8696c695da64f80123a3db07dfd
 Chain:       n/a
 Tx:          [not anchored]
 License:     All Rights Reserved / Celaya Solutions
@@ -35,3 +35,7 @@ Real learner Windows/Mac preparation, all four chosen-project capstone rehearsal
 ## Delivery boundary
 
 Continue from the completed Level 4 branch. Source, website, and private-platform copies are cumulative isolated candidates. No main merge, push, tag, hosted workflow activation, release publication, deployment, seed/reset, or learner-data change is part of this continuation. PDF source links target v1.4.0-rc.1 and require that exact public tag before advertised online use. The complete local copy and rendered files support review before publication.
+
+## Follow-through on 2026-09-06
+
+See [the live learner and control record](learner-verification-20260906.md). Level 1 synthetic learner upload/reopen, hosted Watchman manual rounds and interim shutdown, and a live local Front Desk pause now have actual evidence. Levels 2-5 uploads are date-gated; physical learners, observers and the actual scheduled event remain open. The published tag/downloads are unchanged.

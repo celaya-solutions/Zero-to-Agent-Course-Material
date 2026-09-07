@@ -2,11 +2,11 @@
 
 ```text
 Document:    Five-Level Course Delivery Record
-Version:     v1.0.0
+Version:     v1.0.1
 Author:      Celaya Solutions
 Contact:     hello@celayasolutions.com
 Date:        2026-09-06
-SHA256:      6d44cba0179365263e0d9c3d6253841079fbfe418c0422fcc1f58fbb4c9fb929
+SHA256:      0285acc5765fd1c79c95ef1454a792fbf30194e74b8f2d4475999a0b469d328a
 Chain:       n/a
 Tx:          [not anchored]
 License:     All Rights Reserved / Celaya Solutions
@@ -41,3 +41,7 @@ These checks are not completed by the deployment. The detailed gate rows in veri
 - Live funded cloud routes and live-request pause pilots require the selected provider/test setup and actual receipts. This deployment introduced no purchase, paid retry, provider switch, or fabricated result.
 
 Continue the remaining English learner gates when their specific resources are available. Preserve all learner records and existing Spanish anchors; no new Spanish work or Spanish delivery pilot is requested.
+
+## Follow-through on 2026-09-06
+
+See [the live learner and control record](learner-verification-20260906.md). Level 1 synthetic learner upload/reopen, hosted Watchman manual rounds and interim shutdown, and a live local Front Desk pause now have actual evidence. Levels 2-5 uploads are date-gated; physical learners, observers and the actual scheduled event remain open. The published tag/downloads are unchanged.

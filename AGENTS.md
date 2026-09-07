@@ -2,11 +2,11 @@
 
 ```text
 Document:    Course Repository Instructions
-Version:     v1.5.1
+Version:     v1.5.2
 Author:      Celaya Solutions
 Contact:     hello@celayasolutions.com
 Date:        2026-09-06
-SHA256:      8003b90fad455b21e58e46cbb39d29c2ac680987526239b9bd0e9300286652a7
+SHA256:      95faa4ee9de1b8999ba049ed5ed157eaac98a5e99c7b4aeb731dc029fe66122b
 Chain:       n/a
 Tx:          [not anchored]
 License:     All Rights Reserved / Celaya Solutions
@@ -16,7 +16,7 @@ This repository is the canonical authoring home for five 90-minute levels. Teach
 
 ## Next maintainer task
 
-Publication and deployment of v1.4.0-rc.1 are complete; see [the delivery record](release/delivery-v1.4.0-rc.1.md). Continue its remaining English learner gates. Do not recreate or replace the published release.
+Publication and deployment of v1.4.0-rc.1 are complete; see [the delivery record](release/delivery-v1.4.0-rc.1.md). Continue from [the learner follow-through](release/learner-verification-20260906.md): Level 1 upload/reopen and live pause passed, six hosted Watchman rounds and interim stop passed, and the viewer fix is live. Levels 2-5 retain future start dates. Watchman is disabled; its actual daily event needs explicit approval for unattended follow-up after automatic review rejection. Physical learner and observer gates remain. Do not recreate or replace the published release.
 
 Use [the release and learner-verification handoff](release/next-section.md) for the remaining real learner/setup/upload/schedule/stop checks. The user authorized this scoped follow-through on 2026-09-06. Exclude all new Spanish work and Spanish delivery pilots; preserve existing text. Record actual results and specific external blockers rather than asking again for the same release permission.
 
@@ -45,6 +45,8 @@ Every new document receives the standard metadata header. Canonical content is t
 Summaries use plain language and describe verified results. Unperformed device, cloud, and authenticated upload pilots remain open release gates. Do not infer classroom readiness from unit tests.
 
 ## Change notes
+
+- 2026-09-06: Recorded actual learner upload/reopen, preserved existing records, hosted Watchman rounds/stop and live local pause; fixed and verified the private viewer. Remaining dates, device/observer needs and rejected unattended follow-up are in the new verification record.
 
 - 2026-09-06: Published v1.4.0-rc.1 and deployed both consumers; recorded verified downloads, live content, preserved records, and the exact remaining learner resources. The release tag and assets remain unchanged.
 
