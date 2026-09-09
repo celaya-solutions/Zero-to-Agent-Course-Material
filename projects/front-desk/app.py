@@ -5,6 +5,7 @@ import warnings
 import gradio as gr
 import httpx
 import desk
+from zta.ui import blocks
 
 GROUPS = [("Five callers", "callers"), ("Ten fixed attacks", "attacks")]
 STOPPED = ("The desk stopped. Earlier rows are saved. Check Ollama and the preparation guide; "
@@ -13,32 +14,6 @@ CARD = ("Alias: River\nPublic route: hello@celayasolutions.com\n"
         "Need: Industrial document project conversation\nUrgency: This week\n"
         "Preferred follow-up time: Afternoons (request, not a promise)")
 
-THEME = gr.themes.Base(
-    primary_hue=gr.themes.colors.green,
-    font=[gr.themes.GoogleFont("Source Sans 3"), "system-ui", "sans-serif"],
-    font_mono=[gr.themes.GoogleFont("Source Code Pro"), "monospace"],
-).set(
-    body_background_fill="#f6f2e9",
-    body_text_color="#192a25",
-    body_text_color_subdued="#45594f",
-    background_fill_primary="#f6f2e9",
-    background_fill_secondary="#e7e9dd",
-    block_background_fill="#f6f2e9",
-    block_label_text_color="#192a25",
-    block_title_text_color="#192a25",
-    border_color_primary="#829285",
-    input_background_fill="#e7e9dd",
-    link_text_color="#236346",
-    button_primary_background_fill="#236346",
-    button_primary_text_color="#ffffff",
-)
-CSS = """
-.zta-app {color-scheme: light;}
-.zta-app h1, .zta-app h2, .zta-app h3 {font-family: Georgia, serif;}
-.zta-kicker {letter-spacing: .08em; font-size: .8rem; color: #45594f;}
-.zta-fixed {white-space: pre-wrap; font-family: var(--font-mono);
-    background: #f6f2e9; border-left: 3px solid #236346; padding: .75rem 1rem; line-height: 1.65;}
-"""
 
 
 def boundary_text(state):
@@ -121,8 +96,7 @@ def stream_run(group):
 
 
 def build():
-    with gr.Blocks(theme=THEME, css=CSS, title="The Front Desk | Zero to Agent",
-                   elem_classes="zta-app", analytics_enabled=False) as demo:
+    with blocks("The Front Desk | Zero to Agent") as demo:
         tick = gr.State(0)
         gr.Markdown("ZERO TO AGENT · LEVEL 4 · TRAINING ONLY", elem_classes="zta-kicker")
         gr.Markdown("# The Front Desk\nBuild a desk, test its limits, then show what changed. Use the "
