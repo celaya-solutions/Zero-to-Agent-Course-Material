@@ -2,11 +2,11 @@
 
 ```text
 Document:    Course Repository Instructions
-Version:     v1.5.1
+Version:     v1.5.2
 Author:      Celaya Solutions
 Contact:     hello@celayasolutions.com
-Date:        2026-09-06
-SHA256:      8003b90fad455b21e58e46cbb39d29c2ac680987526239b9bd0e9300286652a7
+Date:        2026-09-09
+SHA256:      f471b78a28badc22850636b7ad8e4ab868e8f7ba9e3f2119674a43bc12464fbd
 Chain:       n/a
 Tx:          [not anchored]
 License:     All Rights Reserved / Celaya Solutions
@@ -17,6 +17,8 @@ This repository is the canonical authoring home for five 90-minute levels. Teach
 ## Next maintainer task
 
 Publication and deployment of v1.4.0-rc.1 are complete; see [the delivery record](release/delivery-v1.4.0-rc.1.md). Continue its remaining English learner gates. Do not recreate or replace the published release.
+
+A second track is open alongside that one: [One Project, Four Rooms](projects/zta/SPEC.md) merges the four rooms into one nested application. Phase A of that plan is landed; Phase B waits on the two decisions in its section 11 and on the release gates below closing. Neither track blocks the other, and Phase A changed no command, port or learner path.
 
 Use [the release and learner-verification handoff](release/next-section.md) for the remaining real learner/setup/upload/schedule/stop checks. The user authorized this scoped follow-through on 2026-09-06. Exclude all new Spanish work and Spanish delivery pilots; preserve existing text. Record actual results and specific external blockers rather than asking again for the same release permission.
 
@@ -45,6 +47,8 @@ Every new document receives the standard metadata header. Canonical content is t
 Summaries use plain language and describe verified results. Unperformed device, cloud, and authenticated upload pilots remain open release gates. Do not infer classroom readiness from unit tests.
 
 ## Change notes
+
+- 2026-09-09: Moved the shared `zta` package out of `projects/documents` to `projects/zta`, so no room is the landlord for the other three, and removed the four fixed-depth clone lookups. Commands, ports, worksheet paths and evidence layout are unchanged; 130 tests, both validators, all four `zta test` commands and two live doctors pass, and the slide decks rebuild unchanged. Plan and verification record in `projects/zta/SPEC.md`. The published v1.4.0-rc.1 tag and downloads are untouched.
 
 - 2026-09-06: Published v1.4.0-rc.1 and deployed both consumers; recorded verified downloads, live content, preserved records, and the exact remaining learner resources. The release tag and assets remain unchanged.
 
