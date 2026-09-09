@@ -1,337 +1,515 @@
 """A local document helper with an evidence worksheet that survives refresh."""
 import json
 import uuid
+import warnings
 from pathlib import Path
-import streamlit as st
+import gradio as gr
 from zta import __version__
-from zta.documents import CLASS_FILES, build_index, inventory, retrieve
+from zta.documents import CLASS_FILES, build_index, extract, inventory, retrieve
 from zta.evidence import QUESTIONS, checks, export_markdown, valid_revision
 from zta.providers import ProviderError, request_answer, request_estimate, RATES
 from zta.storage import config, data_dir, now, progress, root, save_progress, settings
 
-st.set_page_config(page_title="Your Documents Answer Back | Zero to Agent", page_icon="📄", layout="wide")
-# The course uses one fixed light palette, including nested widget text and
-# source cards. A saved Streamlit theme must not mix foreground/background pairs.
-st.markdown("""<style>
-:root {
-    --zta-paper:#f6f2e9;
-    --zta-panel:#e7e9dd;
-    --zta-ink:#192a25;
-    --zta-muted:#45594f;
-    --zta-accent:#236346;
-    --zta-border:#829285;
-}
-.stApp {
-    --zta-text:var(--zta-ink);
-    color:var(--zta-text) !important;
-    background:var(--zta-paper) !important;
-    color-scheme:light;
-}
-.stAppDeployButton {display:none;}
-h1,h2,h3 {font-family: Georgia,serif;}
-.stApp [data-testid="stHeader"] {background:var(--zta-paper) !important;}
-.stApp [data-testid="stSidebar"] {background:var(--zta-panel) !important;}
-.stApp :is(h1,h2,h3,h4,h5,h6,[data-testid="stMarkdownContainer"],
-    [data-testid="stText"],[data-testid="stCaptionContainer"],[data-testid="stWidgetLabel"]) {
-    color:var(--zta-text) !important;
-    opacity:1 !important;
-}
-.stApp :is([data-testid="stMarkdownContainer"],[data-testid="stText"],
-    [data-testid="stCaptionContainer"],[data-testid="stWidgetLabel"]) :is(p,span,label,code) {
-    color:inherit !important;
-    opacity:1 !important;
-}
-.stApp [data-testid="stCaptionContainer"] {--zta-text:var(--zta-muted);}
-.stApp a {color:var(--zta-accent) !important; text-decoration:underline;}
-.stApp :is([data-testid="stCode"],[data-testid="stCode"] pre,[data-testid="stCode"] code) {
-    color:var(--zta-ink) !important;
-    background:var(--zta-panel) !important;
-}
-.stApp [data-testid="stCode"] span {color:inherit !important;}
-.stApp [data-testid="stMarkdownContainer"] code {
-    background:var(--zta-panel) !important;
-}
-.stApp [data-testid="stText"] {
-    background:var(--zta-paper) !important;
-    border-left:3px solid var(--zta-accent);
-    padding:.75rem 1rem;
-    font-size:1rem;
-    line-height:1.65;
-}
-.stApp [data-testid="stText"] span {font-size:inherit; line-height:inherit;}
-.stApp [data-testid="stExpander"] details {
-    background:var(--zta-paper) !important;
-    border-color:var(--zta-border) !important;
-}
-.stApp [data-testid="stExpander"] summary {
-    --zta-text:var(--zta-ink);
-    color:var(--zta-text) !important;
-    background:var(--zta-panel) !important;
-}
-.stApp [data-testid="stExpanderDetails"] {background:var(--zta-paper) !important;}
-.stApp button[kind] {
-    --zta-text:var(--zta-ink);
-    color:var(--zta-text) !important;
-    background:var(--zta-paper) !important;
-    border-color:var(--zta-border) !important;
-    border-radius:3px;
-}
-.stApp button[kind="primary"] {
-    --zta-text:#ffffff;
-    background:var(--zta-accent) !important;
-    border-color:var(--zta-accent) !important;
-}
-.stApp button[kind]:disabled {
-    --zta-text:var(--zta-muted);
-    background:var(--zta-panel) !important;
-    border-style:dashed;
-    opacity:1 !important;
-}
-.stApp :is(input,textarea,[data-testid="stSelectbox"] [role="group"],
-    [data-testid="stSelectbox"] button,[data-testid="stFileUploaderDropzone"]) {
-    color:var(--zta-ink) !important;
-    background:var(--zta-panel) !important;
-    caret-color:var(--zta-ink);
-}
-.stApp :is(input,textarea)::placeholder {color:var(--zta-muted) !important; opacity:1;}
-.stApp [data-testid="stFileUploaderDropzoneInstructions"] {color:var(--zta-muted) !important;}
-.stApp [data-testid="stFileUploaderDropzoneInstructions"] * {color:inherit !important;}
-.stApp [data-testid="stAlert"] > div {
-    --zta-text:var(--zta-ink);
-    background:var(--zta-panel) !important;
-    color:var(--zta-text) !important;
-}
-.stApp .stTabs [role="tablist"] {background:var(--zta-paper) !important;}
-.stApp .stTabs [role="tab"] {
-    --zta-text:var(--zta-ink);
-    color:var(--zta-text) !important;
-    background:transparent !important;
-    opacity:1 !important;
-}
-.stApp .stTabs [role="tab"][aria-selected="true"] {
-    --zta-text:var(--zta-accent);
-    font-weight:600;
-}
-.stApp .react-aria-SelectionIndicator {background:var(--zta-accent) !important;}
-/* React Aria mounts selection menus outside the app container. */
-[role="listbox"], [role="option"] {
-    color:var(--zta-ink) !important;
-    background:var(--zta-paper) !important;
-}
-[role="option"]:is([data-focused],[aria-selected="true"]) {
-    color:var(--zta-ink) !important;
-    background:var(--zta-panel) !important;
-}
-</style>""", unsafe_allow_html=True)
-try:
-    cfg = config()
-    options = settings()
-    state = progress()
-except (ValueError,OSError) as exc:
-    st.error(str(exc)); st.stop()
-index_path = data_dir()/"index.sqlite3"
-assets = root()/"courses/project-lab/level-01/assets"
+CLASSES = ["Choose", "public", "training-only", "unclassified"]
+VERDICTS = ["Choose", "Pass", "Miss"]
+PROMPT = ("Read the Level 1 instructions and inspect my recorded miss. Explain its likely cause before editing. "
+          "Change one rule or retrieval setting that addresses it. Preserve the supplied documents, expected results, "
+          "and tests. Show the change, explain why it should help, and tell me how to rerun the same question. "
+          "Do not publish anything.")
 
-# Every callback reloads the most recent disk state, then updates just its field.
-def field_change(key):
+# The course uses one fixed light palette so every learner sees the same screen.
+THEME = gr.themes.Base(
+    primary_hue=gr.themes.colors.green,
+    font=[gr.themes.GoogleFont("Source Sans 3"), "system-ui", "sans-serif"],
+    font_mono=[gr.themes.GoogleFont("Source Code Pro"), "monospace"],
+).set(
+    body_background_fill="#f6f2e9",
+    body_text_color="#192a25",
+    body_text_color_subdued="#45594f",
+    background_fill_primary="#f6f2e9",
+    background_fill_secondary="#e7e9dd",
+    block_background_fill="#f6f2e9",
+    block_label_text_color="#192a25",
+    block_title_text_color="#192a25",
+    border_color_primary="#829285",
+    input_background_fill="#e7e9dd",
+    link_text_color="#236346",
+    button_primary_background_fill="#236346",
+    button_primary_text_color="#ffffff",
+)
+CSS = """
+.zta-app {color-scheme: light;}
+.zta-app h1, .zta-app h2, .zta-app h3 {font-family: Georgia, serif;}
+.zta-kicker {letter-spacing: .08em; font-size: .8rem; color: #45594f;}
+.zta-passage {white-space: pre-wrap; font-family: var(--font-mono);
+    background: #f6f2e9; border-left: 3px solid #236346; padding: .75rem 1rem; line-height: 1.65;}
+.zta-answer {white-space: pre-wrap; background: #f6f2e9; border-left: 3px solid #236346;
+    padding: .75rem 1rem; line-height: 1.65;}
+.zta-side {background: #e7e9dd; padding: 1rem; border-radius: 3px;}
+"""
+
+
+def state_and_context():
+    """Every callback reloads the most recent disk state before it reads or writes."""
+    return progress(), config(), settings()
+
+
+def index_path():
+    return data_dir() / "index.sqlite3"
+
+
+def assets_dir():
+    return root() / "courses/project-lab/level-01/assets"
+
+
+def binder_dir():
+    folder = data_dir() / "binder"
+    folder.mkdir(parents=True, exist_ok=True)
+    return folder
+
+
+def binder_files():
+    folder = data_dir() / "binder"
+    return sorted(p for p in folder.iterdir() if p.is_file()) if folder.exists() else []
+
+
+def save_field(key, value):
     current = progress()
-    current["fields"][key] = st.session_state[key]
+    current["fields"][key] = value or ""
     save_progress(current)
 
-def field(label, key, area=False):
-    if key not in st.session_state:
-        st.session_state[key] = state["fields"].get(key, "")
-    fn = st.text_area if area else st.text_input
-    return fn(label,key=key,on_change=field_change,args=(key,))
 
-def set_class(name):
-    current = progress(); current["classifications"][name] = st.session_state["class_"+name]; save_progress(current)
+def field_value(key):
+    return progress()["fields"].get(key, "")
 
-def set_verdict(run_id):
+
+def set_classification(name, value):
+    current = progress()
+    current["classifications"][name] = value
+    save_progress(current)
+
+
+def set_verdict(run_id, value):
     current = progress()
     for run in current["runs"]:
         if run["id"] == run_id:
-            run["verdict"] = st.session_state["verdict_"+run_id]
+            run["verdict"] = value
     save_progress(current)
 
-def show_passages(passages, run=None):
+
+def record_open(run, passage):
+    current = progress()
+    current["opened"].append({"at": now(), "run": run["id"], "number": run["number"],
+                              "source": passage["source"], "heading": passage["heading"],
+                              "quote": passage["text"]})
+    save_progress(current)
+
+
+def replace_binder(files):
+    """Parse everything before replacing any existing binder or index."""
+    if not files:
+        raise ValueError("Choose at least one document.")
+    if len(files) > 20:
+        raise ValueError("Use at most 20 files.")
+    named = []
+    for path in files:
+        name = Path(path).name
+        if name != Path(name).name or "\\" in name:
+            raise ValueError("Invalid filename.")
+        named.append((name, Path(path).read_bytes()))
+    if len({n for n, _ in named}) != len(named):
+        raise ValueError("Use distinct filenames.")
+    for name, data in named:
+        extract(name, data)
+    folder = binder_dir()
+    for old in folder.iterdir():
+        if old.is_file():
+            old.unlink()
+    for name, data in named:
+        (folder / name).write_bytes(data)
+    if index_path().exists():
+        index_path().unlink()
+    return len(named)
+
+
+def load_class_binder():
+    replace_binder([str(assets_dir() / name) for name in CLASS_FILES])
+    return "Four documents loaded. Choose Build index next."
+
+
+def build_binder_index():
+    files = binder_files()
+    if not files:
+        raise ValueError("Load a binder before building the index.")
+    passages = build_index(index_path(), [(p.name, p.read_bytes()) for p in files])
+    return f"Indexed {len(files)} documents and {len(passages)} passages."
+
+
+def expectations_ready(state=None):
+    state = state or progress()
+    return all(str(state["fields"].get(f"expected_{i}", "")).strip() for i in range(1, 6))
+
+
+def preview_for(number, options=None):
+    options = options or settings()
+    if not index_path().exists():
+        return []
+    return retrieve(index_path(), QUESTIONS[number - 1], options["max_passages"])
+
+
+def run_question(number, consented):
+    """One request per click. No automatic retries."""
+    state, cfg, options = state_and_context()
+    if not expectations_ready(state):
+        raise ValueError("Save an expected result for all five questions first.")
+    if not index_path().exists():
+        raise ValueError("Build the document index before asking a question.")
+    if cfg["provider"] != "ollama" and not consented:
+        raise ValueError("Read the cloud notice and confirm the public/synthetic boundary in the sidebar.")
+    passages = preview_for(number, options)
+    result = (request_answer(cfg, QUESTIONS[number - 1], passages) if passages else
+              {"status": "not_found", "answer": "Not in the documents.", "citations": [], "seconds": 0, "estimated_usd": 0})
+    current = progress()
+    current["runs"].append({"id": uuid.uuid4().hex[:12], "at": now(), "number": number,
+                            "question": QUESTIONS[number - 1], "expected": current["fields"].get(f"expected_{number}", ""),
+                            "provider": cfg["provider"], "model": cfg["model"], "settings": options,
+                            "passages": passages, "result": result, "verdict": "Choose", "route": "live"})
+    save_progress(current)
+
+
+def load_saved_examples():
+    """Imports authored classroom examples. These are never live model results."""
+    state = progress()
+    if not expectations_ready(state):
+        raise ValueError("Save an expected result for all five questions first.")
+    saved = json.loads((assets_dir() / "saved-runs.json").read_text(encoding="utf-8"))
+    for run in saved:
+        run.update({"id": uuid.uuid4().hex[:12], "at": now(),
+                    "expected": state["fields"].get(f"expected_{run['number']}", ""),
+                    "verdict": "Choose", "route": "saved classroom example"})
+        state["runs"].append(run)
+    save_progress(state)
+    return f"Loaded {len(saved)} saved classroom examples. They are labeled saved, not live."
+
+
+def save_revision(before, after, change, reason):
+    state = progress()
+    runs = state["runs"]
+    candidate = {"before": before, "after": after, "change": change or "", "reason": reason or "", "valid": True}
+    match = next((r for r in runs if r["id"] == before), None)
+    candidate["question"] = match["number"] if match else None
+    if not valid_revision({"runs": runs, "revision": candidate}):
+        raise ValueError("Choose an earlier BEFORE and a later AFTER run of the SAME question, "
+                         "and explain the change and result.")
+    state["revision"] = candidate
+    save_progress(state)
+    return "Revision evidence saved."
+
+
+def export_packet():
+    state, cfg, _ = state_and_context()
+    target = data_dir() / "PROJECT-LAB-01.md"
+    target.write_text(export_markdown(state, cfg), encoding="utf-8")
+    return str(target)
+
+
+def run_label(run):
+    return f"Q{run['number']} · {run['at']} · {run['id']} · {run['route']}"
+
+
+def passage_caption(passage):
+    return f"{passage['class']} | Receipt {passage['id']} | Page {passage['page'] or 'not applicable'}"
+
+
+def workspace_text(cfg, options):
+    return (f"### Your workspace\n**Engine:** {cfg['provider']}\n\n`{cfg['model']}`\n\n"
+            f"Course {__version__} · {options['max_passages']} passages per question\n\n"
+            "Local search stays on this computer.")
+
+
+def cloud_text(cfg):
+    if cfg["provider"] == "ollama":
+        return ""
+    incoming, outgoing = RATES[cfg["provider"]]
+    return ("**Cloud answers send your question and selected passages to the chosen provider.**\n\n"
+            f"Model rate: ${incoming:g} per million input tokens / ${outgoing:g} per million output tokens. "
+            "Check the current provider price before use.\n\n"
+            "One request per click. No automatic retries. API billing is separate from "
+            "coding-assistant access.")
+
+
+def guard(fn):
+    """Turn an expected failure into a visible message instead of a stack trace."""
+    def wrapped(*args):
+        try:
+            return fn(*args)
+        except (ValueError, OSError, ProviderError) as exc:
+            raise gr.Error(str(exc)) from exc
+    return wrapped
+
+
+def bump(tick):
+    return tick + 1
+
+
+def show_passages(passages, run=None, tick=None):
     for passage in passages:
-        label = f"{passage['source']} / {passage['heading']}"
-        with st.expander(label):
-            st.caption(f"{passage['class']} | Receipt {passage['id']} | Page {passage['page'] or 'not applicable'}")
-            st.text(passage["text"])
-            if run:
-                if st.button("I opened and checked this source", key=f"open_{run['id']}_{passage['id']}"):
-                    current=progress()
-                    receipt={"at":now(),"run":run["id"],"number":run["number"],"source":passage["source"],"heading":passage["heading"],"quote":passage["text"]}
-                    current["opened"].append(receipt); save_progress(current)
-                    st.success("Source check recorded. Explain your comparison in Proof.")
+        with gr.Accordion(f"{passage['source']} / {passage['heading']}", open=False):
+            gr.Markdown(passage_caption(passage), elem_classes="zta-kicker")
+            gr.Textbox(passage["text"], label=None, show_label=False, container=False,
+                       lines=min(12, passage["text"].count("\n") + 3), interactive=False,
+                       elem_classes="zta-passage")
+            if run is not None:
+                opened = gr.Button("I opened and checked this source", size="sm")
+                opened.click(guard(lambda r=run, p=passage: record_open(r, p)), None, None).then(
+                    lambda: gr.Info("Source check recorded. Explain your comparison in Proof."), None, None
+                ).then(bump, tick, tick)
 
-st.caption("CELAYA SOLUTIONS LEARNING / ZERO TO AGENT / LEVEL 01")
-st.title("Your Documents Answer Back")
-st.write("Find the page. Check the answer. Show the proof.")
-with st.sidebar:
-    st.header("Your workspace")
-    st.write(f"**Engine:** {cfg['provider']}")
-    st.code(cfg["model"],language=None)
-    st.caption(f"Course {__version__} · {options['max_passages']} passages per question")
-    st.write("Local search stays on this computer.")
-    if cfg["provider"] != "ollama":
-        st.warning("Cloud answers send your question and selected passages to the chosen provider.")
-        st.checkbox("I understand and will use only public or synthetic files",key="cloud_consent")
-        incoming,outgoing=RATES[cfg["provider"]]
-        st.caption(f"Model rate: ${incoming:g} per million input tokens / ${outgoing:g} per million output tokens. Check the current provider price before use.")
-        st.caption("One request per click. No automatic retries. API billing is separate from coding-assistant access.")
-    total=sum(r['result'].get('estimated_usd',0) for r in state["runs"])
-    st.caption(f"Recorded API estimate: ${total:.4f}. Provider billing is authoritative. Rates checked 2026-09-06.")
-    st.write("Stop the app: press **Ctrl+C** in its terminal.")
-    st.caption("Private progress is saved in .zta/ and excluded from Git.")
-    st.markdown("[Course materials](https://github.com/celaya-solutions/Zero-to-Agent-Course-Material) · [Course sign in](https://learn.zerotoagent.org/auth/users/sign_in)")
 
-start,binder,questions,improve,proof=st.tabs(["1 · Start", "2 · Binder", "3 · Five questions", "4 · Improve", "5 · Proof"])
-with start:
-    st.subheader("Three tasks. Ninety minutes.")
-    st.write("Build a binder from four safe documents. Test five questions. Make one change and rerun.")
-    st.info("Preparation comes first: fork the repo, install with uv, choose your coding assistant and answer engine, then run doctor.")
-    field("Course nickname (not your legal name)","nickname")
-    field("Coding assistant: Claude Code, Codex, or manual card","assistant")
-    st.markdown("**Public facts are real. Training records are invented.** Never call a classroom rule a CSR policy.")
-    st.write("A source receipt can be valid while the answer is wrong. Open the source and compare the claim yourself.")
-    st.caption("Encuentra la página y después responde. Si falta información, detente.")
-with binder:
-    st.subheader("Build your binder")
-    st.write("Load the four class documents, then build the searchable index. Only selected document text is indexed; lessons and answer keys are excluded.")
-    if st.button("Load class binder",type="primary"):
-        folder=data_dir()/"binder"; folder.mkdir(exist_ok=True)
-        # Only replace documents within the app-owned binder folder.
-        for old in folder.iterdir():
-            if old.is_file(): old.unlink()
-        for name in CLASS_FILES: (folder/name).write_bytes((assets/name).read_bytes())
-        if index_path.exists(): index_path.unlink()
-        st.success("Four documents loaded. Choose Build index next.")
-    uploads=st.file_uploader("Or add approved documents (10 MB each; text PDF, Markdown, or UTF-8 text)",type=["md","txt","pdf"],accept_multiple_files=True)
-    if st.button("Use uploaded binder",disabled=not uploads):
-        # Parse before replacing any existing binder or index.
-        from zta.documents import extract
-        try:
-            if len(uploads)>20: raise ValueError("Use at most 20 files.")
-            if len({f.name for f in uploads})!=len(uploads): raise ValueError("Use distinct filenames.")
-            for upload in uploads:
-                if Path(upload.name).name!=upload.name or "\\" in upload.name: raise ValueError("Invalid filename.")
-                extract(upload.name,upload.getvalue())
-            folder=data_dir()/"binder"; folder.mkdir(exist_ok=True)
-            for old in folder.iterdir():
-                if old.is_file(): old.unlink()
-            for upload in uploads: (folder/upload.name).write_bytes(upload.getvalue())
-            if index_path.exists(): index_path.unlink()
-            st.success("Uploaded binder saved. Build its index next.")
-        except ValueError as exc: st.error(str(exc))
-    folder=data_dir()/"binder"
-    files=sorted(folder.iterdir()) if folder.exists() else []
-    if st.button("Build index",disabled=not files):
-        try:
-            passages=build_index(index_path,[(p.name,p.read_bytes()) for p in files if p.is_file()])
-            st.success(f"Indexed {len(files)} documents and {len(passages)} passages.")
-        except (ValueError,OSError) as exc: st.error(str(exc))
-    if files:
-        st.write("Open each original below. Classify it before asking questions.")
-        for path in files:
-            key="class_"+path.name
-            choices=["Choose","public","training-only","unclassified"]
-            if key not in st.session_state: st.session_state[key]=state["classifications"].get(path.name,"Choose")
-            st.selectbox(f"Classify {path.name}",choices,key=key,on_change=set_class,args=(path.name,))
-            st.download_button(f"Open original: {path.name}",path.read_bytes(),file_name=path.name,key="original_"+path.name)
-    current_passages=inventory(index_path)
-    if current_passages:
-        st.caption(f"Current index: {len({p['source'] for p in current_passages})} documents / {len(current_passages)} passages")
-        show_passages(current_passages)
-with questions:
-    st.subheader("Predict, ask, inspect")
-    st.write("Fill all five expected results before your first test. For each answer, inspect its passages and record Pass or Miss. A Miss is useful evidence.")
-    for i,q in enumerate(QUESTIONS,1):
-        field(f"{i}. {q} — expected behavior",f"expected_{i}",True)
-    ready=all(st.session_state.get(f"expected_{i}","").strip() for i in range(1,6))
-    if not ready: st.info("Save an expected result for all five questions to enable live tests.")
-    for i,q in enumerate(QUESTIONS,1):
-        st.markdown(f"#### Question {i}")
-        st.write(q)
-        preview=retrieve(index_path,q,options["max_passages"]) if index_path.exists() else []
-        with st.expander(f"Preview retrieved evidence for question {i}"):
-            for p in preview: st.text(f"{p['source']} / {p['heading']}\n{p['text']}")
-        if cfg["provider"] != "ollama":
-            estimate=request_estimate(cfg["provider"],q,preview)
-            st.caption(f"Before you run: planning estimate ${estimate['usd']:.4f} for about {estimate['input_tokens']} input tokens and up to 800 output tokens. Actual tokenization and billing can differ; this is not a spending cap.")
-        if st.button(f"Run question {i}",disabled=not ready or not index_path.exists(),key=f"run_{i}"):
-            if cfg["provider"]!="ollama" and not st.session_state.get("cloud_consent"):
-                st.error("Read the cloud notice and confirm the public/synthetic boundary in the sidebar.")
-            else:
-                try:
-                    with st.spinner("Finding evidence and asking your selected model…"):
-                        result=request_answer(cfg,q,preview) if preview else {"status":"not_found","answer":"Not in the documents.","citations":[],"seconds":0,"estimated_usd":0}
-                    current=progress()
-                    run={"id":uuid.uuid4().hex[:12],"at":now(),"number":i,"question":q,"expected":st.session_state[f"expected_{i}"],"provider":cfg["provider"],"model":cfg["model"],"settings":options,"passages":preview,"result":result,"verdict":"Choose","route":"live"}
-                    current["runs"].append(run); save_progress(current); st.rerun()
-                except ProviderError as exc: st.error(str(exc))
-        runs=[r for r in state["runs"] if r["number"]==i]
-        if runs:
-            run=runs[-1]; result=run["result"]
-            if result["status"]=="needs_review": st.warning("Needs review")
-            else: st.caption(result["status"].replace("_"," ").title())
-            st.text(result["answer"])
-            if options["show_source_quotes"]:
-                for c in result["citations"]: st.text(f"Source quote [{c['id']}]: {c['quote']}")
-            st.caption(f"Run {run['id']} · {run['at']} · {result.get('seconds',0)} seconds · {run['route']}")
-            cited={c['id'] for c in result['citations']}
-            st.write("Source receipts used by this answer:")
-            show_passages([p for p in run['passages'] if p['id'] in cited],run)
-            key="verdict_"+run['id']
-            if key not in st.session_state: st.session_state[key]=run.get('verdict','Choose')
-            st.selectbox("My verdict",["Choose","Pass","Miss"],key=key,on_change=set_verdict,args=(run['id'],))
-    with st.expander("Service unavailable? Use a labeled saved example"):
-        st.write("This imports an authored classroom example. It is not a live model result. You still write expectations, inspect sources, and judge each answer.")
-        if st.button("Load five saved examples",disabled=not ready):
-            saved=json.loads((assets/'saved-runs.json').read_text(encoding="utf-8"))
-            current=progress()
-            for r in saved:
-                r.update({"id":uuid.uuid4().hex[:12],"at":now(),"expected":st.session_state[f"expected_{r['number']}"],"verdict":"Choose","route":"saved classroom example"})
-                current['runs'].append(r)
-            save_progress(current); st.rerun()
-with improve:
-    st.subheader("One change. Same question.")
-    st.write("Select a weak result and explain why it needs work. Keep the question unchanged. Use Claude Code, Codex, or the manual card to make one small edit.")
-    st.code("Read the Level 1 instructions and inspect my recorded miss. Explain its likely cause before editing. Change one rule or retrieval setting that addresses it. Preserve the supplied documents, expected results, and tests. Show the change, explain why it should help, and tell me how to rerun the same question. Do not publish anything.",language=None,wrap_lines=True)
-    st.markdown("**If all five pass:** in `projects/documents/settings.toml`, change `max_passages = 4` to `1`. Save, refresh the app, and rerun question 5. Inspect the missing evidence. Restore `4`, save, refresh, and rerun the same question. Compare the passages, even if the model safely refused both times.")
-    st.markdown("**Keep a useful change:** set `show_source_quotes = true` in that same file. Save, refresh, and rerun your selected question. Supporting quotes will now appear below its answer. Commit that improvement; leave `max_passages = 4`.")
-    runs=state['runs']
-    if len(runs)>=2:
-        labels={r['id']:f"Q{r['number']} · {r['at']} · {r['id']} · {r['route']}" for r in runs}
-        with st.form('revision'):
-            before=st.selectbox('Before run',list(labels),format_func=labels.get)
-            after=st.selectbox('After run',list(labels),index=len(labels)-1,format_func=labels.get)
-            change=st.text_area('One change I made',value=state['revision'].get('change',''))
-            reason=st.text_area('What changed in the evidence or answer, and why?',value=state['revision'].get('reason',''))
-            if st.form_submit_button('Save before and after'):
-                a=next(r for r in runs if r['id']==before); b=next(r for r in runs if r['id']==after)
-                candidate={'before':before,'after':after,'question':a['number'],'change':change,'reason':reason,'valid':True}
-                if not valid_revision({'runs':runs,'revision':candidate}):
-                    st.error('Choose an earlier BEFORE and a later AFTER run of the SAME question, and explain the change and result.')
-                else:
-                    current=progress(); current['revision']=candidate; save_progress(current); st.success('Revision evidence saved.')
-    else: st.info('Run the same question at least twice before recording your improvement.')
-with proof:
-    st.subheader("Save the work. Confirm receipt.")
-    field('Your fork URL','fork_url')
-    field('Your final commit URL','commit_url')
-    field('What did you compare in the two public sources?','source_check',True)
-    field('What stays on this computer, and what leaves it on your route?','data_boundary',True)
-    field('Unresolved misses, account blocks, or saved-run use','unresolved',True)
-    field('Exit ticket: one missing-information rule and one conflict rule','exit_ticket',True)
-    current=progress()
-    for label,passed in checks(current).items():
-        st.write(('Complete: ' if passed else 'Incomplete: ')+label)
-    text=export_markdown(current,cfg)
-    st.download_button('Export PROJECT-LAB-01.md',text,file_name='PROJECT-LAB-01.md',mime='text/markdown')
-    if not all(checks(current).values()): st.warning('This is a draft packet: finish the incomplete items before submitting, or explain the access block to your instructor.')
-    st.write('In GitHub Desktop, review only your intended project change. Commit and push it to your own fork. Keep .zta/ and this evidence file private.')
-    st.write('Sign in to the course platform, open Level 1, upload PROJECT-LAB-01.md, then reopen Submission History and check the file and timestamp. Downloading here does not submit it.')
-    st.caption('If the platform is down, keep the file and record the block. After two attempts or five minutes, use the saved route and ask the instructor for the next submission check.')
+def build():
+    try:
+        cfg, options = config(), settings()
+    except (ValueError, OSError) as exc:
+        with gr.Blocks(theme=THEME, css=CSS, title="Zero to Agent · Level 1") as broken:
+            gr.Markdown(f"## Setup problem\n\n{exc}\n\nFix this, then run `uv run --frozen zta start documents` again.")
+        return broken
+
+    with gr.Blocks(theme=THEME, css=CSS, title="Your Documents Answer Back | Zero to Agent",
+                   elem_classes="zta-app", analytics_enabled=False) as demo:
+        tick = gr.State(0)
+        with gr.Row():
+            with gr.Column(scale=3):
+                gr.Markdown("CELAYA SOLUTIONS LEARNING / ZERO TO AGENT / LEVEL 01", elem_classes="zta-kicker")
+                gr.Markdown("# Your Documents Answer Back\nFind the page. Check the answer. Show the proof.")
+            with gr.Column(scale=1, elem_classes="zta-side"):
+                # Built once per process, so these must be refilled on every page load: the lesson
+                # has learners edit settings.toml and refresh to read the new value here.
+                workspace = gr.Markdown(workspace_text(cfg, options))
+                consent = gr.Checkbox(label="I understand and will use only public or synthetic files",
+                                      value=False, visible=cfg["provider"] != "ollama")
+                cloud_notice = gr.Markdown(cloud_text(cfg), visible=cfg["provider"] != "ollama")
+
+                @gr.render(inputs=tick)
+                def spend(_):
+                    total = sum(r["result"].get("estimated_usd", 0) for r in progress()["runs"])
+                    gr.Markdown(f"Recorded API estimate: ${total:.4f}. Provider billing is authoritative. "
+                                "Rates checked 2026-09-06.", elem_classes="zta-kicker")
+
+                gr.Markdown("Stop the app: press **Ctrl+C** in its terminal.\n\n"
+                            "Private progress is saved in `.zta/` and excluded from Git.\n\n"
+                            "[Course materials](https://github.com/celaya-solutions/Zero-to-Agent-Course-Material) · "
+                            "[Course sign in](https://learn.zerotoagent.org/auth/users/sign_in)",
+                            elem_classes="zta-kicker")
+
+        def refresh_header():
+            live_cfg, live_options = config(), settings()
+            cloud = live_cfg["provider"] != "ollama"
+            return (workspace_text(live_cfg, live_options),
+                    gr.update(visible=cloud),
+                    gr.update(value=cloud_text(live_cfg), visible=cloud))
+
+        demo.load(guard(refresh_header), None, [workspace, consent, cloud_notice])
+
+        with gr.Tabs():
+            with gr.Tab("1 · Start"):
+                gr.Markdown("### Three tasks. Ninety minutes.\n\nBuild a binder from four safe documents. "
+                            "Test five questions. Make one change and rerun.\n\n"
+                            "> Preparation comes first: fork the repo, install with uv, choose your coding assistant "
+                            "and answer engine, then run doctor.")
+                nickname = gr.Textbox(label="Course nickname (not your legal name)", value=field_value("nickname"))
+                assistant = gr.Textbox(label="Coding assistant: Claude Code, Codex, or manual card",
+                                       value=field_value("assistant"))
+                nickname.blur(guard(lambda v: save_field("nickname", v)), nickname, None)
+                assistant.blur(guard(lambda v: save_field("assistant", v)), assistant, None)
+                gr.Markdown("**Public facts are real. Training records are invented.** Never call a classroom rule "
+                            "a CSR policy.\n\nA source receipt can be valid while the answer is wrong. Open the "
+                            "source and compare the claim yourself.\n\n"
+                            "*Encuentra la página y después responde. Si falta información, detente.*")
+
+            with gr.Tab("2 · Binder"):
+                gr.Markdown("### Build your binder\n\nLoad the four class documents, then build the searchable "
+                            "index. Only selected document text is indexed; lessons and answer keys are excluded.")
+                with gr.Row():
+                    load_btn = gr.Button("Load class binder", variant="primary")
+                    index_btn = gr.Button("Build index")
+                binder_status = gr.Markdown("")
+                uploads = gr.File(label="Or add approved documents (10 MB each; text PDF, Markdown, or UTF-8 text)",
+                                  file_count="multiple", file_types=[".md", ".txt", ".pdf"])
+                upload_btn = gr.Button("Use uploaded binder")
+                load_btn.click(guard(load_class_binder), None, binder_status).then(bump, tick, tick)
+                index_btn.click(guard(build_binder_index), None, binder_status).then(bump, tick, tick)
+                upload_btn.click(
+                    guard(lambda files: f"Uploaded binder saved ({replace_binder(files or [])} documents). "
+                                        "Build its index next."),
+                    uploads, binder_status).then(bump, tick, tick)
+
+                @gr.render(inputs=tick)
+                def binder_view(_):
+                    files = binder_files()
+                    if not files:
+                        gr.Markdown("No binder yet. Choose **Load class binder** above.")
+                        return
+                    state = progress()
+                    gr.Markdown("Open each original below. Classify it before asking questions.")
+                    for path in files:
+                        with gr.Row():
+                            choice = gr.Dropdown(CLASSES, label=f"Classify {path.name}",
+                                                 value=state["classifications"].get(path.name, "Choose"))
+                            # The Proof checklist reads this, so it must re-render when it changes.
+                            choice.change(guard(lambda v, n=path.name: set_classification(n, v)),
+                                          choice, None).then(bump, tick, tick)
+                            gr.DownloadButton(f"Open original: {path.name}", value=str(path), size="sm")
+                    current = inventory(index_path())
+                    if current:
+                        gr.Markdown(f"Current index: {len({p['source'] for p in current})} documents / "
+                                    f"{len(current)} passages", elem_classes="zta-kicker")
+                        show_passages(current)
+                    else:
+                        gr.Markdown("Index not built yet. Choose **Build index**.")
+
+            with gr.Tab("3 · Five questions"):
+                gr.Markdown("### Predict, ask, inspect\n\nFill all five expected results before your first test. "
+                            "For each answer, inspect its passages and record Pass or Miss. A Miss is useful "
+                            "evidence.")
+                for number, question in enumerate(QUESTIONS, 1):
+                    box = gr.Textbox(label=f"{number}. {question} — expected behavior", lines=2,
+                                     value=field_value(f"expected_{number}"))
+                    box.blur(guard(lambda v, n=number: save_field(f"expected_{n}", v)), box, None).then(bump, tick, tick)
+
+                @gr.render(inputs=tick)
+                def questions_view(_):
+                    state, live_cfg, live_options = state_and_context()
+                    ready = expectations_ready(state)
+                    have_index = index_path().exists()
+                    if not ready:
+                        gr.Markdown("> Save an expected result for all five questions to enable live tests. "
+                                    "Click outside a box to save it.")
+                    if not have_index:
+                        gr.Markdown("> Build the binder index on the Binder tab before running a question.")
+                    for number, question in enumerate(QUESTIONS, 1):
+                        gr.Markdown(f"#### Question {number}\n{question}")
+                        preview = preview_for(number, live_options) if have_index else []
+                        with gr.Accordion(f"Preview retrieved evidence for question {number}", open=False):
+                            if preview:
+                                show_passages(preview)
+                            else:
+                                gr.Markdown("No passages retrieved.")
+                        if live_cfg["provider"] != "ollama" and preview:
+                            estimate = request_estimate(live_cfg["provider"], question, preview)
+                            gr.Markdown(f"Before you run: planning estimate ${estimate['usd']:.4f} for about "
+                                        f"{estimate['input_tokens']} input tokens and up to 800 output tokens. "
+                                        "Actual tokenization and billing can differ; this is not a spending cap.",
+                                        elem_classes="zta-kicker")
+                        run_btn = gr.Button(f"Run question {number}", variant="primary",
+                                            interactive=ready and have_index)
+                        run_btn.click(guard(lambda consented, n=number: run_question(n, consented)),
+                                      consent, None).then(bump, tick, tick)
+                        runs = [r for r in state["runs"] if r["number"] == number]
+                        if not runs:
+                            continue
+                        run = runs[-1]
+                        result = run["result"]
+                        status = ("**Needs review**" if result["status"] == "needs_review"
+                                  else result["status"].replace("_", " ").title())
+                        gr.Markdown(status)
+                        gr.Textbox(result["answer"], show_label=False, container=False, interactive=False,
+                                   lines=max(3, result["answer"].count("\n") + 2), elem_classes="zta-answer")
+                        if live_options["show_source_quotes"]:
+                            for citation in result["citations"]:
+                                gr.Markdown(f"Source quote [{citation['id']}]: {citation['quote']}")
+                        gr.Markdown(f"Run {run['id']} · {run['at']} · {result.get('seconds', 0)} seconds · "
+                                    f"{run['route']}", elem_classes="zta-kicker")
+                        cited = {c["id"] for c in result["citations"]}
+                        gr.Markdown("Source receipts used by this answer:")
+                        show_passages([p for p in run["passages"] if p["id"] in cited], run, tick)
+                        verdict = gr.Dropdown(VERDICTS, label="My verdict", value=run.get("verdict", "Choose"))
+                        # The Proof checklist reads this, so it must re-render when it changes.
+                        verdict.change(guard(lambda v, rid=run["id"]: set_verdict(rid, v)),
+                                       verdict, None).then(bump, tick, tick)
+
+                with gr.Accordion("Service unavailable? Use a labeled saved example", open=False):
+                    gr.Markdown("This imports an authored classroom example. It is not a live model result. You "
+                                "still write expectations, inspect sources, and judge each answer.")
+                    saved_btn = gr.Button("Load five saved examples")
+                    saved_status = gr.Markdown("")
+                    saved_btn.click(guard(load_saved_examples), None, saved_status).then(bump, tick, tick)
+
+            with gr.Tab("4 · Improve"):
+                gr.Markdown("### One change. Same question.\n\nSelect a weak result and explain why it needs work. "
+                            "Keep the question unchanged. Use Claude Code, Codex, or the manual card to make one "
+                            "small edit.")
+                gr.Code(PROMPT, label="Bounded prompt for your coding assistant", wrap_lines=True,
+                        interactive=False)
+                gr.Markdown(
+                    "**If all five pass:** in `projects/documents/settings.toml`, change `max_passages = 4` to `1`. "
+                    "Save, refresh the app, and rerun question 5. Inspect the missing evidence. Restore `4`, save, "
+                    "refresh, and rerun the same question. Compare the passages, even if the model safely refused "
+                    "both times.\n\n"
+                    "**Keep a useful change:** set `show_source_quotes = true` in that same file. Save, refresh, and "
+                    "rerun your selected question. Supporting quotes will now appear below its answer. Commit that "
+                    "improvement; leave `max_passages = 4`.")
+
+                @gr.render(inputs=tick)
+                def revision_view(_):
+                    state = progress()
+                    runs = state["runs"]
+                    if len(runs) < 2:
+                        gr.Markdown("> Run the same question at least twice before recording your improvement.")
+                        return
+                    labels = [(run_label(r), r["id"]) for r in runs]
+                    saved = state.get("revision", {})
+                    before = gr.Dropdown(labels, label="Before run", value=saved.get("before") or labels[0][1])
+                    after = gr.Dropdown(labels, label="After run", value=saved.get("after") or labels[-1][1])
+                    change = gr.Textbox(label="One change I made", lines=2, value=saved.get("change", ""))
+                    reason = gr.Textbox(label="What changed in the evidence or answer, and why?", lines=3,
+                                        value=saved.get("reason", ""))
+                    submit = gr.Button("Save before and after", variant="primary")
+                    status = gr.Markdown("")
+                    submit.click(guard(save_revision), [before, after, change, reason], status).then(bump, tick, tick)
+
+            with gr.Tab("5 · Proof"):
+                gr.Markdown("### Save the work. Confirm receipt.")
+                proof_fields = [
+                    ("fork_url", "Your fork URL", 1),
+                    ("commit_url", "Your final commit URL", 1),
+                    ("source_check", "What did you compare in the two public sources?", 3),
+                    ("data_boundary", "What stays on this computer, and what leaves it on your route?", 3),
+                    ("unresolved", "Unresolved misses, account blocks, or saved-run use", 3),
+                    ("exit_ticket", "Exit ticket: one missing-information rule and one conflict rule", 3),
+                ]
+                for key, label, lines in proof_fields:
+                    box = gr.Textbox(label=label, lines=lines, value=field_value(key))
+                    box.blur(guard(lambda v, k=key: save_field(k, v)), box, None).then(bump, tick, tick)
+
+                @gr.render(inputs=tick)
+                def checklist(_):
+                    results = checks(progress())
+                    gr.Markdown("\n".join(("- Complete: " if passed else "- Incomplete: ") + label
+                                          for label, passed in results.items()))
+                    if not all(results.values()):
+                        gr.Markdown("> This is a draft packet: finish the incomplete items before submitting, or "
+                                    "explain the access block to your instructor.")
+
+                export_btn = gr.Button("Export PROJECT-LAB-01.md", variant="primary")
+                packet = gr.File(label="Your private evidence packet", interactive=False)
+                export_btn.click(guard(export_packet), None, packet)
+                gr.Markdown(
+                    "In GitHub Desktop, review only your intended project change. Commit and push it to your own "
+                    "fork. Keep `.zta/` and this evidence file private.\n\n"
+                    "Sign in to the course platform, open Level 1, upload PROJECT-LAB-01.md, then reopen Submission "
+                    "History and check the file and timestamp. Downloading here does not submit it.\n\n"
+                    "*If the platform is down, keep the file and record the block. After two attempts or five "
+                    "minutes, use the saved route and ask the instructor for the next submission check.*")
+
+    return demo
+
+
+def main():
+    # A learner reads this terminal for the app URL. Library upgrade notices are not their business.
+    warnings.filterwarnings("ignore", category=DeprecationWarning)
+    build().launch(server_name="127.0.0.1", server_port=8501, inbrowser=False,
+                   show_api=False, quiet=True, max_file_size="10mb")
+
+
+if __name__ == "__main__":
+    main()
