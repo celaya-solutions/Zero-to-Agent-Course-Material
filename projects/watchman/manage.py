@@ -10,10 +10,11 @@
 
 """Install the reviewed workflow and private worksheet without enabling anything."""
 import argparse
-from pathlib import Path
 import shutil
 
-ROOT = Path(__file__).resolve().parents[2]
+from zta import storage
+
+ROOT = storage.root()
 
 
 def prepare(root=ROOT):

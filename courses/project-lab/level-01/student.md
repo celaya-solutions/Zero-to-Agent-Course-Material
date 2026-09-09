@@ -6,7 +6,7 @@ Version:     v1.0.0
 Author:      Celaya Solutions
 Contact:     hello@celayasolutions.com
 Date:        2026-09-06
-SHA256:      e35720402b4172f25b5e4641e296bba5c0e06ef63bfeb246d420f5148367c84b
+SHA256:      e4f9f662762d4055a62b4b1b0689d63bf60b2bbd95bdc710a7e88db5f4b3e5c8
 Chain:       n/a
 Tx:          [not anchored]
 License:     All Rights Reserved / Celaya Solutions
@@ -99,7 +99,7 @@ In `projects/documents/settings.toml`, change `max_passages = 4` to `max_passage
 
 Then keep one useful change: set `show_source_quotes = true`. Save, refresh, and rerun the selected question. Quotes now appear below the answer, so a reader can check support faster. Commit this improvement and leave `max_passages = 4`.
 
-Builder extension: inspect retrieval in `projects/documents/src/zta/documents.py` after core proof. Compare counts using the same questions. Extra code does not replace the five-question record.
+Builder extension: inspect retrieval in `projects/zta/src/zta/documents.py` after core proof. Compare counts using the same questions. Extra code does not replace the five-question record.
 
 ## Quick check before proof
 

@@ -4,15 +4,15 @@ from datetime import datetime, timezone
 import hashlib
 import json
 import os
-from pathlib import Path
 import subprocess
 import sys
 import time
 import uuid
 
 import httpx
+from zta.storage import root
 
-ROOT = Path(__file__).resolve().parents[2]
+ROOT = root()
 ASSETS = ROOT / 'courses/project-lab/level-03/assets'
 LOCAL = ROOT / '.zta/local-models'
 MODELS = ('gemma3:1b', 'gemma3:4b')

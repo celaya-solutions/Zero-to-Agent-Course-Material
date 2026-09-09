@@ -3,15 +3,14 @@ import argparse
 from contextlib import contextmanager
 import hashlib
 import json
-from pathlib import Path
 import sys
 import time
 import uuid
 
 import httpx
-from zta.storage import now, read_json, write_json
+from zta.storage import now, read_json, root, write_json
 
-ROOT = Path(__file__).resolve().parents[2]
+ROOT = root()
 ASSETS = ROOT / 'courses/project-lab/level-04/assets'
 LOCAL = ROOT / '.zta/front-desk'
 MODEL = 'gemma3:4b'

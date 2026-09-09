@@ -6,7 +6,7 @@ Version:     v1.0.0
 Author:      Celaya Solutions
 Contact:     hello@celayasolutions.com
 Date:        2026-09-06
-SHA256:      b7b8ea09fd9d2db2c56d3d1c06e90d0b5bf12978438d0dec25ab6b922000c626
+SHA256:      8bafc26785872ffbea7576e83fb9008c8a81445038f8b6496f161f42efe5a1e7
 Chain:       n/a
 Tx:          [not anchored]
 License:     All Rights Reserved / Celaya Solutions
@@ -34,13 +34,15 @@ Input: Markdown/UTF-8 text/text PDFs, up to 20 files, 10 MB each, 100 PDF pages 
 
 ## Where to edit
 
-- `settings.toml`: max_passages (default 4) and show_source_quotes (default false).
-- `src/zta/documents.py`: extraction, index construction, keyword retrieval.
-- `src/zta/providers.py`: fixed provider endpoints, prompt, API adapters, and receipt checks.
-- `src/zta/evidence.py`: five questions, completion checks, private export.
-- `src/zta/storage.py`: private local configuration/progress and atomic saves.
-- `src/zta/app.py`: learner controls.
-- `src/zta/cli.py`: setup, doctor, start, and test.
+Paths are from the course root. The shared `zta` package serves every level, so a change there affects more than Level 1.
+
+- `projects/documents/settings.toml`: max_passages (default 4) and show_source_quotes (default false).
+- `projects/zta/src/zta/documents.py`: extraction, index construction, keyword retrieval.
+- `projects/zta/src/zta/providers.py`: fixed provider endpoints, prompt, API adapters, and receipt checks.
+- `projects/zta/src/zta/evidence.py`: five questions, completion checks, private export.
+- `projects/zta/src/zta/storage.py`: private local configuration/progress and atomic saves.
+- `projects/zta/src/zta/app.py`: learner controls.
+- `projects/zta/src/zta/cli.py`: setup, doctor, start, and test.
 
 The provider contract returns status (`answered`, `not_found`, `conflict`, `needs_review`), answer text, citation ID/quote pairs, time, usage, and estimated cost. Receipt checks reject unknown IDs, absent quotes, and quotes not present in the retrieved text. These checks do not certify semantic correctness.
 
