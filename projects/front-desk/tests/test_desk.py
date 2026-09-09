@@ -195,7 +195,8 @@ def test_cli_routes_front_desk_and_rejects_misrouted_commands(monkeypatch):
     for action in ['prepare','doctor','callers','attacks','lock','pause','resume','start','test']:
         monkeypatch.setattr(sys,'argv',['zta',action,'front-desk'])
         assert zta.cli.main()==0
-    assert len(calls)==9 and calls[-2][-1].endswith('front-desk/app.py')
+    # Windows joins with a backslash, so compare path parts rather than a suffix string.
+    assert len(calls)==9 and Path(calls[-2][-1]).parts[-2:]==('front-desk','app.py')
     # The lesson sends learners to 127.0.0.1:8504, so the app must keep binding it.
     desk_app=(pathlib.Path(zta.cli.root())/'projects/front-desk/app.py').read_text(encoding='utf-8')
     assert 'server_port=8504' in desk_app
