@@ -6,7 +6,7 @@ Version:     v1.0.0
 Author:      Celaya Solutions
 Contact:     hello@celayasolutions.com
 Date:        2026-09-06
-SHA256:      8bafc26785872ffbea7576e83fb9008c8a81445038f8b6496f161f42efe5a1e7
+SHA256:      1c64e775d4ce8c7f1180581e53b6b2bc673e9669b85738527ee169ff13c09b85
 Chain:       n/a
 Tx:          [not anchored]
 License:     All Rights Reserved / Celaya Solutions

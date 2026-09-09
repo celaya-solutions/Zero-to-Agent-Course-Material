@@ -6,7 +6,7 @@ Version:     v1.1.0
 Author:      Celaya Solutions
 Contact:     hello@celayasolutions.com
 Date:        2026-09-09
-SHA256:      ccdbf407c14c63358bf30332782f801fbd2e78f5fd998332fab16fe59eee6225
+SHA256:      5d426e44a6f21812f9d670ed30ae7442f0163cb7695d20359201d6150d6b16f2
 Chain:       n/a
 Tx:          [not anchored]
 License:     All Rights Reserved / Celaya Solutions
@@ -300,6 +300,11 @@ picked.
 
 Landed on `codex/one-project-four-rooms` and merged to `main`. Reversible as one commit.
 
+The merge met a concurrent rebuild of the Level 1 app on Gradio (`b6b4075`). Both sides
+were kept: that rewrite's screen, launch command and tests, and this move's package
+location. `projects/documents/README.pdf` was rebuilt, which also picked up the
+Streamlit-to-Gradio wording that commit had left only in the Markdown.
+
 Verified in the worktree, on macOS with Python 3.12.13:
 
 - 130 tests pass: the 116 that existed before, unchanged, plus 14 new layout guards.
@@ -339,3 +344,10 @@ Left open by Phase A, deliberately:
   v1.4.0-rc.1 content, and re-running `scripts/export_course.py` against it would put
   post-release material on the live site. The three edited documents reach the website
   with the next intended export, not with this change.
+- A pull leaves ignored build artefacts behind at the old address:
+  `projects/documents/src/zta/__pycache__` and the stale
+  `zero_to_agent_course.egg-info`. Python will not import from them, since no `.py`
+  file remains, and `uv run --frozen` rebuilds the editable install at the new
+  address. They are safe to delete and need no learner instruction, but the layout
+  guard asserts "no Python source under `projects/documents`" rather than "no
+  directory", so a learner's leftovers never fail their test run.

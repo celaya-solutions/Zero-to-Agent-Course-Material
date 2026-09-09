@@ -25,8 +25,9 @@ def load(name, relative):
 
 
 def test_package_is_not_nested_inside_a_room():
+    """A pull leaves ignored caches behind under the old home; only source matters."""
     assert (root()/"projects/zta/src/zta").is_dir()
-    assert not (root()/"projects/documents/src").exists()
+    assert [p.name for p in (root()/"projects/documents").rglob("*.py")] == []
     assert zta.__file__.startswith(str(root()/"projects/zta/src/zta"))
 
 
