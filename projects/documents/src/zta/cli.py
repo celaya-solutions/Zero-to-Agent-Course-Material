@@ -126,8 +126,8 @@ def main():
         else:
             print("Open http://127.0.0.1:8501. Keep this terminal open. Stop with Ctrl+C.", flush=True)
             env = os.environ.copy()
-            env["STREAMLIT_BROWSER_GATHER_USAGE_STATS"] = "false"
-            return subprocess.call([sys.executable,"-m","streamlit","run",str(Path(__file__).with_name("app.py")),"--server.address=127.0.0.1","--server.port=8501","--server.headless=true","--server.maxUploadSize=10","--client.toolbarMode=minimal","--browser.gatherUsageStats=false"],env=env,cwd=root())
+            env["GRADIO_ANALYTICS_ENABLED"] = "False"
+            return subprocess.call([sys.executable,str(Path(__file__).with_name("app.py"))],env=env,cwd=root())
     except KeyboardInterrupt:
         print("Stopped. Your evidence remains in .zta/.")
         return 130

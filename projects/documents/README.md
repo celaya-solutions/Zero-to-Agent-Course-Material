@@ -12,7 +12,7 @@ Tx:          [not anchored]
 License:     All Rights Reserved / Celaya Solutions
 ```
 
-A small Python/Streamlit app. SQLite FTS5 searches local text. Ollama, Claude API, or OpenAI API writes from the selected passages. No embeddings, vector database, Docker, web crawler, or public hosting account is required.
+A small Python/Gradio app. SQLite FTS5 searches local text. Ollama, Claude API, or OpenAI API writes from the selected passages. No embeddings, vector database, Docker, web crawler, or public hosting account is required.
 
 ## Commands from the COURSE ROOT
 

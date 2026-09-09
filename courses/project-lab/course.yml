@@ -12,7 +12,7 @@ case_study:
   source_checked: "2026-09-06"
 tools:
   coding_assistant: "Claude Code or Codex; manual editing card available"
-  document_app: "Custom Python/Streamlit + SQLite FTS5"
+  document_app: "Custom Python/Gradio + SQLite FTS5"
   document_engines: "Ollama, Claude API, or OpenAI API"
   scheduled_host: "GitHub Actions"
   frontend_host: "Vercel"
