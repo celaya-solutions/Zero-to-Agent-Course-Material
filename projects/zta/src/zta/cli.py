@@ -122,7 +122,7 @@ def main():
         elif args.command == "doctor":
             doctor()
         elif args.command == "test":
-            return subprocess.call([sys.executable,"-m","pytest",str(root()/"projects/documents/tests"),"-q"], cwd=root())
+            return subprocess.call([sys.executable,"-m","pytest",str(root()/"projects/zta/tests"),"-q"], cwd=root())
         else:
             print("Open http://127.0.0.1:8501. Keep this terminal open. Stop with Ctrl+C.", flush=True)
             env = os.environ.copy()

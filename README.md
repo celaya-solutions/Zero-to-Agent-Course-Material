@@ -6,7 +6,7 @@ Version:     v1.4.0
 Author:      Celaya Solutions
 Contact:     hello@celayasolutions.com
 Date:        2026-09-06
-SHA256:      4e3bb672d1b8a7a2346c0811971151808d876b0722f1abb9f7ba0fd7d3fb5f2e
+SHA256:      0ab3f1ecbc2d773680d80c907826ad9e24bd0cc72f5702698e1a75f7b67cb48f
 Chain:       n/a
 Tx:          [not anchored]
 License:     All Rights Reserved / Celaya Solutions
@@ -56,8 +56,11 @@ The published Level 1 package remains **v1.0.0-rc.1**. The current Level 5 work 
 
 - `courses/project-lab/`: canonical five-level teaching source and generated handouts.
 - `preparation/`: shared installation, account, model, and recovery guides.
-- `projects/documents/`: the custom app, editable settings, and deterministic tests.
+- `projects/zta/`: the installed `zta` package - shared storage, providers, evidence, the Level 1 app - and its tests.
+- `projects/documents/`: the Level 1 document helper's editable settings and guide.
 - `projects/watchman/`: the scheduled watcher, local rehearsal, workflow template, and tests.
+- `projects/local-models/`: the local model lab, its prompts runner, and tests.
+- `projects/front-desk/`: the local desk, its caller and attack runs, controls, and tests.
 - `.zta/`: private credentials, imported files, search index, and evidence. Git ignores it.
 - `scripts/`: course builds, validation, releases, and export to the website or private platform.
 

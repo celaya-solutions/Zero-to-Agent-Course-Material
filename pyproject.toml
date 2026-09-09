@@ -13,10 +13,10 @@ dependencies = ["streamlit>=1.49,<2", "httpx>=0.28,<1", "pypdf>=6,<7"]
 zta = "zta.cli:main"
 
 [tool.setuptools.packages.find]
-where = ["projects/documents/src"]
+where = ["projects/zta/src"]
 
 [dependency-groups]
 dev = ["pytest>=8,<10", "pyyaml>=6,<7", "reportlab>=4,<5", "markdown>=3.7,<4"]
 
 [tool.pytest.ini_options]
-testpaths = ["projects/documents/tests", "projects/watchman/tests", "projects/local-models/tests", "projects/front-desk/tests"]
+testpaths = ["projects/zta/tests", "projects/watchman/tests", "projects/local-models/tests", "projects/front-desk/tests"]

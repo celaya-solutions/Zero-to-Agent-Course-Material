@@ -27,7 +27,17 @@ import urllib.error
 import urllib.parse
 import urllib.request
 
-ROOT = Path(__file__).resolve().parents[2]
+try:  # The course package when the learner runs this from their clone.
+    from zta.storage import root as _repository_root
+except ModuleNotFoundError:  # GitHub Actions runs this file with the standard library only.
+    def _repository_root():
+        """Same markers as zta.storage.root(), so both agree on the clone."""
+        for parent in Path(__file__).resolve().parents:
+            if (parent / "pyproject.toml").exists() and (parent / "courses/project-lab").is_dir():
+                return parent
+        raise SystemExit("Run this from a checkout of the course repository.")
+
+ROOT = _repository_root()
 PAGE = "courses/project-lab/level-02/assets/practice-page.html"
 STATE = ".watch-state/watchman.json"
 MAX_PAGE = 128 * 1024
