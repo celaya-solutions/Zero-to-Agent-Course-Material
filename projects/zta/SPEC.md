@@ -6,7 +6,7 @@ Version:     v1.1.0
 Author:      Celaya Solutions
 Contact:     hello@celayasolutions.com
 Date:        2026-09-09
-SHA256:      5d426e44a6f21812f9d670ed30ae7442f0163cb7695d20359201d6150d6b16f2
+SHA256:      1e32bf1eafb1f50c719bf5b34fa97c6df96f1d43cbde86b629dbcf4f264953e1
 Chain:       n/a
 Tx:          [not anchored]
 License:     All Rights Reserved / Celaya Solutions
@@ -81,9 +81,9 @@ built, and prove the whole building still runs." That is a stronger night and a 
 demo, and the eight proof items already written for Level 5 become a screen instead of a
 worksheet transcription exercise.
 
-**Open decision for Chris.** The umbrella needs a course-facing name. Candidates: The
-Shop, The Back Office, The Building. Package and command stay `zta` either way. Nothing
-below depends on which is picked.
+**Decided 2026-09-09. The umbrella is The Shop.** Package and command stay `zta`. The name
+belongs to lesson text and the shell header, not to any identifier, so nothing below
+depends on it.
 
 ## 4. Target layout
 
@@ -287,14 +287,26 @@ computations, and every later phase gets cheaper. Hold Phase B until the release
 closes. Start Phase C only in the canonical repository, and only after the umbrella name is
 picked.
 
-## 11. Open questions for Chris
+## 11. Decisions and what is still open
 
-1. Umbrella name: The Shop, The Back Office, The Building, or something else.
-2. `.zta/` migration or clean cutover between cohorts.
-3. Should Phase C wait for the v1.4.0-rc.1 verification gates to close, or run in parallel
-   in the canonical repository.
+Answered by Chris on 2026-09-09:
+
+1. **Umbrella name: The Shop.** Five rooms of one shop. Used in lesson text and the shell
+   header only.
+2. **Clean cutover between cohorts, not a migration.** `prepare` writes no migration step
+   and never rewrites evidence a learner already earned. A cohort part-way through keeps
+   the old `.zta/` shape until it finishes; the one workbook starts with the next cohort.
+   Phase B must therefore leave the old paths readable and refuse to move them.
+3. **Phase B is held until the v1.4.0-rc.1 learner gates close.** Port 8504 alone is named
+   in five learner and verification documents, so merging the shell earlier would leave
+   those gates unattributable to any shipped version. Phase A was landed under this same
+   rule and did not touch them.
+
+Still open, and only needed once Phase B starts:
+
 4. Does the merged shell keep a terminal-only route for every room, for the venue-wifi and
-   borrowed-laptop learners.
+   borrowed-laptop learners. The watchman and the model lab are terminal-only today, so
+   the question is really whether documents and the front desk gain one.
 
 ## 12. Phase A record
 
