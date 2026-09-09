@@ -1,6 +1,7 @@
 import importlib.util
 import json
 from pathlib import Path
+import pathlib
 import sys
 
 import httpx
@@ -194,8 +195,10 @@ def test_cli_routes_front_desk_and_rejects_misrouted_commands(monkeypatch):
     for action in ['prepare','doctor','callers','attacks','lock','pause','resume','start','test']:
         monkeypatch.setattr(sys,'argv',['zta',action,'front-desk'])
         assert zta.cli.main()==0
-    assert len(calls)==9 and '--server.address=127.0.0.1' in calls[-2]
-    assert '--server.port=8504' in calls[-2]
+    assert len(calls)==9 and calls[-2][-1].endswith('front-desk/app.py')
+    # The lesson sends learners to 127.0.0.1:8504, so the app must keep binding it.
+    desk_app=(pathlib.Path(zta.cli.root())/'projects/front-desk/app.py').read_text(encoding='utf-8')
+    assert 'server_port=8504' in desk_app
     for action in ['attacks','lock','pause']:
         monkeypatch.setattr(sys,'argv',['zta',action,'documents'])
         assert zta.cli.main()==1

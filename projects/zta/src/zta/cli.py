@@ -84,7 +84,8 @@ def main():
             if args.command == "test":
                 command = [sys.executable,"-m","pytest",str(project/"tests"),"-q"]
             elif args.command == "start":
-                command = [sys.executable,"-m","streamlit","run",str(project/"app.py"),"--server.address=127.0.0.1","--server.port=8504","--server.headless=true","--client.toolbarMode=minimal","--browser.gatherUsageStats=false"]
+                print("Open http://127.0.0.1:8504. Keep this terminal open. Stop with Ctrl+C.", flush=True)
+                command = [sys.executable,str(project/"app.py")]
             elif args.command in {"prepare","doctor","callers","attacks","lock","pause","resume"}:
                 command = [sys.executable,str(project/"desk.py"),args.command]
             else:

@@ -7,7 +7,7 @@ name = "zero-to-agent-course"
 version = "1.4.0rc1"
 description = "Zero to Agent: a local document helper, bounded watcher, local model lab, front desk, and evidence workbook"
 requires-python = ">=3.12,<3.14"
-dependencies = ["gradio>=5.49,<6", "streamlit>=1.49,<2", "httpx>=0.28,<1", "pypdf>=6,<7"]
+dependencies = ["gradio>=5.49,<6", "httpx>=0.28,<1", "pypdf>=6,<7"]
 
 [project.scripts]
 zta = "zta.cli:main"
